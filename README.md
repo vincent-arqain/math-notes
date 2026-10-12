@@ -2,7 +2,7 @@
 
 网站、字体、数学公式和附件全部托管在 GitHub。读者无需登录；站主通过 GitHub 登录管理。网页由 Pages 发布，大附件存放在 Releases，GitHub Actions 校验通过后自动更新网站。
 
-部署目标：https://vincent-arqain.github.io/Math/
+部署目标：https://vincent-arqain.github.io/math-notes/
 
 ## 上传资料
 
@@ -110,7 +110,7 @@ npm run verify
 npm run preview
 ```
 
-预览：http://127.0.0.1:4178/Math/ 。发布只上传 `dist/`，不依赖本机电脑持续运行。
+预览：http://127.0.0.1:4178/math-notes/ 。发布只上传 `dist/`，不依赖本机电脑持续运行。
 
 `site.config.json` 集中配置仓库和网址。首页、栏目、文章均预先生成完整 HTML；搜索在浏览器内进行。`robots.txt` 和 `sitemap.xml` 随构建生成，搜索与管理页为 noindex。搜索引擎收录由搜索引擎决定，GitHub Pages 无法保证所有网络均可访问。
 
