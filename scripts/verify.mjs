@@ -4,8 +4,9 @@ import config from '../site.config.json' with {type:'json'};
 const root=path.resolve('dist');
 const base=new URL(config.siteUrl);
 let pages=0,links=0;
+const fragmentTargets=new Map();
 async function verifyReference(ref,from){
-  if(!ref || /^(?:https?:|mailto:|#)/.test(ref))return;
+  if(!ref || /^(?:https?:|mailto:)/.test(ref))return;
   const url=new URL(ref,new URL(from,base));
   if(url.origin!==base.origin)return;
   if(!url.pathname.startsWith(base.pathname))throw new Error(`资源未使用仓库路径：${ref}`);
@@ -13,6 +14,14 @@ async function verifyReference(ref,from){
   let info=await fs.stat(target).catch(()=>null);
   if(info?.isDirectory()){target=path.join(target,'index.html');info=await fs.stat(target).catch(()=>null);}
   if(!info?.isFile())throw new Error(`链接目标不存在：${from} → ${ref}`);
+  if(url.hash && target.endsWith('.html')){
+    if(!fragmentTargets.has(target)){
+      const html=await fs.readFile(target,'utf8');
+      fragmentTargets.set(target,new Set([...html.matchAll(/\sid="([^"<>]+)"/g)].map(match=>match[1])));
+    }
+    const id=decodeURIComponent(url.hash.slice(1));
+    if(!fragmentTargets.get(target).has(id))throw new Error(`页内锚点不存在：${from} → ${ref}`);
+  }
   links++;
 }
 async function walk(dir){
