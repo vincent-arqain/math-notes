@@ -6,7 +6,7 @@ const base=new URL(config.siteUrl);
 let pages=0,links=0;
 const fragmentTargets=new Map();
 async function verifyReference(ref,from){
-  if(!ref || /^(?:https?:|mailto:)/.test(ref))return;
+  if(!ref || /^mailto:/.test(ref))return;
   const url=new URL(ref,new URL(from,base));
   if(url.origin!==base.origin)return;
   if(!url.pathname.startsWith(base.pathname))throw new Error(`资源未使用仓库路径：${ref}`);

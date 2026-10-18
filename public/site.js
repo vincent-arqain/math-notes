@@ -15,8 +15,8 @@ if (collection) {
     const words = query.value.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
     let visible = 0;
     for (const entry of entries) {
-      const value = entry.dataset.category;
-      const matches = !category || (category === 'uncategorized' ? !value : value === category || value.startsWith(category + '/'));
+      const values = [entry.dataset.category, ...JSON.parse(entry.dataset.readingTopics || '[]')];
+      const matches = !category || (category === 'uncategorized' ? !entry.dataset.category : values.some(value => value === category || value.startsWith(category + '/')));
       entry.hidden = !(matches && words.every(word => entry.dataset.search.includes(word)));
       if (!entry.hidden) visible++;
     }

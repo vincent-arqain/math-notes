@@ -2,6 +2,7 @@
 title: "考研英语一阅读理解：七类题型的定位、推理与排除技巧"
 description: "面向词汇量3000—4000的考生，用原创英文例题练习七类阅读题的定位、证据推理、干扰项排除与生词处理，附逐句直译、长难句拆解和复盘方法。"
 category: "reading-types"
+reading_topics: [reading-types/detail, reading-types/main-idea, reading-types/inference, reading-types/meaning, reading-types/attitude, reading-types/example, reading-types/structure]
 subject: "考研英语一阅读理解"
 tags: [考研英语一, 阅读理解, 阅读逻辑, 细节题, 主旨题, 推理题, 词义句意题, 作者态度题, 例证题, 篇章结构题, 长难句, 熟词生义, 生词处理]
 created_at: "2026-10-18"

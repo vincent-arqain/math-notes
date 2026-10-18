@@ -13,7 +13,8 @@ function textOf(node: Node): string {
 
 export default function remarkHeadingIds() {
   return (tree: Node) => {
-    const used = new Set<string>();
+    // Layout owns #main for the keyboard skip link.
+    const used = new Set<string>(['main']);
     function walk(node: Node) {
       if (node.type === 'heading') {
         const base = textOf(node).toLowerCase().trim()
