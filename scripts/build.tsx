@@ -1,6 +1,7 @@
 import React from 'react';
 import {renderToStaticMarkup} from 'react-dom/server';
-import {cp,mkdir,writeFile,readFile,rm,readdir,stat} from 'node:fs/promises';
+import {cp,mkdir,writeFile,readFile,rm,readdir,stat,rename} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {loadEntries} from '../src/content';
@@ -18,10 +19,13 @@ const items=[...await loadEntries(path.join(root,'content')),...releaseEntries(r
 const site=new URL(config.siteUrl);
 if(site.protocol!=='https:'||!site.pathname.endsWith('/'))throw new Error('siteUrl 必须是 HTTPS 且以 / 结尾');
 const base=site.pathname.replace(/\/$/,'');
-const prefix=(html:string)=>html.replace(/((?:href|src|action)=")\/(?!\/)/g,`$1${base}/`);
+// New HTML must never run an older cached search/filter script after deployment.
+const siteScript=`site.${createHash('sha256').update(await readFile(path.join(root,'public/site.js'))).digest('hex').slice(0,16)}.js`;
+const prefix=(html:string)=>html.replace('src="/site.js"',`src="/${siteScript}"`).replace(/((?:href|src|action)=")\/(?!\/)/g,`$1${base}/`);
 await rm(output,{recursive:true,force:true});
 await mkdir(output,{recursive:true});
 await cp(path.join(root,'public'),output,{recursive:true});
+await rename(path.join(output,'site.js'),path.join(output,siteScript));
 await cp(path.join(root,'node_modules/katex/dist'),path.join(output,'katex'),{recursive:true});
 const fonts=await readFile(path.join(output,'fonts.css'),'utf8');
 await writeFile(path.join(output,'fonts.css'),fonts.replaceAll('/fonts/',`${base}/fonts/`));
