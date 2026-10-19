@@ -1,6 +1,7 @@
 ---
 title: "Euler 型级数：调和数、积分表示与求和技巧"
 description: "从一个望远镜恒等式出发，严格建立 Euler 和的收敛判据、生成函数与积分表示，推导线性 Euler 和的降阶公式，并以移位、交错及非线性例题说明方法选择。"
+attachment: "notes/euler-series-harmonic-numbers.pdf"
 subject: "数学分析"
 tags: [Euler型级数, 调和数, 无穷级数, 交换求和, 生成函数, 积分表示, 多重Zeta值, 渐近分析]
 created_at: "2026-10-19"
