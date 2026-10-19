@@ -1,6 +1,6 @@
 import {createHash} from 'node:crypto';
-import {execFileSync} from 'node:child_process';
-import {copyFileSync,existsSync,mkdirSync,mkdtempSync,readFileSync,renameSync,rmSync,symlinkSync,writeFileSync} from 'node:fs';
+import {execFileSync,spawnSync} from 'node:child_process';
+import {copyFileSync,existsSync,mkdirSync,mkdtempSync,readFileSync,renameSync,rmSync,writeFileSync} from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 
@@ -22,7 +22,9 @@ export function latexMath(tex:string,display:boolean):MathImage {
   if(existsSync(metadata)&&existsSync(svg)){used.add(id);return JSON.parse(readFileSync(metadata,'utf8'));}
   const work=mkdtempSync(path.join(cache,'compile-'));
   try{
-    for(const name of ['FandolSong-Regular.otf','FandolSong-Bold.otf'])symlinkSync(path.join(fonts,name),path.join(work,name));
+    // xdvipdfmx may resolve font paths to absolute names. Keep actual font
+    // files inside its allowed temporary directory, rather than symlinking out.
+    for(const name of ['FandolSong-Regular.otf','FandolSong-Bold.otf'])copyFileSync(path.join(fonts,name),path.join(work,name));
     // CJK text inside an equation uses Fandol; all mathematical glyphs retain
     // LaTeX's original Computer Modern/AMS fonts, rather than a web substitute.
     const source=tex.replace(/[\u3400-\u9fff]+/g,s=>`\\text{\\Fandol ${s}}`);
@@ -42,8 +44,9 @@ export function latexMath(tex:string,display:boolean):MathImage {
 \end{document}
 `;
     writeFileSync(path.join(work,'formula.tex'),document);
-    const env={PATH:process.env.PATH,LANG:'C.UTF-8',openin_any:'p',openout_any:'p',XDG_CACHE_HOME:path.join(cache,'font-cache')};
-    execFileSync('xelatex',['-no-shell-escape','-interaction=batchmode','-halt-on-error','formula.tex'],{cwd:work,env,timeout:30_000,stdio:'pipe'});
+    const env={PATH:process.env.PATH,LANG:'C.UTF-8',openin_any:'p',openout_any:'p',TEXMFOUTPUT:work,XDG_CACHE_HOME:path.join(cache,'font-cache')};
+    const compiler=spawnSync('xelatex',['-no-shell-escape','-interaction=batchmode','-halt-on-error','formula.tex'],{cwd:work,env,timeout:30_000,encoding:'utf8'});
+    if(compiler.error||compiler.status!==0)throw new Error(compiler.stderr||compiler.stdout||String(compiler.error));
     const log=readFileSync(path.join(work,'formula.log'),'utf8');
     if(/Missing character:/.test(log))throw new Error('公式包含字体未覆盖的字符');
     const [width,height,depth]=readFileSync(path.join(work,'metrics.txt'),'utf8').trim().split(',').map(parseFloat);
@@ -51,6 +54,7 @@ export function latexMath(tex:string,display:boolean):MathImage {
     execFileSync('pdftocairo',['-svg','formula.pdf','formula.svg'],{cwd:work,env,timeout:30_000,stdio:'pipe'});
     const fontReport=execFileSync('pdffonts',['formula.pdf'],{cwd:work,env,timeout:10_000,encoding:'utf8'});
     const fontNames=fontReport.trim().split('\n').slice(2).map(line=>line.split(/\s+/)[0].replace(/^[A-Z]{6}\+/,''));
+    if(!fontNames.length||(/[\u3400-\u9fff]/.test(tex)&&!fontNames.some(name=>name.startsWith('FandolSong'))))throw new Error(`公式字体未正确嵌入：${fontNames.join(', ')}\n${compiler.stderr}`);
     const result={id,width:width/10,height:height/10,depth:depth/10,fonts:fontNames};
     renameSync(path.join(work,'formula.svg'),svg);
     writeFileSync(path.join(work,'result.json'),JSON.stringify(result));
