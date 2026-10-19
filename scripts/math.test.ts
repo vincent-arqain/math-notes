@@ -32,6 +32,31 @@ test('standard LaTeX renders Computer Modern SVG and preserves accessible MathML
   }finally{await rm(output,{recursive:true,force:true});}
 });
 
+test('SVG bounds match TeX metrics so short and multiline formulas keep the same scale',async()=>{
+  const output=await mkdtemp(path.join(tmpdir(),'math-scale-'));
+  try{
+    const formulas=[
+      {tex:'x',display:false},
+      {tex:'j=0',display:false},
+      {tex:String.raw`\zeta(2)`,display:false},
+      {tex:String.raw`\sum_{k=1}^{\infty}\frac1{k^2}`,display:true},
+      {tex:String.raw`\begin{aligned}T_m&=\sum_{k=1}^{\infty}\frac1k\\&=\frac1m\sum_{j=0}^{m-1}H_j\end{aligned}`,display:true},
+    ].map(({tex,display})=>({tex,math:latexMath(tex,display)}));
+    copyLatexMathAssets(output);
+    // TeX uses 72.27 pt/in; PDF/SVG viewports use 72 points/in.
+    const emToPdfPoints=10*72/72.27;
+    for(const {tex,math} of formulas){
+      const svg=await readFile(path.join(output,math.id+'.svg'),'utf8');
+      const viewBox=svg.match(/\bviewBox="([^"]+)"/);
+      assert.ok(viewBox,`Missing SVG viewBox: ${tex}`);
+      const [x,y,width,height]=viewBox[1].split(/\s+/).map(Number);
+      assert.equal(x,0);assert.equal(y,0);
+      assert.ok(Math.abs(width-math.width*emToPdfPoints)<0.03,`Unexpected horizontal space would shrink ${tex}: SVG ${width}, TeX ${math.width*emToPdfPoints}`);
+      assert.ok(Math.abs(height-(math.height+math.depth)*emToPdfPoints)<0.03,`Unexpected vertical space would shrink ${tex}`);
+    }
+  }finally{await rm(output,{recursive:true,force:true});}
+});
+
 test('LaTeX compilation rejects executable input instead of publishing it',()=>{
   for(const tex of [String.raw`\input{/etc/passwd}`,String.raw`\def\x{a}`,String.raw`\write18{whoami}`,'^^69nput','x$']){
     assert.throws(()=>latexMath(tex,false),/只允许标准数学/);

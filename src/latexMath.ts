@@ -28,18 +28,20 @@ export function latexMath(tex:string,display:boolean):MathImage {
     // CJK text inside an equation uses Fandol; all mathematical glyphs retain
     // LaTeX's original Computer Modern/AMS fonts, rather than a web substitute.
     const source=tex.replace(/[\u3400-\u9fff]+/g,s=>`\\text{\\fontencoding{TU}\\Fandol ${s}}`);
+    // Suppress interword spaces around the box: otherwise standalone includes
+    // them in the SVG while our metrics do not, shrinking short formulas most.
     const document=String.raw`\documentclass[10pt,border=0pt]{standalone}
 \usepackage{amsmath,amssymb}
 \usepackage[no-math]{fontspec}
 \newfontfamily\Fandol{FandolSong-Regular.otf}[Path=./,BoldFont=FandolSong-Bold.otf]
 \newsavebox{\FormulaBox}
 \newwrite\metrics
-\begin{document}
-\sbox{\FormulaBox}{$${display?'\\displaystyle':'\\textstyle'} ${source}$}
-\immediate\openout\metrics=metrics.txt
-\immediate\write\metrics{\the\wd\FormulaBox,\the\ht\FormulaBox,\the\dp\FormulaBox}
+\begin{document}%
+\sbox{\FormulaBox}{$${display?'\\displaystyle':'\\textstyle'} ${source}$}%
+\immediate\openout\metrics=metrics.txt\relax
+\immediate\write\metrics{\the\wd\FormulaBox,\the\ht\FormulaBox,\the\dp\FormulaBox}%
 \immediate\closeout\metrics
-\usebox{\FormulaBox}
+\usebox{\FormulaBox}%
 \end{document}
 `;
     writeFileSync(path.join(work,'formula.tex'),document);
