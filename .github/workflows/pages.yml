@@ -31,7 +31,8 @@ jobs:
       - name: Install pinned dependencies
         run: npm ci
       - run: npm run check
-      - run: npm test
+      - name: Test with actionable failure annotations
+        run: node --import tsx --test --test-reporter=spec --test-reporter-destination=stdout --test-reporter=./scripts/github-test-reporter.mjs --test-reporter-destination=stdout scripts/*.test.ts
       - run: npm run build
         env:
           GITHUB_TOKEN: ${{ github.token }}

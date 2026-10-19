@@ -19,8 +19,8 @@ test('standard LaTeX renders Computer Modern SVG and preserves accessible MathML
     assert.match(html,/<img class="latex-svg"[^>]+aria-hidden="true"/);
     assert.doesNotMatch(html,/class="katex-html"/);
     const math=latexMath(String.raw`\sum_{n=1}^{\infty}\frac1{n^2}`,true);
-    assert.ok(math.fonts.includes('CMEX10'),'Large operators must use original Computer Modern.');
-    assert.ok(math.fonts.some(name=>name.startsWith('CMMI')),'Variables must use Computer Modern math italic.');
+    assert.ok(math.fonts.includes('CMEX10'),`Large operators must use original Computer Modern: ${math.fonts.join(', ')}`);
+    assert.ok(math.fonts.some(name=>name.startsWith('CMMI')),`Variables must use Computer Modern math italic: ${math.fonts.join(', ')}`);
     assert.ok(math.width>0&&math.height>0&&math.depth>0);
     copyLatexMathAssets(path.join(output,'math'));
     const svg=await readFile(path.join(output,'math',math.id+'.svg'),'utf8');
