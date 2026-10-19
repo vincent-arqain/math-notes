@@ -27,7 +27,7 @@ export function latexMath(tex:string,display:boolean):MathImage {
     for(const name of ['FandolSong-Regular.otf','FandolSong-Bold.otf'])copyFileSync(path.join(fonts,name),path.join(work,name));
     // CJK text inside an equation uses Fandol; all mathematical glyphs retain
     // LaTeX's original Computer Modern/AMS fonts, rather than a web substitute.
-    const source=tex.replace(/[\u3400-\u9fff]+/g,s=>`\\text{\\Fandol ${s}}`);
+    const source=tex.replace(/[\u3400-\u9fff]+/g,s=>`\\text{\\fontencoding{TU}\\Fandol ${s}}`);
     const document=String.raw`\documentclass[10pt,border=0pt]{standalone}
 \usepackage{amsmath,amssymb}
 \usepackage[no-math]{fontspec}
@@ -35,7 +35,6 @@ export function latexMath(tex:string,display:boolean):MathImage {
 \newsavebox{\FormulaBox}
 \newwrite\metrics
 \begin{document}
-\fontencoding{OT1}\fontfamily{cmr}\selectfont
 \sbox{\FormulaBox}{$${display?'\\displaystyle':'\\textstyle'} ${source}$}
 \immediate\openout\metrics=metrics.txt
 \immediate\write\metrics{\the\wd\FormulaBox,\the\ht\FormulaBox,\the\dp\FormulaBox}
@@ -54,7 +53,7 @@ export function latexMath(tex:string,display:boolean):MathImage {
     execFileSync('pdftocairo',['-svg','formula.pdf','formula.svg'],{cwd:work,env,timeout:30_000,stdio:'pipe'});
     const fontReport=execFileSync('pdffonts',['formula.pdf'],{cwd:work,env,timeout:10_000,encoding:'utf8'});
     const fontNames=fontReport.trim().split('\n').slice(2).map(line=>line.split(/\s+/)[0].replace(/^[A-Z]{6}\+/,''));
-    if(!fontNames.length||(/[\u3400-\u9fff]/.test(tex)&&!fontNames.some(name=>name.startsWith('FandolSong'))))throw new Error(`公式字体未正确嵌入：${fontNames.join(', ')}\n${compiler.stderr}`);
+    if(!fontNames.length||(/[\u3400-\u9fff]/.test(tex)&&!fontNames.some(name=>name.startsWith('FandolSong'))))throw new Error(`公式字体未正确嵌入：${fontNames.join(', ')}\n${compiler.stderr}\n${log.split('\n').filter(line=>/Fandol|Font Warning|font encoding|Missing character|not found/.test(line)).slice(-30).join('\n')}`);
     const result={id,width:width/10,height:height/10,depth:depth/10,fonts:fontNames};
     renameSync(path.join(work,'formula.svg'),svg);
     writeFileSync(path.join(work,'result.json'),JSON.stringify(result));
