@@ -10,6 +10,7 @@ import {Layout,Home,Collection,Article,Manage,About} from '../src/components';
 import config from '../site.config.json';
 import {loadStorage} from '../src/storage';
 import {releaseEntries} from '../src/releases';
+import {copyLatexMathAssets} from '../src/latexMath';
 
 const root=fileURLToPath(new URL('..',import.meta.url));
 const output=path.resolve(root,'dist');
@@ -21,16 +22,27 @@ if(site.protocol!=='https:'||!site.pathname.endsWith('/'))throw new Error('siteU
 const base=site.pathname.replace(/\/$/,'');
 // New HTML must never run an older cached search/filter script after deployment.
 const siteScript=`site.${createHash('sha256').update(await readFile(path.join(root,'public/site.js'))).digest('hex').slice(0,16)}.js`;
-const prefix=(html:string)=>html.replace('src="/site.js"',`src="/${siteScript}"`).replace(/((?:href|src|action)=")\/(?!\/)/g,`$1${base}/`);
+const stylesheets=new Map<string,string>();
+const prefix=(html:string)=>{
+  for(const [source,target]of stylesheets)html=html.replace(`href="/${source}"`,`href="/${target}"`);
+  return html.replace('src="/site.js"',`src="/${siteScript}"`).replace(/((?:href|src|action)=")\/(?!\/)/g,`$1${base}/`);
+};
 await rm(output,{recursive:true,force:true});
 await mkdir(output,{recursive:true});
 await cp(path.join(root,'public'),output,{recursive:true});
 await rename(path.join(output,'site.js'),path.join(output,siteScript));
-await cp(path.join(root,'node_modules/katex/dist'),path.join(output,'katex'),{recursive:true});
 const fonts=await readFile(path.join(output,'fonts.css'),'utf8');
 await writeFile(path.join(output,'fonts.css'),fonts.replaceAll('/fonts/',`${base}/fonts/`));
 const css=await readFile(path.join(output,'reading.css'),'utf8');
 await writeFile(path.join(output,'reading.css'),css+'\n:root{--sans:var(--serif)}[hidden]{display:none!important}.upload-collections{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin:32px 0}.upload-collections .margin-note h2{margin-top:0}.upload-collections .actions{margin-top:22px}.upload-categories{display:flex;flex-wrap:wrap;gap:12px 22px}.upload-categories a{font-size:17px;color:var(--accent)}.manage-subtitle{font-size:28px;margin:40px 0 20px}@media(max-width:700px){.upload-collections{grid-template-columns:1fr}}\n');
+// New pages must not reuse cached typography or a different renderer's CSS.
+// Keep each stylesheet in its directory so relative font URLs still resolve.
+for(const file of ['fonts.css','reading.css']){
+  const digest=createHash('sha256').update(await readFile(path.join(output,file))).digest('hex').slice(0,16);
+  const fingerprinted=file.replace(/\.css$/,`.${digest}.css`);
+  await rename(path.join(output,file),path.join(output,fingerprinted));
+  stylesheets.set(file,fingerprinted);
+}
 const urls:string[]=[];
 async function page(route:string,title:string,body:React.ReactNode,noindex=false,description?:string){
   const filename=route==='404.html'?route:path.posix.join(route,'index.html');
@@ -54,6 +66,7 @@ for(const e of items){
     await cp(path.join(root,'content',e.attachmentPath),target);
   }
 }
+copyLatexMathAssets(path.join(output,'math'));
 const xml=(s:string)=>s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&apos;');
 await writeFile(path.join(output,'sitemap.xml'),'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+urls.map(url=>`<url><loc>${xml(url)}</loc></url>`).join('\n')+'\n</urlset>\n');
 await writeFile(path.join(output,'robots.txt'),`User-agent: *\nAllow: /\nSitemap: ${new URL('sitemap.xml',site).href}\n`);

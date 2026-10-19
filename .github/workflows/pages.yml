@@ -21,6 +21,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Install standard LaTeX rendering tools
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends texlive-xetex texlive-latex-extra texlive-fonts-recommended poppler-utils
+      - uses: actions/cache@v4
+        with:
+          path: .latex-cache
+          key: latex-${{ runner.os }}-${{ hashFiles('src/latexMath.ts', 'assets/fonts/fandol/*.otf', 'content/**/*.md') }}
+          restore-keys: latex-${{ runner.os }}-
       - name: Install pinned dependencies
         run: npm ci
       - run: npm run check

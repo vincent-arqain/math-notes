@@ -103,7 +103,7 @@ $$
 
 GitHub 仓库 **Settings → Pages → Source** 选择 **GitHub Actions**。推送到 main，或发布、编辑、删除 Release，会运行检查、内容与容量测试、构建、链接验证，全部成功后才发布；失败会保留上一个成功版本。在 Actions 查看错误，修正资料并再次提交即可。
 
-本机使用 Node.js 22.13 或更新版本；构建需要访问 GitHub API，本机未配置 `GITHUB_TOKEN` 时只能统计公开 Releases（页面会显示核对范围）。Actions 已配置只读令牌用于完整发布校验：
+本机使用 Node.js 22.13 或更新版本，并安装 XeLaTeX、standalone/AMS 宏包和 Poppler（pdftocairo、pdffonts）；构建需要访问 GitHub API，本机未配置 `GITHUB_TOKEN` 时只能统计公开 Releases（页面会显示核对范围）。Actions 已配置只读令牌用于完整发布校验：
 
 ```sh
 npm ci
@@ -120,6 +120,10 @@ npm run preview
 
 ## 字体与内容
 
-保留原书房纯白背景、宋体风格中文、Times New Roman 英文、KaTeX 公式和阅读字号。Noto Serif SC 字体随站部署，许可证见 `public/fonts/noto-serif-sc/OFL.txt`；KaTeX 许可证随构建产物提供。附件和外部资料的使用条件以原作者和来源说明为准。
+保留纯白阅读背景。中文正文使用 Fandol 宋体，标题使用其真实粗体，英文使用 Times New Roman。可见数学公式由 XeLaTeX 使用原版 Computer Modern / AMS 字体排版，转换为矢量 SVG；KaTeX 仅提供辅助阅读的 MathML。正文与公式不使用描边、阴影或人工加粗。
+
+Fandol 字体随站部署，原始 OTF 位于 `assets/fonts/fandol/`，网页使用同一字体的 WOFF2 编码；许可证为带字体嵌入例外的 GPL-3.0，见 `public/fonts/fandol/COPYING`。公式以内容和排版器版本缓存到忽略的 `.latex-cache/`，发布只复制本次实际用到的公式。编译禁止 shell、文件读取命令和宏定义；公式编译错误会阻止发布。
+
+Debian / Ubuntu 可用 `sudo apt-get install texlive-xetex texlive-latex-extra texlive-fonts-recommended poppler-utils` 安装构建工具。GitHub Actions 已执行相同安装，并缓存公式以加快后续发布。打印版使用 A4 纸、25 mm 页边距、12pt 正文和 1.5 倍行距。附件与外部资料的使用条件以原作者和来源说明为准。
 
 此目录不包含原 Sites 的数据库、R2 数据、草稿或本机私有资料。2026-10-12 迁移时，原站公开网站地图没有文章条目，因此初始目录保留真实空状态。

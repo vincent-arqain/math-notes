@@ -34,13 +34,13 @@ updated_at: "2026-10-19"
 $$
 H_n^{(p)}=\sum_{k=1}^{n}\frac1{k^p},
 \qquad H_n=H_n^{(1)},
-\qquad H_0^{(p)}=0..
+\qquad H_0^{(p)}=0.
 $$
 
 对实数 $s>1$，记
 
 $$
-\zeta(s)=\sum_{n=1}^{\infty}\frac1{n^s}..
+\zeta(s)=\sum_{n=1}^{\infty}\frac1{n^s}.
 $$
 
 本文所说的 Euler 型级数，主要包括
@@ -48,7 +48,7 @@ $$
 $$
 S_{p_1,\ldots,p_r;q}
 =\sum_{n=1}^{\infty}
-\frac{H_n^{(p_1)}\cdots H_n^{(p_r)}}{n^q},,
+\frac{H_n^{(p_1)}\cdots H_n^{(p_r)}}{n^q},
 $$
 
 以及含交错符号、几何因子或移位分母的变体。这里 $r\geqslant1$，各 $p_j$ 为正整数，$q$ 在讨论收敛性时可为实数。$r=1$ 时称为线性 Euler 和，简记为 $S_{p,q}$；$r\geqslant2$ 时称为非线性 Euler 和。当 $q$ 也为正整数时，称 $p_1+\cdots+p_r+q$ 为权。权是整理恒等式的线索，本身不保证存在某种特定闭式。
@@ -62,27 +62,27 @@ $$
 证明：积分比较给出
 
 $$
-\log(n+1)\leqslant H_n\leqslant1+\log n..
+\log(n+1)\leqslant H_n\leqslant1+\log n.
 $$
 
 若 $p>1$，则
 
 $$
-1\leqslant H_n^{(p)}\leqslant\zeta(p)<\infty..
+1\leqslant H_n^{(p)}\leqslant\zeta(p)<\infty.
 $$
 
 设 $p_1,\ldots,p_r$ 中恰有 $m$ 个等于 $1$。存在不依赖于 $n$ 的常数 $C>0$，使
 
 $$
 1\leqslant H_n^{(p_1)}\cdots H_n^{(p_r)}
-\leqslant C(1+\log n)^m..
+\leqslant C(1+\log n)^m.
 $$
 
 当 $q>1$ 时，令 $t=\log x$，可得
 
 $$
 \int_1^\infty\frac{(1+\log x)^m}{x^q}\,\mathrm dx
-=\int_0^\infty(1+t)^m e^{-(q-1)t}\,\mathrm dt<\infty..
+=\int_0^\infty(1+t)^m e^{-(q-1)t}\,\mathrm dt<\infty.
 $$
 
 被积函数在充分大的 $x$ 上单调下降，积分判别法与比较判别法说明原级数收敛。当 $q\leqslant1$ 时，每项不小于 $n^{-q}$，故发散。证明完毕。
@@ -109,13 +109,13 @@ $$
 
 $$
 \sum_{n=1}^{\infty}\frac{H_n^{(p)}}{n(n+1)}
-=\zeta(p+1)..
+=\zeta(p+1).
 $$
 
 证明：各项非负，故可交换求和顺序。利用
 
 $$
-\frac1{n(n+1)}=\frac1n-\frac1{n+1},,
+\frac1{n(n+1)}=\frac1n-\frac1{n+1},
 $$
 
 有
@@ -126,7 +126,7 @@ $$
 &=\sum_{k=1}^{\infty}\frac1{k^p}
   \sum_{n=k}^{\infty}\left(\frac1n-\frac1{n+1}\right)\\
 &=\sum_{k=1}^{\infty}\frac1{k^{p+1}}
-=\zeta(p+1)<\infty..
+=\zeta(p+1)<\infty.
 \end{aligned}
 $$
 
@@ -136,14 +136,14 @@ $$
 
 $$
 \sum_{n=1}^{N}\frac{H_n^{(p)}}{n(n+1)}
-=H_N^{(p+1)}-\frac{H_N^{(p)}}{N+1}..
+=H_N^{(p+1)}-\frac{H_N^{(p)}}{N+1}.
 $$
 
 由于 $H_N^{(p)}\leqslant1+\log N$，最后一项趋于零。特别地，
 
 $$
 \sum_{n=1}^{\infty}\frac{H_n}{n(n+1)}
-=\zeta(2)=\frac{\pi^2}{6},,
+=\zeta(2)=\frac{\pi^2}{6},
 $$
 
 其中 $\zeta(2)$ 的特殊值在附录中证明。
@@ -155,7 +155,7 @@ $$
 设 $m$ 为正整数，计算
 
 $$
-T_m=\sum_{n=1}^{\infty}\frac{H_n}{n(n+m)}..
+T_m=\sum_{n=1}^{\infty}\frac{H_n}{n(n+m)}.
 $$
 
 解：正项换序及望远镜求和给出
@@ -166,7 +166,7 @@ T_m
 &=\sum_{k=1}^{\infty}\frac1k
   \sum_{n=k}^{\infty}\frac1{n(n+m)}\\
 &=\frac1m\sum_{j=0}^{m-1}
-  \sum_{k=1}^{\infty}\frac1{k(k+j)}..
+  \sum_{k=1}^{\infty}\frac1{k(k+j)}.
 \end{aligned}
 $$
 
@@ -176,14 +176,14 @@ $$
 \sum_{k=1}^{\infty}\frac1{k(k+j)}
 =\frac1j\sum_{k=1}^{\infty}
 \left(\frac1k-\frac1{k+j}\right)
-=\frac{H_j}{j}..
+=\frac{H_j}{j}.
 $$
 
 因而
 
 $$
 T_m=\frac1m\left(\zeta(2)+\sum_{j=1}^{m-1}\frac{H_j}{j}\right)
-=\frac1m\left(\zeta(2)+\frac{H_{m-1}^2+H_{m-1}^{(2)}}2\right)..
+=\frac1m\left(\zeta(2)+\frac{H_{m-1}^2+H_{m-1}^{(2)}}2\right).
 $$
 
 最后一步来自有限恒等式
@@ -191,7 +191,7 @@ $$
 $$
 \sum_{j=1}^{M}\frac{H_j}{j}
 =\sum_{1\leqslant k\leqslant j\leqslant M}\frac1{jk}
-=\frac12\left(H_M^2+H_M^{(2)}\right),,
+=\frac12\left(H_M^2+H_M^{(2)}\right),
 $$
 
 因为正方形求和区域可分为两个严格三角形和一条对角线。这里 $M=0$ 时两边均为零。
@@ -200,7 +200,7 @@ $$
 
 $$
 \sum_{n=1}^{\infty}\frac{H_n}{n(n+2)}
-=\frac{\pi^2}{12}+\frac12..
+=\frac{\pi^2}{12}+\frac12.
 $$
 
 ## 生成函数与除以指标
@@ -210,27 +210,27 @@ $$
 对整数 $p\geqslant1$ 和实数 $|x|<1$，定义多重对数函数
 
 $$
-\operatorname{Li}_p(x)=\sum_{n=1}^{\infty}\frac{x^n}{n^p}..
+\operatorname{Li}_p(x)=\sum_{n=1}^{\infty}\frac{x^n}{n^p}.
 $$
 
 这里 $\operatorname{Li}_p$ 是单指标多重对数函数，与后文的多重 Zeta 值并非同一记号。由几何级数逐项积分，
 
 $$
-\operatorname{Li}_1(x)=-\log(1-x)..
+\operatorname{Li}_1(x)=-\log(1-x).
 $$
 
 命题 2：对 $|x|<1$，有
 
 $$
 \sum_{n=1}^{\infty}H_n^{(p)}x^n
-=\frac{\operatorname{Li}_p(x)}{1-x}..
+=\frac{\operatorname{Li}_p(x)}{1-x}.
 $$
 
 证明：固定 $0<r<1$。当 $|x|\leqslant r$ 时，
 
 $$
 \sum_{n=1}^{\infty}\sum_{k=1}^{n}\frac{|x|^n}{k^p}
-\leqslant\sum_{n=1}^{\infty}(1+\log n)r^n<\infty..
+\leqslant\sum_{n=1}^{\infty}(1+\log n)r^n<\infty.
 $$
 
 故可绝对收敛换序，得到
@@ -238,7 +238,7 @@ $$
 $$
 \sum_{n=1}^{\infty}H_n^{(p)}x^n
 =\sum_{k=1}^{\infty}\frac1{k^p}\sum_{n=k}^{\infty}x^n
-=\frac{\operatorname{Li}_p(x)}{1-x}..
+=\frac{\operatorname{Li}_p(x)}{1-x}.
 $$
 
 同一上界还给出紧子区间上的一致收敛。证明完毕。
@@ -249,7 +249,7 @@ $$
 
 $$
 \int_0^x\frac{A(t)}t\,\mathrm dt
-=\sum_{n=1}^{\infty}\frac{a_n}{n}x^n..
+=\sum_{n=1}^{\infty}\frac{a_n}{n}x^n.
 $$
 
 这里 $A(t)/t$ 在 $t=0$ 的奇点可去，逐项积分由紧子区间上的一致收敛保证。因此，“除以指标 $n$”与“对生成函数除以变量再积分”相对应。
@@ -261,7 +261,7 @@ $$
 F(x):=\sum_{n=1}^{\infty}\frac{H_n}{n}x^n
 &=\int_0^x\frac{-\log(1-t)}{t(1-t)}\,\mathrm dt\\
 &=\operatorname{Li}_2(x)+\frac12\log^2(1-x),
-\qquad -1<x<1..
+\qquad -1<x<1.
 \end{aligned}
 $$
 
@@ -272,20 +272,20 @@ $$
 计算
 
 $$
-\sum_{n=1}^{\infty}\frac{H_n}{n2^n}..
+\sum_{n=1}^{\infty}\frac{H_n}{n2^n}.
 $$
 
 解：先证明对 $0<x<1$，有
 
 $$
 \operatorname{Li}_2(x)+\operatorname{Li}_2(1-x)
-=\zeta(2)-\log x\log(1-x)..
+=\zeta(2)-\log x\log(1-x).
 $$
 
 由幂级数内部逐项求导，
 
 $$
-\operatorname{Li}_2'(x)=-\frac{\log(1-x)}x..
+\operatorname{Li}_2'(x)=-\frac{\log(1-x)}x.
 $$
 
 所以
@@ -293,7 +293,7 @@ $$
 $$
 \frac{\mathrm d}{\mathrm dx}
 \left(\operatorname{Li}_2(x)+\operatorname{Li}_2(1-x)
-+\log x\log(1-x)\right)=0..
++\log x\log(1-x)\right)=0.
 $$
 
 令 $x\downarrow0$，由 $0\leqslant(1-x)^n/n^2\leqslant1/n^2$ 及控制收敛，$\operatorname{Li}_2(1-x)\to\zeta(2)$；其余两项趋于零。这证明了反射公式。
@@ -301,14 +301,14 @@ $$
 取 $x=1/2$，得到
 
 $$
-\operatorname{Li}_2(1/2)=\frac12\zeta(2)-\frac12\log^2 2..
+\operatorname{Li}_2(1/2)=\frac12\zeta(2)-\frac12\log^2 2.
 $$
 
 代入 $F(1/2)$，即得
 
 $$
 \sum_{n=1}^{\infty}\frac{H_n}{n2^n}
-=\frac12\zeta(2)=\frac{\pi^2}{12}..
+=\frac12\zeta(2)=\frac{\pi^2}{12}.
 $$
 
 几何因子使计算保持在收敛区间内部，因此本例无需处理条件收敛的端点问题。
@@ -321,14 +321,14 @@ $$
 
 $$
 \int_0^1x^{a-1}(-\log x)^{q-1}\,\mathrm dx
-=\frac{(q-1)!}{a^q}..
+=\frac{(q-1)!}{a^q}.
 $$
 
 证明：令 $x=e^{-t}$，再令 $u=at$，左端成为
 
 $$
 \frac1{a^q}\int_0^\infty e^{-u}u^{q-1}\,\mathrm du
-=\frac{(q-1)!}{a^q}..
+=\frac{(q-1)!}{a^q}.
 $$
 
 最后一步对整数 $q-1$ 反复分部积分；每次无穷远处的边界项因指数衰减而消失，零点处除 $q=1$ 的初始积分外也均消失。证明完毕。
@@ -343,7 +343,7 @@ H_n
 &=\int_0^1\frac{1-t^n}{1-t}\,\mathrm dt,\\
 H_n^{(p)}
 &=\frac1{(p-1)!}\int_0^1
-\frac{1-t^n}{1-t}(-\log t)^{p-1}\,\mathrm dt..
+\frac{1-t^n}{1-t}(-\log t)^{p-1}\,\mathrm dt.
 \end{aligned}
 $$
 
@@ -357,7 +357,7 @@ $$
 S_{p,q}
 =\frac1{(q-1)!}\int_0^1
 \frac{\operatorname{Li}_p(x)}{x(1-x)}
-(-\log x)^{q-1}\,\mathrm dx..
+(-\log x)^{q-1}\,\mathrm dx.
 $$
 
 该积分有限，因为它等于命题 1 中已证明收敛的正项级数。也可直接检查：在 $x\downarrow0$ 时，$\operatorname{Li}_p(x)=O(x)$；在 $x\uparrow1$ 时，$-\log x=O(1-x)$，而 $\operatorname{Li}_1(x)=-\log(1-x)$，$p>1$ 时 $\operatorname{Li}_p(x)$ 有界。于是两端均可积。
@@ -368,7 +368,7 @@ $$
 S_{p,q}
 =\frac1{(p-1)!}\int_0^1
 \frac{\zeta(q)-\operatorname{Li}_q(t)}{1-t}
-(-\log t)^{p-1}\,\mathrm dt..
+(-\log t)^{p-1}\,\mathrm dt.
 $$
 
 此处也只交换非负项。虽然分子写成差，但在 $0<t<1$ 上，它等于非负级数 $\sum_{n\geqslant1}(1-t^n)/n^q$。第一种表示消去外层的 $n^{-q}$；第二种表示消去内层调和数。选择哪一种，取决于哪一个积分核更容易化简。
@@ -378,13 +378,13 @@ $$
 证明
 
 $$
-\sum_{n=1}^{\infty}\frac{H_n}{n^2}=2\zeta(3)..
+\sum_{n=1}^{\infty}\frac{H_n}{n^2}=2\zeta(3).
 $$
 
 证明：由第一种积分表示，
 
 $$
-S_{1,2}=\int_0^1\frac{\log x\log(1-x)}{x(1-x)}\,\mathrm dx..
+S_{1,2}=\int_0^1\frac{\log x\log(1-x)}{x(1-x)}\,\mathrm dx.
 $$
 
 两对数在 $(0,1)$ 内均为负，乘积非负。分解分母，并对其中一项作代换 $x\mapsto1-x$，得到
@@ -392,7 +392,7 @@ $$
 $$
 S_{1,2}=2A,
 \qquad
-A=\int_0^1\frac{\log x\log(1-x)}{1-x}\,\mathrm dx..
+A=\int_0^1\frac{\log x\log(1-x)}{1-x}\,\mathrm dx.
 $$
 
 在 $[\varepsilon,1-\varepsilon]$ 上分部积分，取
@@ -402,13 +402,13 @@ u=\log x,
 \qquad
 \mathrm dv=\frac{\log(1-x)}{1-x}\,\mathrm dx,
 \qquad
-v=-\frac12\log^2(1-x)..
+v=-\frac12\log^2(1-x).
 $$
 
 当 $x\downarrow0$ 时，$\log x\log^2(1-x)=O(x^2\log x)\to0$；当 $x\uparrow1$ 时，该表达式为 $O((1-x)\log^2(1-x))\to0$。同时 $\log^2(1-x)/x$ 在两端均可积。因此可以令 $\varepsilon\downarrow0$，得到
 
 $$
-A=\frac12\int_0^1\frac{\log^2(1-x)}x\,\mathrm dx..
+A=\frac12\int_0^1\frac{\log^2(1-x)}x\,\mathrm dx.
 $$
 
 令 $t=1-x$，再用非负几何级数和基本积分核，得
@@ -419,7 +419,7 @@ $$
 &=\int_0^1\frac{\log^2t}{1-t}\,\mathrm dt\\
 &=\sum_{j=0}^{\infty}\int_0^1t^j\log^2t\,\mathrm dt\\
 &=2\sum_{j=0}^{\infty}\frac1{(j+1)^3}
-=2\zeta(3)..
+=2\zeta(3).
 \end{aligned}
 $$
 
@@ -430,7 +430,7 @@ $$
 $$
 S_{1,2}=\int_0^1\frac{\operatorname{Li}_2(x)}x\,\mathrm dx
 +\frac12\int_0^1\frac{\log^2(1-x)}x\,\mathrm dx
-=\zeta(3)+\zeta(3)..
+=\zeta(3)+\zeta(3).
 $$
 
 第一项等于 $\zeta(3)$，也是由其非负幂级数逐项积分得到的。两种路线最终到达同一个对数平方积分，说明生成函数与积分表示是相互衔接的工具。
@@ -442,21 +442,21 @@ $$
 若数项级数 $\sum_{n=1}^{\infty}a_n=L$ 收敛，则
 
 $$
-\lim_{r\uparrow1}\sum_{n=1}^{\infty}a_nr^n=L..
+\lim_{r\uparrow1}\sum_{n=1}^{\infty}a_nr^n=L.
 $$
 
 证明：设 $s_n=\sum_{k=1}^{n}a_k$。收敛序列 $(s_n)$ 有界，因而对 $0<r<1$，分部求和可得
 
 $$
 \sum_{n=1}^{\infty}a_nr^n
-=(1-r)\sum_{n=1}^{\infty}s_nr^n..
+=(1-r)\sum_{n=1}^{\infty}s_nr^n.
 $$
 
 这里可先写有限恒等式，余项 $s_Nr^{N+1}$ 因 $s_N$ 有界而趋于零。于是
 
 $$
 \sum_{n=1}^{\infty}a_nr^n-L
-=(1-r)\sum_{n=1}^{\infty}(s_n-L)r^n-L(1-r)..
+=(1-r)\sum_{n=1}^{\infty}(s_n-L)r^n-L(1-r).
 $$
 
 给定 $\eta>0$，选取 $N$ 使 $n>N$ 时 $|s_n-L|<\eta$。前 $N$ 项乘以 $1-r$ 后趋于零，尾部绝对值不超过 $\eta(1-r)\sum_{n>N}r^n\leqslant\eta$。令 $r\uparrow1$，再令 $\eta\downarrow0$，结论成立。证明完毕。
@@ -468,21 +468,21 @@ $$
 计算
 
 $$
-A_1=\sum_{n=1}^{\infty}(-1)^{n-1}\frac{H_n}{n}..
+A_1=\sum_{n=1}^{\infty}(-1)^{n-1}\frac{H_n}{n}.
 $$
 
 解：令 $b_n=H_n/n$，则 $b_n\to0$，并且
 
 $$
 b_n-b_{n+1}
-=\frac{(n+1)H_n-n}{n(n+1)^2}>0..
+=\frac{(n+1)H_n-n}{n(n+1)^2}>0.
 $$
 
 所以交错级数判别法保证 $A_1$ 收敛；绝对值级数则由命题 1 发散。对 $0<r<1$，生成函数公式给出
 
 $$
 \sum_{n=1}^{\infty}(-1)^{n-1}\frac{H_n}{n}r^n
-=-\operatorname{Li}_2(-r)-\frac12\log^2(1+r)..
+=-\operatorname{Li}_2(-r)-\frac12\log^2(1+r).
 $$
 
 左端由刚证明的 Abel 定理趋于 $A_1$。右端的多重对数级数由 $1/n^2$ 控制，故可取 $r\uparrow1$；又由绝对收敛分组，
@@ -491,14 +491,14 @@ $$
 \operatorname{Li}_2(-1)
 =\sum_{n=1}^{\infty}\frac{(-1)^n}{n^2}
 =2\sum_{k=1}^{\infty}\frac1{(2k)^2}-\zeta(2)
-=-\frac12\zeta(2)..
+=-\frac12\zeta(2).
 $$
 
 因此
 
 $$
 A_1=\frac12\zeta(2)-\frac12\log^2 2
-=\frac{\pi^2}{12}-\frac12\log^2 2..
+=\frac{\pi^2}{12}-\frac12\log^2 2.
 $$
 
 这里没有对条件收敛的原级数任意换序：所有生成函数运算都先在 $0<r<1$ 内进行，最后才取端点极限。
@@ -510,13 +510,13 @@ $$
 对整数 $a\geqslant2$、$b\geqslant1$，定义深度为二的多重 Zeta 值
 
 $$
-\zeta(a,b)=\sum_{n>k\geqslant1}\frac1{n^ak^b}..
+\zeta(a,b)=\sum_{n>k\geqslant1}\frac1{n^ak^b}.
 $$
 
 其收敛性由 $\zeta(a,b)\leqslant S_{b,a}<\infty$ 得到。对 $p\geqslant1$、$q\geqslant2$，把 $k\leqslant n$ 分为 $k<n$ 和 $k=n$，即有
 
 $$
-S_{p,q}=\zeta(q,p)+\zeta(p+q)..
+S_{p,q}=\zeta(q,p)+\zeta(p+q).
 $$
 
 注意两个指标的次序：调和数的指标 $p$ 进入第二个位置，外层分母的指标 $q$ 进入第一个位置。
@@ -525,7 +525,7 @@ $$
 
 $$
 \zeta(p)\zeta(q)
-=\zeta(p,q)+\zeta(q,p)+\zeta(p+q)..
+=\zeta(p,q)+\zeta(q,p)+\zeta(p+q).
 $$
 
 所有项非负且总和有限，故区域拆分合法。于是
@@ -533,7 +533,7 @@ $$
 $$
 S_{p,q}+S_{q,p}
 =\zeta(p)\zeta(q)+\zeta(p+q),
-\qquad p,q\geqslant2..
+\qquad p,q\geqslant2.
 $$
 
 条件 $p,q\geqslant2$ 不可省略，否则右端可能含发散的 $\zeta(1)$。
@@ -543,7 +543,7 @@ $$
 命题 3：对每个整数 $w\geqslant3$，有
 
 $$
-\sum_{a=2}^{w-1}\zeta(a,w-a)=\zeta(w)..
+\sum_{a=2}^{w-1}\zeta(a,w-a)=\zeta(w).
 $$
 
 证明：对整数 $n>m\geqslant1$，有限几何求和给出
@@ -551,7 +551,7 @@ $$
 $$
 \sum_{a=2}^{w-1}\frac1{n^am^{w-a}}
 =\frac1{n-m}
-\left(\frac1{n m^{w-2}}-\frac1{n^{w-1}}\right)..
+\left(\frac1{n m^{w-2}}-\frac1{n^{w-1}}\right).
 $$
 
 令 $n=m+k$。为避免把两个发散量相减，先分别证明下列两和有限：
@@ -559,7 +559,7 @@ $$
 $$
 \begin{aligned}
 C_w&=\sum_{m,k\geqslant1}\frac1{k(m+k)m^{w-2}},\\
-D_w&=\sum_{m,k\geqslant1}\frac1{k(m+k)^{w-1}}..
+D_w&=\sum_{m,k\geqslant1}\frac1{k(m+k)^{w-1}}.
 \end{aligned}
 $$
 
@@ -568,14 +568,14 @@ $$
 $$
 C_w=\sum_{m=1}^{\infty}\frac1{m^{w-2}}
 \sum_{k=1}^{\infty}\frac1{k(m+k)}
-=\sum_{m=1}^{\infty}\frac{H_m}{m^{w-1}}<\infty..
+=\sum_{m=1}^{\infty}\frac{H_m}{m^{w-1}}<\infty.
 $$
 
 对 $D_w$ 按 $n=m+k$ 分组，则
 
 $$
 D_w=\sum_{n=1}^{\infty}\frac{H_{n-1}}{n^{w-1}}
-\leqslant C_w<\infty..
+\leqslant C_w<\infty.
 $$
 
 因此可以对上面的有限几何恒等式求和、拆成两个有限量，并计算
@@ -585,7 +585,7 @@ $$
 \sum_{a=2}^{w-1}\zeta(a,w-a)
 &=C_w-D_w\\
 &=\sum_{n=1}^{\infty}\frac{H_n-H_{n-1}}{n^{w-1}}
-=\zeta(w)..
+=\zeta(w).
 \end{aligned}
 $$
 
@@ -614,7 +614,7 @@ $$
  +(q-2)\zeta(q+1)\\
 &=2\bigl(\zeta(q+1)-\zeta(q,1)\bigr)
  +(q-2)\zeta(q+1)\\
-&=q\zeta(q+1)-2\zeta(q,1)..
+&=q\zeta(q+1)-2\zeta(q,1).
 \end{aligned}
 $$
 
@@ -629,19 +629,19 @@ $$
 $$
 S_{1,3}=\sum_{n=1}^{\infty}\frac{H_n}{n^3},
 \qquad
-S_{2,2}=\sum_{n=1}^{\infty}\frac{H_n^{(2)}}{n^2}..
+S_{2,2}=\sum_{n=1}^{\infty}\frac{H_n^{(2)}}{n^2}.
 $$
 
 解：由定理 4，
 
 $$
-S_{1,3}=\frac52\zeta(4)-\frac12\zeta(2)^2..
+S_{1,3}=\frac52\zeta(4)-\frac12\zeta(2)^2.
 $$
 
 由乘积恒等式或 $S_{p,q}+S_{q,p}$ 的对称式，
 
 $$
-S_{2,2}=\frac12\bigl(\zeta(2)^2+\zeta(4)\bigr)..
+S_{2,2}=\frac12\bigl(\zeta(2)^2+\zeta(4)\bigr).
 $$
 
 附录证明 $\zeta(2)=\pi^2/6$、$\zeta(4)=\pi^4/90$，故
@@ -649,7 +649,7 @@ $$
 $$
 \begin{aligned}
 S_{1,3}&=\frac54\zeta(4)=\frac{\pi^4}{72},\\
-S_{2,2}&=\frac74\zeta(4)=\frac{7\pi^4}{360}..
+S_{2,2}&=\frac74\zeta(4)=\frac{7\pi^4}{360}.
 \end{aligned}
 $$
 
@@ -664,7 +664,7 @@ $$
 $$
 \sum_{n=1}^{N}\frac{a_n}{n(n+1)}
 =\sum_{n=1}^{N}\frac{a_n-a_{n-1}}n
--\frac{a_N}{N+1}..
+-\frac{a_N}{N+1}.
 $$
 
 证明：把左端写成 $\sum_{n=1}^{N}a_n(1/n-1/(n+1))$，第二个有限和移位后逐项合并，即得右端。证明完毕。
@@ -676,14 +676,14 @@ $$
 计算
 
 $$
-Q=\sum_{n=1}^{\infty}\frac{H_n^2}{n(n+1)}..
+Q=\sum_{n=1}^{\infty}\frac{H_n^2}{n(n+1)}.
 $$
 
 解：因 $H_n=O(\log n)$，原级数收敛，且 $H_N^2/(N+1)\to0$。利用
 
 $$
 H_n^2-H_{n-1}^2
-=\frac{2H_n}{n}-\frac1{n^2},,
+=\frac{2H_n}{n}-\frac1{n^2},
 $$
 
 有限分部求和给出
@@ -691,13 +691,13 @@ $$
 $$
 \sum_{n=1}^{N}\frac{H_n^2}{n(n+1)}
 =2\sum_{n=1}^{N}\frac{H_n}{n^2}
--H_N^{(3)}-\frac{H_N^2}{N+1}..
+-H_N^{(3)}-\frac{H_N^2}{N+1}.
 $$
 
 各项的极限均存在。令 $N\to\infty$，由例 4 得
 
 $$
-Q=2S_{1,2}-\zeta(3)=3\zeta(3)..
+Q=2S_{1,2}-\zeta(3)=3\zeta(3).
 $$
 
 若直接展开 $H_n^2$，会出现三个指标；先做差分则立即把调和数的次数降一。这与连续问题中先分部积分、降低对数幂次的选择相对应。
@@ -707,14 +707,14 @@ $$
 闭式计算与数值核对承担不同任务：闭式需要证明，数值近似需要可控的余项。以 $S_{1,2}=2\zeta(3)$ 为例，令
 
 $$
-R_N=\sum_{n>N}\frac{H_n}{n^2}..
+R_N=\sum_{n>N}\frac{H_n}{n^2}.
 $$
 
 因为 $H_n\leqslant1+\log n$，且 $(1+\log x)/x^2$ 在 $[1,\infty)$ 上递减，故对所有 $N\geqslant1$，
 
 $$
 0<R_N\leqslant\int_N^\infty\frac{1+\log x}{x^2}\,\mathrm dx
-=\frac{\log N+2}{N}..
+=\frac{\log N+2}{N}.
 $$
 
 因此，有限部分和为下界，加上 $(\log N+2)/N$ 后为上界；这比单纯展示小数相近更能说明误差范围。
@@ -724,7 +724,7 @@ $$
 $$
 R_N=\frac{\log N+\gamma+1}{N}
 +O\!\left(\frac{\log N}{N^2}\right),
-\qquad N\to\infty,,
+\qquad N\to\infty,
 $$
 
 其中 $\gamma=\lim_{n\to\infty}(H_n-\log n)$。
@@ -733,7 +733,7 @@ $$
 
 $$
 d_n-d_{n+1}
-=\int_n^{n+1}\frac{\mathrm dt}{t}-\frac1{n+1}>0..
+=\int_n^{n+1}\frac{\mathrm dt}{t}-\frac1{n+1}>0.
 $$
 
 所以 $d_n$ 有非负极限 $\gamma$。同时
@@ -744,14 +744,14 @@ $$
 &=\sum_{k=n}^{\infty}
 \left(\int_k^{k+1}\frac{\mathrm dt}{t}-\frac1{k+1}\right)\\
 &\leqslant\sum_{k=n}^{\infty}
-\left(\frac1k-\frac1{k+1}\right)=\frac1n..
+\left(\frac1k-\frac1{k+1}\right)=\frac1n.
 \end{aligned}
 $$
 
 这里等号先对有限尾段使用，再由 $d_n$ 的收敛取极限。于是 $H_n=\log n+\gamma+O(1/n)$，其中误差界对所有 $n$ 一致，故
 
 $$
-R_N=\sum_{n>N}\frac{\log n+\gamma}{n^2}+O(N^{-2})..
+R_N=\sum_{n>N}\frac{\log n+\gamma}{n^2}+O(N^{-2}).
 $$
 
 函数 $f(x)=(\log x+\gamma)/x^2$ 在 $x\geqslant2$ 时非负递减。因此
@@ -760,14 +760,14 @@ $$
 \int_{N+1}^\infty f(x)\,\mathrm dx
 \leqslant\sum_{n>N}f(n)
 \leqslant\int_N^\infty f(x)\,\mathrm dx,
-\qquad N\geqslant2..
+\qquad N\geqslant2.
 $$
 
 两积分之差不超过 $f(N)=O(\log N/N^2)$，而
 
 $$
 \int_N^\infty f(x)\,\mathrm dx
-=\frac{\log N+\gamma+1}{N}..
+=\frac{\log N+\gamma+1}{N}.
 $$
 
 合并即得结论。证明完毕。
@@ -797,7 +797,7 @@ $$
 对 $0<r<1$，定义
 
 $$
-A_r(t)=\sum_{n=1}^{\infty}\frac{r^n\sin(nt)}n..
+A_r(t)=\sum_{n=1}^{\infty}\frac{r^n\sin(nt)}n.
 $$
 
 固定 $r<1$ 时，该级数关于 $t$ 一致绝对收敛。对 $r$ 在紧子区间内逐项求导，并对几何级数取虚部，得到
@@ -805,7 +805,7 @@ $$
 $$
 \frac{\partial A_r(t)}{\partial r}
 =\sum_{n=1}^{\infty}r^{n-1}\sin(nt)
-=\frac{\sin t}{1-2r\cos t+r^2}..
+=\frac{\sin t}{1-2r\cos t+r^2}.
 $$
 
 函数
@@ -818,13 +818,13 @@ $$
 
 $$
 A_r(t)=\arctan\!\left(\frac{r\sin t}{1-r\cos t}\right),
-\qquad |A_r(t)|\leqslant\frac\pi2..
+\qquad |A_r(t)|\leqslant\frac\pi2.
 $$
 
 对 $0<t<2\pi$，令 $r\uparrow1$，得到
 
 $$
-A_r(t)\longrightarrow\frac{\pi-t}{2}..
+A_r(t)\longrightarrow\frac{\pi-t}{2}.
 $$
 
 固定 $0\leqslant y\leqslant2\pi$。先对 $t\in[0,y]$ 逐项积分，再取 $r\uparrow1$：积分端由常数 $\pi/2$ 控制，级数端由可求和的 $2/n^2$ 控制。因此
@@ -834,7 +834,7 @@ $$
 \sum_{n=1}^{\infty}\frac{1-\cos(ny)}{n^2}
 &=\lim_{r\uparrow1}\int_0^y A_r(t)\,\mathrm dt\\
 &=\int_0^y\frac{\pi-t}{2}\,\mathrm dt
-=\frac{\pi y}{2}-\frac{y^2}{4}..
+=\frac{\pi y}{2}-\frac{y^2}{4}.
 \end{aligned}
 $$
 
@@ -848,7 +848,7 @@ $$
 \frac{\pi^2}{4}
 =2\sum_{\substack{n\geqslant1\\n\ \text{为奇数}}}\frac1{n^2}
 =2\left(1-\frac14\right)\zeta(2)
-=\frac32\zeta(2)..
+=\frac32\zeta(2).
 $$
 
 因此 $\zeta(2)=\pi^2/6$。
@@ -859,13 +859,13 @@ $$
 
 $$
 x^2=\frac{\pi^2}{3}
-+4\sum_{n=1}^{\infty}\frac{(-1)^n\cos(nx)}{n^2}..
++4\sum_{n=1}^{\infty}\frac{(-1)^n\cos(nx)}{n^2}.
 $$
 
 右端级数一致绝对收敛。其有限部分和一致收敛于 $x^2$，故平方也一致收敛，可以对有限部分和的平方积分后取极限。由直接积分得到的正交关系，
 
 $$
-\frac1{2\pi}\int_{-\pi}^{\pi}\cos(nx)\,\mathrm dx=0,,
+\frac1{2\pi}\int_{-\pi}^{\pi}\cos(nx)\,\mathrm dx=0,
 $$
 
 以及对 $m,n\geqslant1$，
@@ -882,14 +882,14 @@ $$
 
 $$
 \frac1{2\pi}\int_{-\pi}^{\pi}x^4\,\mathrm dx
-=\frac{\pi^4}{9}+8\sum_{n=1}^{\infty}\frac1{n^4}..
+=\frac{\pi^4}{9}+8\sum_{n=1}^{\infty}\frac1{n^4}.
 $$
 
 左端等于 $\pi^4/5$，因此
 
 $$
 \zeta(4)=\frac18\left(\frac{\pi^4}{5}-\frac{\pi^4}{9}\right)
-=\frac{\pi^4}{90}..
+=\frac{\pi^4}{90}.
 $$
 
 这也完成了例 6 中所有特殊值代入的证明。
