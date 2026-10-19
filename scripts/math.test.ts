@@ -27,7 +27,8 @@ test('standard LaTeX renders Computer Modern SVG and preserves accessible MathML
     assert.match(svg,/<svg/);assert.match(svg,/<path/);
     assert.doesNotMatch(svg,/<script|<foreignObject|https?:\/\/[^"\s]+\.(?:woff|ttf)/);
     assert.ok(latexMath(String.raw`\mathbf{v}`,false).fonts.includes('CMBX10'));
-    assert.ok(latexMath(String.raw`\text{为奇数}`,false).fonts.some(font=>font.startsWith('FandolSong')));
+    const chinese=latexMath(String.raw`\text{为奇数}`,false);
+    assert.ok(chinese.fonts.some(font=>font.startsWith('FandolSong')),`Chinese math text must use Fandol Song: ${JSON.stringify(chinese.fonts)}`);
   }finally{await rm(output,{recursive:true,force:true});}
 });
 

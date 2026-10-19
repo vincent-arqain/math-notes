@@ -31,6 +31,8 @@ jobs:
       - name: Install pinned dependencies
         run: npm ci
       - run: npm run check
+      - name: Verify required math fonts before compiling all equations
+        run: node --import tsx --test --test-name-pattern="standard LaTeX" --test-reporter=spec --test-reporter-destination=stdout --test-reporter=./scripts/github-test-reporter.mjs --test-reporter-destination=stdout scripts/math.test.ts
       - name: Test with actionable failure annotations
         run: node --import tsx --test --test-reporter=spec --test-reporter-destination=stdout --test-reporter=./scripts/github-test-reporter.mjs --test-reporter-destination=stdout scripts/*.test.ts
       - run: npm run build
