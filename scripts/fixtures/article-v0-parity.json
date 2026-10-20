@@ -1,0 +1,330 @@
+{
+  "source": "article-v0.pdf",
+  "pages": 52,
+  "sourceSha256": "24b84d3ee10c9649d62a952e4639d2350f8ec112b6fe759f4b8eb3f2bbbba180",
+  "normalization": "仅合并PDF换行、恢复排版断词及书信落款换行；正文词句不改写。SHA-256按所有空白归一为一个空格计算。",
+  "entries": [
+    {
+      "path": "english/writing/article-v0-short-2011.md",
+      "year": 2011,
+      "kind": "short",
+      "group": "推荐",
+      "sourcePages": [
+        10
+      ],
+      "modelSha256": "36763576c537356e06d7474a1416c81ae805a012d5c257aefc16a69dea0d0558",
+      "templateSha256": "1715b19e1120e88fb840815fe73fa56d1d33d566a1a3061ab3eb52f44bc00845"
+    },
+    {
+      "path": "english/writing/article-v0-short-2015.md",
+      "year": 2015,
+      "kind": "short",
+      "group": "推荐",
+      "sourcePages": [
+        11
+      ],
+      "modelSha256": "0a9341d5e21573aac1a295319ef34f42277061dc048e4c6ec82832fe07dc3661",
+      "templateSha256": "7eb314a228e89f03673b1464ec75c549e45f17454c6c163fce0f3d3d3f6d44ce"
+    },
+    {
+      "path": "english/writing/article-v0-short-2017.md",
+      "year": 2017,
+      "kind": "short",
+      "group": "推荐",
+      "sourcePages": [
+        12
+      ],
+      "modelSha256": "b9df36daa41f1bdd11b937e81c26c2fb8d3581b64e950c64a0ca2d9cda541c20",
+      "templateSha256": "93a3c9b612cfc2b0937d7bb969f82fc8f9b661b7a32b39369ac62f2c94659838"
+    },
+    {
+      "path": "english/writing/article-v0-short-2012.md",
+      "year": 2012,
+      "kind": "short",
+      "group": "建议",
+      "sourcePages": [
+        13
+      ],
+      "modelSha256": "c2c2b43057de7f41af03792ab2d2a6a884234269c229123b0e9d6d33127f4be0",
+      "templateSha256": "8a06d4ff2c43f14657adf59e26423db7d607b486f80064d4c57fc2083abca3d1"
+    },
+    {
+      "path": "english/writing/article-v0-short-2014.md",
+      "year": 2014,
+      "kind": "short",
+      "group": "建议",
+      "sourcePages": [
+        14
+      ],
+      "modelSha256": "7f0bfe157714d956d0bbca50b7391eff66b59d05e08a4740935af48e90e0dbb4",
+      "templateSha256": "8d070f76dc802092d5aa7da5e7efadff15a7a4e7a2c98ad3e255a3ef9de05ecf"
+    },
+    {
+      "path": "english/writing/article-v0-short-2021.md",
+      "year": 2021,
+      "kind": "short",
+      "group": "建议",
+      "sourcePages": [
+        15
+      ],
+      "modelSha256": "1177f6259c500fbfa3159bbed356cd6bc084d53548859e0074dbdf0e3ca0240e",
+      "templateSha256": "bf688d2690e8ebdd29815de70212adc96a5cd3eaa59abb7f675e33d79e797a3c"
+    },
+    {
+      "path": "english/writing/article-v0-short-2013.md",
+      "year": 2013,
+      "kind": "short",
+      "group": "邀请",
+      "sourcePages": [
+        16
+      ],
+      "modelSha256": "908ae9869dffdcf0aab1fbe7752833bcaac7bdae014b8539614e323224d5b435",
+      "templateSha256": "99770f4a20cddf11e842a054e004f4dfcce79e933e4240dbbb63e5318fd0f341"
+    },
+    {
+      "path": "english/writing/article-v0-short-2018.md",
+      "year": 2018,
+      "kind": "short",
+      "group": "邀请",
+      "sourcePages": [
+        17
+      ],
+      "modelSha256": "303ca56ddba0288b6db20050a07be99b2adb50a668f4e01dd13ed8d2357c2a24",
+      "templateSha256": "5cebcb8e03a6f3ba39f5128ca170eefcfeaef8eb9a3edbc9799ec9b682c6b763"
+    },
+    {
+      "path": "english/writing/article-v0-short-2022.md",
+      "year": 2022,
+      "kind": "short",
+      "group": "邀请",
+      "sourcePages": [
+        18
+      ],
+      "modelSha256": "635816249d1f63b157b3a59fecd0f4fe544030ef3a3884e0cc32eecbbd7cd802",
+      "templateSha256": "605641db893070b0de378ffe7c564c42d5933fc47c70f7bad5e9f618cba1eb44"
+    },
+    {
+      "path": "english/writing/article-v0-short-2016.md",
+      "year": 2016,
+      "kind": "short",
+      "group": "通知",
+      "sourcePages": [
+        19
+      ],
+      "modelSha256": "5bd6580e781ce08ca727c0d9572c346a086cdf5b3dd1c1561ee1a2a2f7fd1571",
+      "templateSha256": "10d83370d932053035903ba0d6ce789a1dcbfe5584ea1a77fcacc65cb89b845d"
+    },
+    {
+      "path": "english/writing/article-v0-short-2020.md",
+      "year": 2020,
+      "kind": "short",
+      "group": "通知",
+      "sourcePages": [
+        20
+      ],
+      "modelSha256": "a46c04399d2d4144d3d68f18baf49eb1a3c70a25f895400e11ce39efca31ccf4",
+      "templateSha256": "1467d192f2c119efc9e6e2fc104db4a3add0f4f3aa5632d70ab9aa613ba65d3a"
+    },
+    {
+      "path": "english/writing/article-v0-short-2010.md",
+      "year": 2010,
+      "kind": "short",
+      "group": "通知",
+      "sourcePages": [
+        21
+      ],
+      "modelSha256": "c00fe006856709085542f1c64b1088d247fa7a95d17607985c2e1ae05e7e19ab",
+      "templateSha256": "81b3b4d7b16299d07461976cd0c1a1f17cc8b1e745e87900b0144af7937edced"
+    },
+    {
+      "path": "english/writing/article-v0-short-2023.md",
+      "year": 2023,
+      "kind": "short",
+      "group": "通知",
+      "sourcePages": [
+        22
+      ],
+      "modelSha256": "d8d874f4e146bcd1ea8fd8f6f2f7010cdc800aaee1d7119c5a6403bf0710d240",
+      "templateSha256": "851204ef7940374e72daee0ecb8351ac27c4d52f8d3bcf78ebeb6bec47a01afc"
+    },
+    {
+      "path": "english/writing/article-v0-short-2019.md",
+      "year": 2019,
+      "kind": "short",
+      "group": "回复",
+      "sourcePages": [
+        23
+      ],
+      "modelSha256": "6d5029472ab393a04efb708ac271374f7ada0a22242ada2477108c5a3e3e03e4",
+      "templateSha256": "2b9b8e916e71d78900551894ee05b2b983856ed537795ac95376011599ddeeca"
+    },
+    {
+      "path": "english/writing/article-v0-long-2012.md",
+      "year": 2012,
+      "kind": "long",
+      "group": "态度与行动",
+      "sourcePages": [
+        24,
+        25
+      ],
+      "modelSha256": "304bbf6e3c24ed4f90eb0fed504ef90337c9606eee4c9e2c970efb3cd94ed2ca",
+      "templateSha256": "7b2296dbf622a50535fe7550cae9b17485fe26765958c78dbee2671dedc8e12a"
+    },
+    {
+      "path": "english/writing/article-v0-long-2019.md",
+      "year": 2019,
+      "kind": "long",
+      "group": "态度与行动",
+      "sourcePages": [
+        26,
+        27
+      ],
+      "modelSha256": "a233ed9ae72db6ff8f6ceb3dc37018055524b6c915ee5740d61357a9e226ae9e",
+      "templateSha256": "ebaf95db2637f74c4784d8c0a79d55ae07f2dc9bb5f8b0c8fa99cefdb0fff707"
+    },
+    {
+      "path": "english/writing/article-v0-long-2017.md",
+      "year": 2017,
+      "kind": "long",
+      "group": "态度与行动",
+      "sourcePages": [
+        28,
+        29
+      ],
+      "modelSha256": "d9817f797a3cd2ecd49720f720199901dd8e4d849514bcb6b40ff712f5defef2",
+      "templateSha256": "dc2d0d301488d64fe19f7741a71215d812a5396cb692478e54809abfb1ec2a4a"
+    },
+    {
+      "path": "english/writing/article-v0-long-2020.md",
+      "year": 2020,
+      "kind": "long",
+      "group": "态度与行动",
+      "sourcePages": [
+        30,
+        31
+      ],
+      "modelSha256": "310fb24c64b0469bbbff4a4d75bab770e9610e80d6173b70b5672891d0f4c3b5",
+      "templateSha256": "1ad4d7ba4d2faeec403cd5086f504b409d93785ed153c8a2e6591c64843b3750"
+    },
+    {
+      "path": "english/writing/article-v0-long-2013.md",
+      "year": 2013,
+      "kind": "long",
+      "group": "选择与学习",
+      "sourcePages": [
+        32,
+        33
+      ],
+      "modelSha256": "e89b79df2325399d28cd1d15bf0b2b3b57e7b28ecd467021587502f6f9d80072",
+      "templateSha256": "ae3068e5287afefe1145f934c593ce07dca80436fc6c283e38e73bea0025e6be"
+    },
+    {
+      "path": "english/writing/article-v0-long-2018.md",
+      "year": 2018,
+      "kind": "long",
+      "group": "选择与学习",
+      "sourcePages": [
+        34,
+        35
+      ],
+      "modelSha256": "78b952127011eead8b0574ec46c513d1d40e2620abf674c8b3577441305f2b52",
+      "templateSha256": "a1d02a53f93511d6882fef2f299505dd4d03d23920ec3649515d5312b08890af"
+    },
+    {
+      "path": "english/writing/article-v0-long-2021.md",
+      "year": 2021,
+      "kind": "long",
+      "group": "选择与学习",
+      "sourcePages": [
+        36,
+        37
+      ],
+      "modelSha256": "a29526a349c08de645bda8bd00e3ac57159e38277f45c70cd12371dc73894e3f",
+      "templateSha256": "f40aa4a3ff304a95273c4caae6d7effb3b1cdd5038ca486196fd93a751216f13"
+    },
+    {
+      "path": "english/writing/article-v0-long-2022.md",
+      "year": 2022,
+      "kind": "long",
+      "group": "选择与学习",
+      "sourcePages": [
+        38,
+        39
+      ],
+      "modelSha256": "fa33500b46b58cc1e7469abd85cb09cc1f0bb1dd87b32fd11143fa72b34c1c0e",
+      "templateSha256": "dfaf167f426a9dca39aad9220209df5e9a67486247d5230fa91c28a4b615926f"
+    },
+    {
+      "path": "english/writing/article-v0-long-2014.md",
+      "year": 2014,
+      "kind": "long",
+      "group": "亲情与教育",
+      "sourcePages": [
+        40,
+        41
+      ],
+      "modelSha256": "0faa081382f8dda24434df69f39a875d8e30bb3febdbe84fa9f92a6cbd4a0b3e",
+      "templateSha256": "b4f68c3f90b3e1daa2711aa826ea0f27ff51321506894d44b1d4c0b2a5e2c8d5"
+    },
+    {
+      "path": "english/writing/article-v0-long-2016.md",
+      "year": 2016,
+      "kind": "long",
+      "group": "亲情与教育",
+      "sourcePages": [
+        42,
+        43
+      ],
+      "modelSha256": "ab11e0b4a080208d86ec53babc91c449255b4ed6b96ccef522245fe8af9917e7",
+      "templateSha256": "2d7439c2e5ddfbb078cfb0cafb01e63ed8a4aa058dac55be286bd9c1a5f130d7"
+    },
+    {
+      "path": "english/writing/article-v0-long-2011.md",
+      "year": 2011,
+      "kind": "long",
+      "group": "公共生活",
+      "sourcePages": [
+        44,
+        45
+      ],
+      "modelSha256": "d5f68fa681ffc1cf95f42a972c82a1033fe19bcab605cda232c92d1e148ca9f6",
+      "templateSha256": "ad18a4df29d15d87050b18e0227dab429ef2b4bad64e12a96d1990fa8220a049"
+    },
+    {
+      "path": "english/writing/article-v0-long-2015.md",
+      "year": 2015,
+      "kind": "long",
+      "group": "公共生活",
+      "sourcePages": [
+        46,
+        47
+      ],
+      "modelSha256": "42c6a2d5572c2c8872534f97993c19fe68e3360a70a911df26e3abab770813c2",
+      "templateSha256": "addeca89bf7a325d74a5a1c4f22d3caab3662243fd79fe3cc231eede55917710"
+    },
+    {
+      "path": "english/writing/article-v0-long-2010.md",
+      "year": 2010,
+      "kind": "long",
+      "group": "文化与社会",
+      "sourcePages": [
+        48,
+        49
+      ],
+      "modelSha256": "d48c3640f86b56c31b6213f992f29c8b108706574a8705c273fa5157cdf24d58",
+      "templateSha256": "e3ba27690800ae77f1602370a937712f0ff8e354c552f8fd89694c8e845bc0a8"
+    },
+    {
+      "path": "english/writing/article-v0-long-2023.md",
+      "year": 2023,
+      "kind": "long",
+      "group": "文化与社会",
+      "sourcePages": [
+        50,
+        51
+      ],
+      "modelSha256": "50029e7857d0334f55868b964359a18c3e92eb5b67d6c62f37678259a213b3f5",
+      "templateSha256": "f7127614cb5e326e5cfe446e727a0621d080ce8e77496e172f4077c2e608d30c"
+    }
+  ]
+}
