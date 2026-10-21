@@ -132,6 +132,6 @@ npm run preview
 
 Fandol 字体随站部署，原始 OTF 位于 `assets/fonts/fandol/`，网页使用同一字体的 WOFF2 编码；许可证为带字体嵌入例外的 GPL-3.0，见 `public/fonts/fandol/COPYING`。公式以内容和排版器版本缓存到忽略的 `.latex-cache/`，发布只复制本次实际用到的公式。编译禁止 shell、文件读取命令和宏定义；公式编译错误会阻止发布。
 
-Debian / Ubuntu 可用 `sudo apt-get install texlive-xetex texlive-latex-extra texlive-fonts-recommended poppler-utils poppler-data` 安装构建工具。GitHub Actions 已执行相同安装，并缓存公式以加快后续发布。打印版使用 A4 纸、25 mm 页边距、12pt 正文和 1.5 倍行距。附件与外部资料的使用条件以原作者和来源说明为准。
+Debian / Ubuntu 可用 `sudo apt-get install texlive-xetex texlive-latex-extra texlive-fonts-recommended poppler-utils poppler-data` 安装构建工具。GitHub Actions 已执行相同安装，并缓存公式以加快后续发布。数学类打印版沿用《利用初等微分方程与围道积分的傅里叶变换反演(1).pdf》的版式：A4 纸、23 mm 页边距、11pt 正文、1.12 倍基线间距、3pt 段间距，中文为 Fandol 宋体、标题为加粗宋体、数学为 Computer Modern。编译 `print/` 下的 XeLaTeX 源码另需安装 `texlive-lang-chinese`（提供 xeCJK）；具体编译命令见对应源码开头。附件与外部资料的使用条件以原作者和来源说明为准。
 
 此目录不包含原 Sites 的数据库、R2 数据、草稿或本机私有资料。2026-10-12 迁移时，原站公开网站地图没有文章条目，因此初始目录保留真实空状态。
