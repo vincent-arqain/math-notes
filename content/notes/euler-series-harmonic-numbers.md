@@ -600,7 +600,7 @@ $$
 \boxed{
 S_{1,q}
 =\frac{q+2}{2}\zeta(q+1)
--\frac12\sum_{j=2}^{q-1}\zeta(j)\zeta(q+1-j).
+-\frac12\sum_{j=2}^{q-1}\zeta(j)\zeta(q+1-j)
 }.
 $$
 
@@ -875,7 +875,7 @@ $$
 \frac1{2\pi}\int_{-\pi}^{\pi}\cos(mx)\cos(nx)\,\mathrm dx
 =\begin{cases}
 0,&m\ne n,\\
-\tfrac12,&m=n,
+\tfrac12,&m=n
 \end{cases},
 $$
 

@@ -91,7 +91,15 @@ $$
 
 在 GitHub 中打开 `.md` 文件并点击铅笔可修改。移动或重命名文件会改变网页地址。删除资料并成功发布后，网站入口和网站地图会移除它；GitHub 提交历史仍保留，可在 GitHub 恢复。
 
+题库专题可以使用独占一行的二级标题，例如 `## 2020S17`。题库与搜索结果会自动显示这些题号的页内直达链接（识别 `20` 开头的四位年份、`A` 或 `S`、两位序号）；代码块中的示例标题会被忽略。将简写题号（如 `20S17`）写入正文即可沿用全文搜索，不会拆分成重复条目。
+
 总专题可在 `category: reading-types` 下添加 `reading_topics` 数组，填写实际涵盖的子分类（例如 `[reading-types/detail, reading-types/inference]`）。正文必须有对应中文二级标题（如 `## 细节题`、`## 推理题`）。文章会在这些子分类中显示，并提供直达章节的链接；未声明的分类不会因标签文字相同而自动收录。构建验证会检查章节链接目标。
+
+## 首页内容选取
+
+首页先按栏目展示近期内容：数学讲义、题库各取最近两篇；英语取最近三个不同一级分类中的最新一篇，阅读题型的子分类合并计为一类。栏目没有内容时显示真实空状态，不借用其他栏目的文章填充。
+
+下方“最近更新”仍展示全站最新六篇。两处都沿用真实更新时间降序、同时间按文章 ID 升序的规则，不修改文章日期。首页另有论文与研究、高等代数专题及英语写作、阅读题型、熟词生义入口；栏目和全站搜索继续收录全部资料。栏目精选在窄屏下按讲义、题库、英语顺序显示。
 
 ## 英语目录
 
@@ -124,6 +132,6 @@ npm run preview
 
 Fandol 字体随站部署，原始 OTF 位于 `assets/fonts/fandol/`，网页使用同一字体的 WOFF2 编码；许可证为带字体嵌入例外的 GPL-3.0，见 `public/fonts/fandol/COPYING`。公式以内容和排版器版本缓存到忽略的 `.latex-cache/`，发布只复制本次实际用到的公式。编译禁止 shell、文件读取命令和宏定义；公式编译错误会阻止发布。
 
-Debian / Ubuntu 可用 `sudo apt-get install texlive-xetex texlive-latex-extra texlive-fonts-recommended poppler-utils poppler-data` 安装构建工具。GitHub Actions 已执行相同安装，并缓存公式以加快后续发布。打印版使用 A4 纸、25 mm 页边距、12pt 正文和 1.5 倍行距。附件与外部资料的使用条件以原作者和来源说明为准。
+Debian / Ubuntu 可用 `sudo apt-get install texlive-xetex texlive-latex-extra texlive-fonts-recommended poppler-utils poppler-data` 安装构建工具。GitHub Actions 已执行相同安装，并缓存公式以加快后续发布。数学类打印版沿用《利用初等微分方程与围道积分的傅里叶变换反演(1).pdf》的版式：A4 纸、23 mm 页边距、11pt 正文、1.12 倍基线间距、3pt 段间距，中文为 Fandol 宋体、标题为加粗宋体、数学为 Computer Modern。编译 `print/` 下的 XeLaTeX 源码另需安装 `texlive-lang-chinese`（提供 xeCJK）；具体编译命令见对应源码开头。附件与外部资料的使用条件以原作者和来源说明为准。
 
 此目录不包含原 Sites 的数据库、R2 数据、草稿或本机私有资料。2026-10-12 迁移时，原站公开网站地图没有文章条目，因此初始目录保留真实空状态。

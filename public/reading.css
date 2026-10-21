@@ -33,6 +33,20 @@
   .katex-display{overflow:visible;break-inside:avoid}
 }
 
+/* Independent section highlights remain visible above recent updates on mobile. */
+.home-highlights{padding-top:42px}
+.home-highlight-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px;margin-top:24px}
+.home-highlight{min-width:0;border-top:2px solid var(--accent);padding-top:20px;overflow-wrap:anywhere}
+.home-highlight h3{font-size:24px;line-height:1.65;margin:0 0 8px}
+.home-highlight h3 a{display:flex;justify-content:space-between;gap:12px}
+.highlight-intro,.highlight-empty{font-size:17px;line-height:1.85;color:var(--muted);margin-bottom:18px}
+.highlight-list{list-style:none;padding:0;margin:0}
+.highlight-list li{padding:17px 0;border-top:1px solid var(--line)}
+.highlight-list h4{font-size:21px;line-height:1.7;margin:7px 0 0}
+.highlight-links{display:flex;flex-wrap:wrap;gap:8px 18px;border-top:1px solid var(--line);padding-top:14px;font:16px/1.8 var(--sans);color:var(--accent)}
+.highlight-links a{padding-block:5px}
+@media(max-width:800px){.home-highlight-grid{grid-template-columns:1fr;gap:30px}.home-highlights{padding-top:32px}}
+
 /* Additional collections and the preserved English classification. */
 .site-header{gap:25px}.site-header nav{gap:20px}
 .english-filters{margin:0 0 28px;padding:22px 0;border-block:1px solid var(--line);display:grid;gap:18px}
