@@ -13,7 +13,7 @@ function HomeHighlights({entries}:{entries:ReturnType<typeof selectHomeEntries>}
   const groups=[
     {section:'notes',title:'数学讲义',description:'从概念出发，沿着方法读懂推导。',links:[{href:'/papers/',label:'论文与研究'}]},
     {section:'problems',title:'题库与解答',description:'推敲一道证明，积累解题的思路。',links:[{href:'/search/?q='+encodeURIComponent('高等代数'),label:'高等代数专题'}]},
-    {section:'english',title:'英语学习',description:'从词句、阅读到写作，循序积累。',links:['writing','reading-types','vocabulary'].map(category=>({href:'/english/?category='+category,label:categoryLabel(category)}))},
+    {section:'english',title:'英语学习',description:'从词句、阅读到写作，循序积累。',links:[...['writing','reading-types','vocabulary'].map(category=>({href:'/english/?category='+category,label:categoryLabel(category)})),{href:'/english/?category=sentences&q='+encodeURIComponent('句库目录'),label:'长难句专题'}]},
   ] as const;
   return <section className="home-highlights wrap" aria-labelledby="home-highlights-heading">
     <div className="section-heading"><h2 id="home-highlights-heading">按栏目阅读</h2><a href="#recent-updates">查看最近更新 ↓</a></div>

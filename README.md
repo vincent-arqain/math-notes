@@ -107,6 +107,8 @@ $$
 
 七种阅读题型位于 `content/english/reading-types/` 下：`detail`、`main-idea`、`inference`、`meaning`、`attitude`、`example`、`structure`，对应细节题、主旨题、推理题、词义句意题、作者态度题、例证题、篇章结构题。放在 `content/english/` 根目录的文件为待分类；Markdown 也可用 `category` 字段指定同名分类。
 
+`content/english/sentences/sentence-v1-index.md` 是 Sentence-v1 总目录；L01—L37、F01—F37为经典长难句与词熟句难的74个独立条目，沿用 `sentences` 分类。首页“长难句专题”通过现有搜索的“句库目录”标签直达总目录结果，英语页“长难句”仍展示全部条目。目录按分类、年份、Text和句号导航，每条支持语法/障碍标签检索及同篇两类互跳。原句不整批重印，英文训练均明确标为原创，不附既有PDF；出处抽查与版权核查记录见 `docs/reviews/sentence-v1-web.md`。
+
 ## 自动发布与本机检查
 
 GitHub 仓库 **Settings → Pages → Source** 选择 **GitHub Actions**。推送到 main，或发布、编辑、删除 Release，会运行检查、内容与容量测试、构建、链接验证，全部成功后才发布；失败会保留上一个成功版本。在 Actions 查看错误，修正资料并再次提交即可。
