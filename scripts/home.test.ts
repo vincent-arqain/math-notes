@@ -74,8 +74,11 @@ test('math overview preserves real articles and home retains the true recent ent
   const math=renderToStaticMarkup(createElement(MathOverview,{items}));
   for(const source of ['notes/euler-series-harmonic-numbers.md','problems/algebra-2020s14-2021a02.md']){
     const item=items.find(e=>e.sourcePath===source)!;
-    assert.ok(item);assert.ok(math.includes(`href="${entryUrl(item)}/"`));
-    assert.ok(math.includes(item.title));
+    assert.ok(item);
+    assert.ok(math.includes(`href="/${item.section}/"`));
+  }
+  for(const section of ['notes','problems','papers','essays'])for(const item of items.filter(e=>e.section===section).slice(0,3)){
+    assert.ok(math.includes(`href="${entryUrl(item)}/"`));assert.ok(math.includes(item.title));
   }
   const recent=home.split('id="recent-updates"')[1];
   for(const item of selected.recent)assert.ok(recent.includes(`href="${entryUrl(item)}/"`));

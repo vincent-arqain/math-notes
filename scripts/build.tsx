@@ -11,6 +11,7 @@ import config from '../site.config.json';
 import {loadStorage} from '../src/storage';
 import {releaseEntries} from '../src/releases';
 import {copyLatexMathAssets} from '../src/latexMath';
+import {availableProblemYears,ProblemYearPage} from '../src/ProblemYears';
 
 const root=fileURLToPath(new URL('..',import.meta.url));
 const output=path.resolve(root,'dist');
@@ -53,6 +54,7 @@ async function page(route:string,title:string,body:React.ReactNode,noindex=false
 await page('','学习目录',<Home items={items}/>);
 await page('math/','数学',<MathOverview items={items}/>);
 for(const [section,title]of Object.entries(sections))await page(section+'/',title,<Collection section={section as Section} items={items.filter(e=>e.section===section)}/>);
+for(const year of availableProblemYears(items))await page(`problems/years/${year}/`,`${year} 年高等代数解答`,<ProblemYearPage items={items} year={year}/>);
 await page('search/','搜索书房',<Collection items={items}/>,true);
 await page('manage/','管理资料',<Manage items={items} storage={storage}/>,true);
 await page('about/','关于这间书房',<About/>);
