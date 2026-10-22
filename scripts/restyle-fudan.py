@@ -83,6 +83,7 @@ def target(name,font):
     elif any(k in font for k in ['MathExtension','CMEX','txex']):preferred='ex'
     elif 'MSAM' in font:preferred='am'
     elif 'MSBM' in font:preferred='bb'
+    elif font=='txsym':preferred='bb'
     if 'Bold' in font:preferred='bf'
     if name.startswith(('u1D','uni')):
         m=re.fullmatch(r'(?:u|uni)([0-9A-F]{4,6})',name)

@@ -679,7 +679,7 @@
     "sourceKind": "recovered-vector-typesetting",
     "pages": 7,
     "sourcePages": 6,
-    "sha256": "c1de3c61683fd53b2d5a6b735a37647686961c58e31540ddf18ad270a36df657",
+    "sha256": "e71c6a81877c51575c9c45002f7dd2c1b15e0710548cb6103794f61b199e58d0",
     "originalSha256": "83b761d6cc862b2786bc05eeef1738f561835f99878875fd97dfc0ccedd800aa",
     "fonts": [
       "CMEX10",
@@ -693,7 +693,8 @@
       "FandolSong-Bold",
       "FandolSong-Regular",
       "LMRoman10-Regular",
-      "LMRoman12-Bold"
+      "LMRoman12-Bold",
+      "MSBM10"
     ]
   },
   {
