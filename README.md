@@ -101,7 +101,7 @@ $$
 
 `/math/` 是数学总览，按讲义、题库、论文、文章排列。原有 `notes/`、`problems/`、`papers/`、`essays/` 阅读地址不变；书架与参考链接保留在页脚和数学总览。题库页的“按题号查找”直接链接到各专题中的题目与解答章节。
 
-中文统一使用与数学 PDF 同源的 Fandol 宋体：正文使用 Regular（400），大标题使用 Bold（700），普通导航使用常规体；英文优先使用 Times New Roman，设备缺少该字体时使用随站提供的 Liberation Serif。正文约 21–24 px、1.85 倍行高，阅读行宽上限 880 px。
+中文统一使用与数学 PDF 同源的 Fandol 宋体：正文使用 Regular（400），大标题使用 Bold（700），普通导航使用常规体；英文使用与参考 PDF 相同的 Latin Modern Roman。阅读页正文约 18–20 px、1.39 倍行高，行宽上限为 42.6 个正文汉字（桌面约 852 px）；段间距约 0.274 em，连续正文段首缩进两字，标题居中。
 
 ## 英语目录
 
@@ -143,9 +143,9 @@ npm run preview
 
 ## 字体与内容
 
-保留纯白阅读背景。屏幕与打印中文统一使用 Fandol Song 的真实常规体与粗体，英文采用 Times New Roman 风格（本机 Times New Roman 或随站 Liberation Serif，含独立粗体和斜体）。这是常见试卷与论文风格的排版选择，不宣称为考试机构指定字体。可见数学公式由 XeLaTeX 使用原版 Computer Modern / AMS 字体排版，转换为矢量 SVG；KaTeX 仅提供辅助阅读的 MathML。屏幕文字增加 0.15 px 的轻微笔画厚度，以改善偏瘦的观感；数学公式和打印版仍使用原始字形，不增加描边或阴影。
+保留纯白阅读背景。屏幕与打印中文统一使用 Fandol Song 的真实常规体与粗体，英文采用参考文件 `22S16-S18_22A01-A04.pdf` 中的 Latin Modern Roman：正文用 Roman 10，标题用 Roman 12 Bold，均随站提供真实的常规、粗体及斜体字形。这是常见试卷与论文风格的排版选择，不宣称为考试机构指定字体。可见数学公式由 XeLaTeX 使用原版 Computer Modern / AMS 字体排版，转换为矢量 SVG；KaTeX 仅提供辅助阅读的 MathML。文字和公式均使用原始字形，不增加描边、阴影或人工加粗。网页打印采用 A4、23 mm 页边距和 LaTeX 11 pt 正文的实际尺寸、约 1.39 倍行高、3 pt 段间距，配有页眉、页码；题库按题号分页。
 
-旧 Noto Serif SC 资源保留在仓库中，但网页不再加载。Liberation Serif 2.1.5 使用原始 TTF，许可与来源见 `public/fonts/liberation-serif/`。
+旧 Noto Serif SC 与 Liberation Serif 资源保留在仓库中，网页不再加载。Latin Modern 的 WOFF2 仅转换封装，保留原字形与字宽，来源与 GUST 字体许可证见 `public/fonts/latin-modern/`。
 
 网页、公式中的中文与数学 PDF 使用同源 Fandol。Fandol 字体随站部署，原始 OTF 位于 `assets/fonts/fandol/`，网页使用同一字体的 WOFF2 编码；许可证为带字体嵌入例外的 GPL-3.0，见 `public/fonts/fandol/COPYING`。公式以内容和排版器版本缓存到忽略的 `.latex-cache/`，发布只复制本次实际用到的公式。编译禁止 shell、文件读取命令和宏定义；公式编译错误会阻止发布。
 

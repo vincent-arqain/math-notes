@@ -1,5 +1,5 @@
 @charset "UTF-8";
-:root{--paper:#fff;--ink:#101010;--muted:#292929;--accent:#8e4329;--line:#deddd8;--soft:#f7f7f5;--serif:"Study Times","Fandol Song",serif;--sans:var(--serif)}
+:root{--paper:#fff;--ink:#101010;--muted:#292929;--accent:#8e4329;--line:#deddd8;--soft:#f7f7f5;--serif:"Study Latin Modern","Fandol Song",serif;--heading-serif:"Study Latin Modern Heading","Fandol Song",serif;--reading-size:clamp(18px,1.0625rem + .25vw,20px);--sans:var(--serif)}
 *{box-sizing:border-box}html{background:#fff;color-scheme:light;scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:25px}body{margin:0;color:var(--ink);background:#fff;font:400 20px/1.85 var(--serif);text-rendering:optimizeLegibility;font-synthesis:none}a{color:inherit;text-decoration:none}a:hover{color:var(--accent)}button,input,select,textarea{font:inherit}button,input,select,textarea{font-family:var(--sans)}button{cursor:pointer}button:disabled{cursor:wait;opacity:.6}a,button{touch-action:manipulation}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px}h1,h2,h3,p{margin-top:0}h1,h2,h3{font-weight:700}img,svg{max-width:100%}::selection{background:#eedfd5}.wrap{width:calc(100% - 64px);max-width:1320px;margin-inline:auto}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}.skip-link{position:fixed;left:16px;top:-100px;z-index:50;background:var(--ink);color:#fff;padding:10px 20px}.skip-link:focus{top:12px}.muted{color:var(--muted)}.eyebrow{font:400 16px/1.8 var(--sans);letter-spacing:.09em;color:var(--muted);display:flex;align-items:center;gap:10px}.eyebrow i{width:6px;height:6px;background:var(--accent);border-radius:50%}.actions{display:flex;flex-wrap:wrap;gap:22px;align-items:center}.button{display:inline-flex;justify-content:center;align-items:center;gap:22px;min-height:46px;padding:10px 20px;border:1px solid var(--line);border-radius:3px;background:#fff;color:var(--ink);font:400 16px/1.6 var(--sans)}.button:hover{border-color:var(--muted)}.button.primary{background:var(--ink);color:#fff;border-color:var(--ink)}.button.primary:hover{background:#41474c}.text-link{font-size:17px}.section-heading{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:15px}.section-heading h2{font-size:27px;margin:0}.section-heading>a{font-size:16px;color:var(--muted)}.margin-note{padding:24px;border:1px solid var(--line);border-top:2px solid var(--accent)}.margin-note h2{font-size:26px;line-height:1.75;margin:20px 0 15px}.margin-note p{font-size:18px;line-height:1.95;color:var(--muted);margin:0}.room-index{margin-top:24px}.room-index a{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:12px 0}.room-index a span:last-child{font-size:16px;color:var(--muted)}.empty-state{text-align:center;padding:58px 25px;border-block:1px solid var(--line);margin-top:27px}.empty-symbol{font:36px "Times New Roman",serif;color:var(--accent);display:block;margin-bottom:16px}.empty-state h2{font-size:25px;margin-bottom:12px}.empty-state p{font-size:18px;color:var(--muted);max-width:470px;margin:0 auto 22px}.empty-state .actions{justify-content:center}.entry-row{padding:27px 0;border-bottom:1px solid var(--line)}.entry-meta{display:flex;align-items:center;flex-wrap:wrap;gap:10px 18px;font:400 16px/1.8 var(--sans);color:var(--muted)}.entry-meta>span:first-child{color:var(--accent)}.entry-row h2{font-weight:400;font-size:25px;line-height:1.65;margin:9px 0}.entry-row h2 a{display:flex;justify-content:space-between;gap:20px}.row-arrow{color:var(--muted);font-size:21px}.entry-row p{font-size:19px;line-height:1.9;color:var(--muted);margin-bottom:13px}.entry-tags{display:flex;flex-wrap:wrap;gap:5px 15px;font:400 16px/1.8 var(--sans);color:var(--muted);overflow-wrap:anywhere}.page-heading{padding:56px 0 30px}.page-heading h1{font-size:40px;line-height:1.6;margin:16px 0 10px}.page-heading p{font-size:20px;color:var(--muted)}.collection-page{max-width:1120px;min-height:65vh;padding-bottom:70px}.search-form{display:flex;gap:12px;max-width:790px}.search-form input,.manage-search{width:100%;min-width:0;border:1px solid var(--line);border-radius:3px;background:#fff;color:var(--ink);padding:12px 15px;font-size:17px;min-height:48px}.search-form .button{white-space:nowrap}.result-count{font:400 16px/1.8 var(--sans);color:var(--muted);margin:24px 0 0}.breadcrumb{display:flex;gap:12px;flex-wrap:wrap;font:400 16px/1.8 var(--sans);color:var(--muted);padding-block:31px}.article-shell{padding-bottom:65px}.reading-page{width:min(100%,880px);margin-inline:auto}.article-header{padding:20px 0 28px;border-bottom:1px solid var(--line)}.article-header h1{font-size:36px;line-height:1.55;font-weight:700;text-align:center;margin:16px 0 24px}.article-lede{font-size:clamp(19px,2vw,21px);line-height:1.9;text-align:justify;color:var(--ink);margin-bottom:22px}.prose{font-size:clamp(1.3125rem,1.1875rem + .35vw,1.5rem);line-height:1.85;font-weight:400;color:#080808;overflow-wrap:anywhere;line-break:strict;padding-top:18px}.prose h1,.prose h2{font-size:32px;line-height:1.5;font-weight:700;margin:1.6em 0 .65em}.prose h3{font-size:27px;line-height:1.5;font-weight:700;margin:1.4em 0 .6em}.prose p{margin-bottom:1em}.prose>p{text-align:justify;text-indent:2em}.prose>p:has(.katex-display){text-indent:0}.prose strong{font-weight:700}.prose a{color:var(--accent);text-decoration:underline;text-underline-offset:4px}.prose ul,.prose ol{padding-left:1.5em}.prose li{margin-bottom:8px}.prose blockquote{margin:24px 0;padding-left:22px;border-left:2px solid var(--line);color:inherit}.prose pre{background:var(--soft);padding:20px;overflow:auto;font-size:17px}.prose code{font-family:Consolas,monospace}.prose table{display:block;max-width:100%;overflow:auto;border-collapse:collapse;font-size:1em}.prose td,.prose th{border:1px solid var(--line);padding:12px}/* Visible math is produced by standard LaTeX; MathML is for assistive reading. */
 /* Inline and display formulas share one scale; TeX controls operator sizes. */
 .prose .katex{position:relative;display:inline-block;max-width:100%;overflow-x:auto;overflow-y:hidden;vertical-align:middle;padding-block:.12em;font-size:1.1em;font-weight:400;font-synthesis:none;line-height:1.2;text-indent:0}
@@ -123,26 +123,55 @@
 @media(max-width:360px){.site-header nav{gap:10px;font-size:15px}.english-directory,.english-primary{column-gap:10px}.english-directory>a,.english-primary>a{font-size:17px}.category-number{display:none}}
 
 
-/* A small screen-only increase in stroke weight keeps the existing font faces. */
-@media screen{
-  body{-webkit-text-stroke:.15px currentColor}
-  .katex{-webkit-text-stroke:0}
+/* Measured from 22S16-S18_22A01-A04.pdf: a 42.6 em text column,
+   11 pt body / 15.175 pt baseline, 3 pt paragraph skip, 14.4 pt headings.
+   Scale the page for screens; retain the original font outlines and weights. */
+h1,h2{font-family:var(--heading-serif)}
+.article-shell{font-size:var(--reading-size);max-width:42.6em;color:#000}
+.article-shell>.breadcrumb{padding-block:18px 10px;border-bottom:.5px solid #000;font-size:.91em}
+.reading-page{width:100%;max-width:42.6em}
+.article-header{padding:20px 0 16px;border-bottom:.5px solid var(--line)}
+.article-header .eyebrow{font-size:.91em;letter-spacing:0}
+.article-shell .article-header h1{font-size:1.315em;line-height:1.3;margin:.65em 0 1em}
+.article-lede{font-size:1em;line-height:1.39;margin-bottom:.8em}
+.article-header .entry-meta{font-size:.83em;line-height:1.4}
+.prose{font-size:var(--reading-size);line-height:1.39;font-weight:400;color:#000;padding-top:1em}
+.article-shell .prose{font-size:1em}
+.prose h1,.prose h2{font-size:1.315em;line-height:1.3;text-align:center;margin:1.8em 0 1em}
+.prose h3{font-size:1.1em;line-height:1.3;margin:1.1em 0 .5em}
+.prose p{margin:0 0 .274em}
+.prose>p{text-align:justify;text-indent:0}
+.prose>p+p{text-indent:2em}
+.prose>p:has(.katex-display),.prose>p:has(.katex-display)+p,.prose>p:has(>strong:first-child){text-indent:0}
+.prose ul,.prose ol{padding-left:2em;margin-block:.55em}
+.prose li{margin-bottom:.274em}
+.prose .katex{font-size:1em}
+.katex-display{padding:0 2px;margin-block:.75em}
+
+@page{
+  size:A4;
+  margin:23mm;
+  @top-left{content:"数学手记";font:9.9626pt/12pt "Study Latin Modern","Fandol Song",serif;text-align:left;vertical-align:bottom;width:25%;border-bottom:.4pt solid #000;margin-bottom:9mm;padding-bottom:.5mm}
+  @top-right{content:var(--print-title);font:9.9626pt/12pt "Study Latin Modern","Fandol Song",serif;text-align:right;vertical-align:bottom;width:75%;border-bottom:.4pt solid #000;margin-bottom:9mm;padding-bottom:.5mm;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  @bottom-center{content:counter(page);font:9.9626pt "Study Latin Modern",serif;color:#000}
 }
 
 @media print{
-  :root{--serif:"Study Times","Fandol Song",serif}
   html{scroll-behavior:auto}
-  body{font-family:"Study Times","Fandol Song",serif;font-size:11pt;font-weight:400;color:#000}
+  body{font-family:var(--serif);font-size:10.9091pt;font-weight:400;line-height:15.175pt;color:#000}
   .skip-link,.site-header,.site-footer,.breadcrumb,.article-end,.attachment,.manage-page{display:none}
   .wrap,.reading-page{width:100%;max-width:none}
-  .article-header{padding-top:0}
-  .article-header h1{font-size:18pt}
-  .article-lede{font-size:10.5pt;line-height:1.5;color:#000}
-  .prose{font-size:11pt;line-height:1.4;font-weight:400;color:#000}
-  .prose p{margin-bottom:3pt}
-  .prose h1,.prose h2{font-size:14pt}
-  .prose h3{font-size:12pt}
+  .article-shell{font-size:10.9091pt;padding-bottom:0}
+  .article-header{padding:0;border:0}
+  .article-header .eyebrow,.article-header .entry-meta,.article-lede{display:none}
+  .article-shell .article-header h1{font-size:14.3462pt;line-height:1.3;margin:0 0 14pt}
+  .prose,.article-shell .prose{font-size:10.9091pt;line-height:15.175pt;font-weight:400;color:#000;padding-top:0}
+  .prose p{margin-bottom:2.9888pt}
+  .prose h1,.prose h2{font-size:14.3462pt}
+  .prose h3{font-size:11.9552pt}
   .prose h1,.prose h2,.prose h3{break-after:avoid}
+  .article-shell[data-section=problems] .prose h2[id^="20"]{break-before:page;margin-top:0}
+  .prose>p:has(>a:is([href="#题号导航"],[href="#%E9%A2%98%E5%8F%B7%E5%AF%BC%E8%88%AA"]):only-child){display:none}
   .prose p{orphans:2;widows:2}
   .prose a{color:inherit;text-decoration:none}
   .prose .katex{display:inline;max-width:none;overflow:visible;vertical-align:baseline;padding:0;font-size:1em}

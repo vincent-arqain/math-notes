@@ -1,36 +1,44 @@
-/* Chinese screen and print text use the same Fandol outlines as the mathematics PDFs.
-   Times-style Latin faces are hosted with the site; see each font directory for licensing. */
+/* Match the reference PDF: Latin Modern Roman + Fandol Song.
+   All faces use unmodified outlines and are served with the site. */
 
 @font-face {
-  font-family: "Study Times";
+  font-family: "Study Latin Modern";
   font-style: normal;
-  font-weight: 400 600;
+  font-weight: 400;
   font-display: swap;
-  src: local("Times New Roman"), url(/fonts/liberation-serif/LiberationSerif-Regular.ttf) format("truetype");
+  src: url(/fonts/latin-modern/lmroman10-regular.woff2) format("woff2");
 }
 
 @font-face {
-  font-family: "Study Times";
+  font-family: "Study Latin Modern";
   font-style: normal;
-  font-weight: 700 900;
+  font-weight: 700;
   font-display: swap;
-  src: local("Times New Roman Bold"), url(/fonts/liberation-serif/LiberationSerif-Bold.ttf) format("truetype");
+  src: url(/fonts/latin-modern/lmroman10-bold.woff2) format("woff2");
 }
 
 @font-face {
-  font-family: "Study Times";
+  font-family: "Study Latin Modern";
   font-style: italic;
-  font-weight: 400 600;
+  font-weight: 400;
   font-display: swap;
-  src: local("Times New Roman Italic"), url(/fonts/liberation-serif/LiberationSerif-Italic.ttf) format("truetype");
+  src: url(/fonts/latin-modern/lmroman10-italic.woff2) format("woff2");
 }
 
 @font-face {
-  font-family: "Study Times";
+  font-family: "Study Latin Modern";
   font-style: italic;
-  font-weight: 700 900;
+  font-weight: 700;
   font-display: swap;
-  src: local("Times New Roman Bold Italic"), url(/fonts/liberation-serif/LiberationSerif-BoldItalic.ttf) format("truetype");
+  src: url(/fonts/latin-modern/lmroman10-bolditalic.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Study Latin Modern Heading";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/fonts/latin-modern/lmroman12-bold.woff2) format("woff2");
 }
 
 /* Unmodified Fandol font outlines, encoded as WOFF2 for the web. */

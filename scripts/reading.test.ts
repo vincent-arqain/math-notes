@@ -18,6 +18,22 @@ const root=new URL('../content/',import.meta.url);
 const sourcePath='english/reading-types/seven-reading-types.md';
 const topics=['细节题','主旨题','推理题','词义句意题','作者态度题','例证题','篇章结构题'];
 
+test('Chinese document labels render their intended emphasis while code and escaped markers stay literal',()=>{
+  const body=[
+    '**题目（转述）：**给定 $x$。',
+    '**解：**记变量为 $x$。',
+    String.raw`\*\*解：\*\*保留字面标记。`,
+    '`**解：**保留行内代码`',
+    '~~~text\n**解：**保留代码块\n~~~',
+  ].join('\n\n');
+  const html=renderToStaticMarkup(createElement(Markdown,{body}));
+  assert.match(html,/<p><strong>题目（转述）：<\/strong>给定/);
+  assert.match(html,/<p><strong>解：<\/strong>记变量为/);
+  assert.match(html,/<p>\*\*解：\*\*保留字面标记。<\/p>/);
+  assert.match(html,/<code>\*\*解：\*\*保留行内代码<\/code>/);
+  assert.match(html,/<code class="language-text">\*\*解：\*\*保留代码块/);
+});
+
 test('Markdown headings provide unique Chinese and formatted fragment targets per document',()=>{
   const body='[导航](#细节题)\n\n## 细节题\n\n## **细节题**\n\n## 细节题-1\n\n## A [linked](https://example.com) `word`\n\n## !!!\n\n## Main';
   const render=()=>renderToStaticMarkup(createElement(Markdown,{body}));
