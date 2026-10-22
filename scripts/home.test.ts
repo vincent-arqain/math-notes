@@ -5,8 +5,8 @@ import {createElement} from 'react';
 import {renderToStaticMarkup} from 'react-dom/server';
 import {loadEntries,type PublicEntry} from '../src/content';
 import {selectHomeEntries} from '../src/home';
-import {compareRecentEntries,entryUrl,type Section} from '../src/model';
-import {Home,Collection} from '../src/components';
+import {compareRecentEntries,entryUrl,englishStudyCategories,type Section} from '../src/model';
+import {Home,Collection,Layout,MathOverview} from '../src/components';
 
 function entry(id:string,section:Section,updated_at='2026-10-20T00:00:00.000Z',category=''):PublicEntry {
   return {id,section,updated_at,category,title:id,owner_id:'',description:'',subject:'',tags:'[]',body:'',source_url:'',status:'published',file_key:null,file_name:null,file_type:null,file_size:null,version:1,created_at:updated_at,deleted_at:null,sourcePath:`${section}/${id}.md`,attachmentPath:null};
@@ -48,36 +48,39 @@ test('English highlights take the latest item from up to three distinct top-leve
   assert.deepEqual(ids(selectHomeEntries([entry('uncategorized','english')]).english),['uncategorized']);
 });
 
-test('empty and sparse homepages keep honest empty states and usable section/research links',()=>{
-  assert.deepEqual(selectHomeEntries([]),{notes:[],problems:[],english:[],recent:[]});
-  const empty=renderToStaticMarkup(createElement(Home,{items:[]}));
-  assert.match(empty,/书房正在慢慢生长/);
-  assert.equal((empty.match(/这一栏还没有公开内容/g)||[]).length,3);
-  for(const href of ['/notes/','/problems/','/papers/','/english/'])assert.ok(empty.includes(`href="${href}"`));
-  const sparse=selectHomeEntries([entry('only-writing','english',undefined,'writing')]);
-  assert.deepEqual(ids(sparse.notes),[]);
-  assert.deepEqual(ids(sparse.problems),[]);
-  assert.equal(sparse.recent.length,1);
+test('home exposes three fixed study areas and eight English destinations without decorative imagery',()=>{
+  const home=renderToStaticMarkup(createElement(Home,{items:[]}));
+  assert.match(home,/暂无公开资料/);
+  assert.doesNotMatch(home,/<(?:svg|figure|img)\b|一间安静的电子书房|思考的地方/);
+  const areas=[...home.matchAll(/<h2 id="(math|problems|english)-heading">/g)].map(m=>m[1]);
+  assert.deepEqual(areas,['math','problems','english']);
+  for(const href of ['/math/','/notes/','/problems/','/papers/','/essays/','/problems/#problem-index'])assert.ok(home.includes(`href="${href}"`));
+  assert.equal(englishStudyCategories.length,8);
+  for(const category of englishStudyCategories){
+    assert.ok(home.includes(`href="/english/?category=${category.id}"`));
+    assert.ok(home.includes(category.label));
+  }
+  const html=renderToStaticMarkup(createElement(Layout,{title:'数学',path:'/notes/',children:null}));
+  const nav=html.match(/<nav aria-label="主导航">([\s\S]*?)<\/nav>/)![1];
+  assert.equal((nav.match(/<a /g)||[]).length,4);
+  assert.match(nav,/<a href="\/math\/" aria-current="page">数学/);
+  for(const href of ['/books/','/links/','/about/','/manage/'])assert.ok(html.includes(`href="${href}"`));
 });
 
-test('published Euler and algebra articles render before recent updates while all writing remains discoverable',async()=>{
+test('math overview preserves real articles and home retains the true recent entries',async()=>{
   const items=await loadEntries(fileURLToPath(new URL('../content/',import.meta.url)));
   const selected=selectHomeEntries(items);
   const home=renderToStaticMarkup(createElement(Home,{items}));
-  const highlights=home.split('id="recent-updates"')[0];
-  const euler=items.find(item=>item.sourcePath==='notes/euler-series-harmonic-numbers.md')!;
-  const algebra=items.find(item=>item.title==='高等代数七题：2020S14—2021A02')!;
-  assert.ok(euler);assert.ok(algebra);
-  for(const item of [euler,algebra]){
-    assert.ok(highlights.includes(`href="${entryUrl(item)}/"`),item.title);
-    assert.ok(highlights.includes(item.title));
+  const math=renderToStaticMarkup(createElement(MathOverview,{items}));
+  for(const source of ['notes/euler-series-harmonic-numbers.md','problems/algebra-2020s14-2021a02.md']){
+    const item=items.find(e=>e.sourcePath===source)!;
+    assert.ok(item);assert.ok(math.includes(`href="${entryUrl(item)}/"`));
+    assert.ok(math.includes(item.title));
   }
-  assert.equal(selected.english.length,3);
-  assert.equal(new Set(selected.english.map(item=>item.category.split('/')[0])).size,3);
-  for(const category of ['writing','reading-types','vocabulary'])assert.ok(highlights.includes(`href="/english/?category=${category}"`));
+  const recent=home.split('id="recent-updates"')[1];
+  for(const item of selected.recent)assert.ok(recent.includes(`href="${entryUrl(item)}/"`));
   const htmlIds=[...home.matchAll(/\sid="([^"]+)"/g)].map(match=>match[1]);
-  assert.equal(htmlIds.length,new Set(htmlIds).size,'home fragment IDs must be unique');
-  assert.ok(htmlIds.includes('recent-updates'));
+  assert.equal(htmlIds.length,new Set(htmlIds).size);
   const writing=items.filter(item=>item.category==='writing');
   assert.equal(writing.length,32);
   for(const section of ['english',undefined] as const){

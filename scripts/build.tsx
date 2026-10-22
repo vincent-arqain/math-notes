@@ -6,7 +6,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {loadEntries} from '../src/content';
 import {sections,compareRecentEntries,type Section} from '../src/model';
-import {Layout,Home,Collection,Article,Manage,About} from '../src/components';
+import {Layout,Home,Collection,Article,Manage,About,MathOverview} from '../src/components';
 import config from '../site.config.json';
 import {loadStorage} from '../src/storage';
 import {releaseEntries} from '../src/releases';
@@ -33,8 +33,6 @@ await cp(path.join(root,'public'),output,{recursive:true});
 await rename(path.join(output,'site.js'),path.join(output,siteScript));
 const fonts=await readFile(path.join(output,'fonts.css'),'utf8');
 await writeFile(path.join(output,'fonts.css'),fonts.replaceAll('/fonts/',`${base}/fonts/`));
-const css=await readFile(path.join(output,'reading.css'),'utf8');
-await writeFile(path.join(output,'reading.css'),css+'\n:root{--sans:var(--serif)}[hidden]{display:none!important}.upload-collections{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin:32px 0}.upload-collections .margin-note h2{margin-top:0}.upload-collections .actions{margin-top:22px}.upload-categories{display:flex;flex-wrap:wrap;gap:12px 22px}.upload-categories a{font-size:17px;color:var(--accent)}.manage-subtitle{font-size:28px;margin:40px 0 20px}@media(max-width:700px){.upload-collections{grid-template-columns:1fr}}\n');
 // New pages must not reuse cached typography or a different renderer's CSS.
 // Keep each stylesheet in its directory so relative font URLs still resolve.
 for(const file of ['fonts.css','reading.css']){
@@ -52,7 +50,8 @@ async function page(route:string,title:string,body:React.ReactNode,noindex=false
   await writeFile(target,prefix(html));
   if(!noindex)urls.push(new URL(route,site).href);
 }
-await page('','一间安静的电子书房',<Home items={items}/>);
+await page('','学习目录',<Home items={items}/>);
+await page('math/','数学',<MathOverview items={items}/>);
 for(const [section,title]of Object.entries(sections))await page(section+'/',title,<Collection section={section as Section} items={items.filter(e=>e.section===section)}/>);
 await page('search/','搜索书房',<Collection items={items}/>,true);
 await page('manage/','管理资料',<Manage items={items} storage={storage}/>,true);

@@ -1,11 +1,15 @@
-export const sections = { notes: '讲义', problems: '题库', essays: '随笔', books: '书架', papers: '论文', links: '链接', english: '英语' } as const;
+export const sections = { notes: '讲义', problems: '题库与作答', essays: '文章', books: '书架', papers: '论文', links: '链接', english: '英语' } as const;
 export type Section = keyof typeof sections;
-export const descriptions: Record<Section, string> = { notes: '把概念写清楚，让证明有迹可循。', problems: '留一道问题，给思考一点时间。', essays: '记录理解发生的瞬间。', books: '沿着书页，走向更远的数学。', papers: '收藏值得细读的论文，留下研究与阅读的线索。', links: '把有价值的网址，连同发现它的理由一起收好。', english: '从真题、词句到阅读与写作，慢慢积累考研英语。' };
+export const descriptions: Record<Section, string> = { notes: '概念、定理与推导。', problems: '按专题阅读，按题号查找题目与解答。', essays: '数学文章与学习札记。', books: '参考书与阅读资料。', papers: '论文与研究资料。', links: '常用网站与参考来源。', english: '真题、阅读、写作与词句。' };
+export const mathSections = ['notes','problems','papers','essays'] as const;
+export const englishStudyCategories = [
+  {id:'exams',label:'往年考研真题'}, {id:'reading-answers',label:'真题阅读解答'},
+  {id:'writing',label:'作文'}, {id:'translation',label:'文章与直译'},
+  {id:'sentences',label:'长难句'}, {id:'core-vocabulary',label:'核心单词'},
+  {id:'vocabulary',label:'熟词僻义'}, {id:'reading-types',label:'阅读技巧'},
+] as const;
 export const englishCategories = [
-  {id:'exams',label:'考研真题'}, {id:'vocabulary',label:'熟词生义'},
-  {id:'sentences',label:'长难句'}, {id:'writing',label:'作文模板'},
-  {id:'translation',label:'翻译技巧'}, {id:'reading-logic',label:'阅读逻辑'},
-  {id:'reading-types',label:'阅读题型分类'},
+  ...englishStudyCategories, {id:'reading-logic',label:'阅读逻辑'},
   {id:'reading-types/detail',label:'细节题'}, {id:'reading-types/main-idea',label:'主旨题'},
   {id:'reading-types/inference',label:'推理题'}, {id:'reading-types/meaning',label:'词义句意题'},
   {id:'reading-types/attitude',label:'作者态度题'}, {id:'reading-types/example',label:'例证题'},

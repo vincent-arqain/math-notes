@@ -95,19 +95,32 @@ $$
 
 总专题可在 `category: reading-types` 下添加 `reading_topics` 数组，填写实际涵盖的子分类（例如 `[reading-types/detail, reading-types/inference]`）。正文必须有对应中文二级标题（如 `## 细节题`、`## 推理题`）。文章会在这些子分类中显示，并提供直达章节的链接；未声明的分类不会因标签文字相同而自动收录。构建验证会检查章节链接目标。
 
-## 首页内容选取
+## 页面目录与导航
 
-首页先按栏目展示近期内容：数学讲义、题库各取最近两篇；英语取最近三个不同一级分类中的最新一篇，阅读题型的子分类合并计为一类。栏目没有内容时显示真实空状态，不借用其他栏目的文章填充。
+首页以固定顺序展示三个入口：**数学、题库与作答、英语**。桌面并列、手机依次排列；顶部主导航始终提供三个方向。移除了装饰图、宣传语和重复侧栏，最近更新按真实更新时间降序展示六份资料，同时间按文章 ID 升序。
 
-下方“最近更新”仍展示全站最新六篇。两处都沿用真实更新时间降序、同时间按文章 ID 升序的规则，不修改文章日期。首页另有论文与研究、高等代数专题及英语写作、阅读题型、熟词生义入口；栏目和全站搜索继续收录全部资料。栏目精选在窄屏下按讲义、题库、英语顺序显示。
+`/math/` 是数学总览，按讲义、题库、论文、文章排列。原有 `notes/`、`problems/`、`papers/`、`essays/` 阅读地址不变；书架与参考链接保留在页脚和数学总览。题库页的“按题号查找”直接链接到各专题中的题目与解答章节。
+
+正文保留 Fandol 宋体、Times New Roman 和标准 LaTeX 公式，文字颜色加深、阅读行宽收窄；标题使用字体自带的粗体。
 
 ## 英语目录
 
-目录与分类一致：`exams`（考研真题）、`vocabulary`（熟词生义）、`sentences`（长难句）、`writing`（作文模板）、`translation`（翻译技巧）、`reading-logic`（阅读逻辑）、`reading-types`（阅读题型分类）。
+英语页面与首页提供八个固定入口：
 
-七种阅读题型位于 `content/english/reading-types/` 下：`detail`、`main-idea`、`inference`、`meaning`、`attitude`、`example`、`structure`，对应细节题、主旨题、推理题、词义句意题、作者态度题、例证题、篇章结构题。放在 `content/english/` 根目录的文件为待分类；Markdown 也可用 `category` 字段指定同名分类。
+| 入口 | `content/english/` 下的目录 / `category` |
+| --- | --- |
+| 往年考研真题 | `exams` |
+| 真题阅读解答 | `reading-answers` |
+| 作文 | `writing` |
+| 文章与直译 | `translation` |
+| 长难句 | `sentences` |
+| 核心单词 | `core-vocabulary` |
+| 熟词僻义 | `vocabulary` |
+| 阅读技巧 | `reading-types` |
 
-`content/english/sentences/sentence-v1-index.md` 是 Sentence-v1 总目录；L01—L37、F01—F37为经典长难句与词熟句难的74个独立条目，沿用 `sentences` 分类。首页“长难句专题”通过现有搜索的“句库目录”标签直达总目录结果，英语页“长难句”仍展示全部条目。目录按分类、年份、Text和句号导航，每条支持语法/障碍标签检索及同篇两类互跳。原句不整批重印，英文训练均明确标为原创，不附既有PDF；出处抽查与版权核查记录见 `docs/reviews/sentence-v1-web.md`。
+原有 `reading-logic`（阅读逻辑）入口继续保留。七种阅读题型位于 `reading-types/` 下：`detail`、`main-idea`、`inference`、`meaning`、`attitude`、`example`、`structure`，对应细节题、主旨题、推理题、词义句意题、作者态度题、例证题、篇章结构题。放在 `content/english/` 根目录的文件为待分类；Markdown 也可用 `category` 字段指定分类。新增分类尚无内容时显示真实空状态，上传页使用同一套分类。
+
+`content/english/sentences/sentence-v1-index.md` 是 Sentence-v1 总目录；L01—L37、F01—F37为经典长难句与词熟句难的74个独立条目，沿用 `sentences` 分类。首页“长难句”进入完整分类，使用“句库目录”标签可找到总目录。目录按分类、年份、Text和句号导航，每条支持语法/障碍标签检索及同篇两类互跳。原句不整批重印，英文训练均明确标为原创，不附既有PDF；出处抽查与版权核查记录见 `docs/reviews/sentence-v1-web.md`。
 
 ## 自动发布与本机检查
 

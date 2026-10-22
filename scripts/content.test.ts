@@ -15,6 +15,18 @@ test('reject traversal and hidden paths',()=>{
 test('reject draft and private status in public content',()=>{
   for(const fields of ['draft: true','status: draft','deleted_at: 2026-10-12'])assert.throws(()=>parseDocument(`---\n${fields}\n---\nprivate`));
 });
+test('reading answers and core vocabulary load independently from existing English categories',async()=>{
+  const root=await mkdtemp(path.join(os.tmpdir(),'math-english-categories-'));
+  try{
+    for(const category of ['reading-answers','core-vocabulary','vocabulary','translation']){
+      await mkdir(path.join(root,'english',category),{recursive:true});
+      await writeFile(path.join(root,'english',category,'entry.md'),`---\ntitle: ${category}\n---\n正文`);
+    }
+    const entries=await loadEntries(root);
+    assert.deepEqual(entries.map(e=>e.category).sort(),['core-vocabulary','reading-answers','translation','vocabulary']);
+    assert.equal(new Set(entries.map(e=>e.id)).size,4);
+  }finally{await rm(root,{recursive:true,force:true});}
+});
 test('preserve body, titles, categories and attach original files only once',async()=>{
   const temp=await mkdtemp(path.join(os.tmpdir(),'math-garden-test-'));
   const root=path.join(temp,'content');

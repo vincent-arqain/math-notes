@@ -94,7 +94,7 @@ test('real collection search finds sentence-level grammar, difficulty, source ye
   assert.equal(visible().length,75);
   assert.equal(search('句库目录').length,1,'home entry must select the hub rather than a random sentence');
   const home=renderToStaticMarkup(createElement(Home,{items:all}));
-  assert.ok(home.includes('/english/?category=sentences&amp;q='+encodeURIComponent('句库目录')));
+  assert.ok(home.includes('href="/english/?category=sentences"'),'home opens the full long-sentence category');
   assert.ok(search('经典长难句 2014年 Text 1').some(r=>r.dataset.search.includes(get('L17').title.toLowerCase())));
   assert.ok(search('词熟句难 2009年 Text 1').some(r=>r.dataset.search.includes(get('F13').title.toLowerCase())));
   for(const q of ['倒装','嵌套从句','否定范围','条件范围','熟词僻义'])assert.ok(search(q).length>1,q);
