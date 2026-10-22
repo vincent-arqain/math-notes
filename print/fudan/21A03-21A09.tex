@@ -1,0 +1,413 @@
+% Recovered from the previously completed PDF; no new mathematical content.
+% Prose is editable; formula boxes retain original symbol positions.
+% Build from repository root: xelatex -no-shell-escape -halt-on-error -output-directory=... print/fudan/NAME.tex
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=23mm,headheight=14pt,headsep=8.5mm,footskip=10mm]{geometry}
+\usepackage{amsmath,amssymb}
+\DeclareMathAlphabet{\mathsf}{OT1}{cmss}{m}{n}
+\usepackage[no-math]{fontspec}
+\usepackage{xeCJK}
+\setmainfont{Latin Modern Roman}
+\setCJKmainfont{FandolSong-Regular.otf}[Path=assets/fonts/fandol/,BoldFont=FandolSong-Bold.otf,ItalicFont=FandolSong-Regular.otf,Script=CustomDefault]
+\xeCJKsetup{PunctStyle=quanjiao,CheckSingle=true}
+\usepackage{setspace}\setstretch{1.12}
+\setlength{\parindent}{2em}\setlength{\parskip}{3pt}
+\emergencystretch=6em
+\hfuzz=9pt
+\usepackage{titlesec}
+\titleformat{\section}{\centering\normalfont\Large\bfseries}{}{0pt}{}
+\titlespacing*{\section}{0pt}{1.8\baselineskip}{1.0\baselineskip}
+\usepackage{fancyhdr}\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small 数学手记·高等代数}\fancyhead[R]{\small 21A03–21A09}
+\fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0.4pt}
+\usepackage[hidelinks,unicode]{hyperref}
+\hypersetup{pdftitle={21A03–21A09：题目、解答与小结},pdfauthor={Vincent Arqain}}
+\newcommand{\RB}[4]{\raisebox{0pt}[#2bp][#3bp]{\hbox to #1bp{#4\hss}}}
+\newcommand{\RG}[5]{\hbox to 0pt{\kern#1bp\raisebox{#2bp}[0pt][0pt]{\fontsize{#3bp}{#3bp}\csname font#4\endcsname\char#5}\hss}}
+\newcommand{\RT}[4]{\hbox to 0pt{\kern#1bp\raisebox{#2bp}[0pt][0pt]{\fontsize{#3bp}{#3bp}\selectfont#4}\hss}}
+\newcommand{\RS}[4]{\hbox to 0pt{\kern#1bp\raisebox{#2bp}[0pt][0pt]{\fontsize{#3bp}{#3bp}\selectfont\ensuremath{#4}}\hss}}
+\newcommand{\RR}[4]{\hbox to 0pt{\kern#1bp\raisebox{#2bp}[0pt][0pt]{\rule{#3bp}{#4bp}}\hss}}
+\newcommand{\fontmi}{\usefont{OML}{cmm}{m}{it}}
+\newcommand{\fontsy}{\usefont{OMS}{cmsy}{m}{n}}
+\newcommand{\fontex}{\usefont{OMX}{cmex}{m}{n}}
+\newcommand{\fontrm}{\usefont{OT1}{cmr}{m}{n}}
+\newcommand{\fontbf}{\usefont{OT1}{cmr}{bx}{n}}
+\newcommand{\fontam}{\usefont{U}{msa}{m}{n}}
+\newcommand{\fontbb}{\usefont{U}{msb}{m}{n}}
+\widowpenalty=10000\clubpenalty=10000\raggedbottom
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\adj}{adj}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Imop}{Im}
+\newcounter{fudanquestion}
+\newcommand{\question}[1]{\stepcounter{fudanquestion}\section*{#1}}
+\newcommand{\sol}{\par\noindent 解：\ }
+\newcommand{\method}{\par\noindent 方法提炼：\ }
+\newcommand{\sourcepage}[1]{\par\noindent{\small 题目来源：谢启鸿《复旦大学高等代数习题集（2023 版）》，第 #1 页。}}
+\newcommand{\proofend}{\hfill$\square$\par}
+\newcommand{\id}{I_n}
+
+\begin{document}
+\begin{center}{\LARGE\bfseries 21A03–21A09\par}\vspace{8pt}复旦大学高等代数习题集·题目与解答\end{center}
+
+
+\question{2021A03}
+\noindent 设首一多项式
+\[
+ f(x)=x^n+a_1x^{n-1}+\cdots+a_{n-1}x+a_n,
+\]
+其友阵为
+\[
+ A=\begin{pmatrix}
+ 0&0&\cdots&0&-a_n\\
+ 1&0&\cdots&0&-a_{n-1}\\
+ 0&1&\ddots&\vdots&-a_{n-2}\\
+ \vdots&\ddots&\ddots&0&\vdots\\
+ 0&\cdots&0&1&-a_1
+ \end{pmatrix}.
+\]
+设 $n$ 阶矩阵 $X$ 满足 $XA=A^{\mathsf T}X$，证明：$X$ 是对称阵。
+
+\sol 当 $n=1$ 时，$X$ 是一阶矩阵，因而对称。以下设 $n\geq2$。记 $e_1,\ldots,e_n$ 为标准单位列向量。由友阵的结构可知
+\[
+ Ae_i=e_{i+1}\quad(1\leq i<n),\qquad
+ e_i=A^{i-1}e_1\quad(1\leq i\leq n).
+\]
+从已知的交错关系 $XA=A^{\mathsf T}X$ 出发，归纳得到
+\[
+ XA^k=(A^{\mathsf T})^kX\qquad(k\geq0).
+\]
+特别地，令 $X=(x_{ij})$，则对任意 $1\leq i,j\leq n$，有
+\begin{align*}
+ x_{ij}
+ &=e_i^{\mathsf T}Xe_j
+   =(A^{i-1}e_1)^{\mathsf T}X(A^{j-1}e_1)\\
+ &=e_1^{\mathsf T}(A^{\mathsf T})^{i-1}XA^{j-1}e_1\\
+ &=e_1^{\mathsf T}XA^{i+j-2}e_1.
+\end{align*}
+最后一个表达式只与 $i+j$ 有关，所以交换 $i,j$ 后保持不变，即
+\[
+ x_{ij}=e_1^{\mathsf T}XA^{i+j-2}e_1=x_{ji}
+ \qquad(1\leq i,j\leq n).
+\]
+于是 $X^{\mathsf T}=X$，结论得证。
+\proofend
+
+\method {循环向量与交错双线性型。} 友阵的第一个标准基向量 $e_1$ 是循环向量；关系 $XA=A^{\mathsf T}X$ 等价于双线性型 $b(u,v)=u^{\mathsf T}Xv$ 满足 $b(Au,v)=b(u,Av)$。因此其在循环基上的矩阵元是 $b(e_1,A^{i+j-2}e_1)$，自然构成对称的反对角线常数矩阵（Hankel 矩阵）。本证明不要求 $X$ 可逆。
+\sourcepage{107}
+
+\question{2021A04}
+\noindent 求下列 $n$ 阶行列式的值：
+\[
+ \det A=\begin{vmatrix}
+ a_1^2+n-1 &a_1+a_2&a_1+a_3&\cdots&a_1+a_n\\
+ a_1+a_2&a_2^2+1&1&\cdots&1\\
+ a_1+a_3&1&a_3^2+1&\cdots&1\\
+ \vdots&\vdots&\vdots&\ddots&\vdots\\
+ a_1+a_n&1&1&\cdots&a_n^2+1
+ \end{vmatrix}.
+\]
+
+\sol 本题的关键是识别原矩阵为一个简洁矩阵的平方。构造 $n$ 阶实对称矩阵
+\[
+ B=\begin{pmatrix}
+ a_1&1&1&\cdots&1\\
+ 1&a_2&0&\cdots&0\\
+ 1&0&a_3&\cdots&0\\
+ \vdots&\vdots&\vdots&\ddots&\vdots\\
+ 1&0&0&\cdots&a_n
+ \end{pmatrix}.
+\]
+直接进行矩阵乘法可知，$B^2$ 的左上角元素为 $a_1^2+n-1$，其第 $(1,j)$ 元素为 $a_1+a_j$（$j\geq2$），而右下角 $(n-1)$ 阶分块的对角元为 $a_j^2+1$、非对角元为 $1$。因此
+\[
+ A=B^{\mathsf T}B=B^2,\qquad \det A=(\det B)^2.
+\]
+计算 $\det B$。按行列式的置换展开，非零项只有以下两类：一是取遍全部对角元的恒等置换项；二是对某个 $i\in\{2,\ldots,n\}$ 对换指标 $1,i$，其余指标不动的置换项。后一类各含一个负号，故
+\[
+ \det B=a_1\prod_{j=2}^{n}a_j
+     -\sum_{i=2}^{n}\prod_{\substack{2\leq j\leq n\\j\ne i}}a_j.
+\]
+由此得到最终答案
+\[
+ {\displaystyle
+ \det A=\left(a_1\prod_{j=2}^{n}a_j
+     -\sum_{i=2}^{n}\prod_{\substack{2\leq j\leq n\\j\ne i}}a_j\right)^2}.
+\]
+约定空积等于 $1$。这一公式无需假设任何 $a_i$ 非零；当 $n=2$ 时，特别得到 $\det A=(a_1a_2-1)^2$。
+\proofend
+
+\method {Gram 分解与低复杂度因子。} 看到形如 $a_i^2+1$、$a_i+a_j$ 和固定常数的元素时，可尝试将矩阵写成 $B^{\mathsf T}B$。平方形式的行列式计算往往比直接展开原式简单，并且立即看出 $\det A\geq0$（在实数情形）。
+\sourcepage{107}
+
+\question{2021A05}
+\noindent 设 $A,B$ 为 $n$ 阶方阵，满足
+\[
+ AB=A+a_mB^m+a_{m-1}B^{m-1}+\cdots+a_1B,
+\]
+其中 $a_m+a_{m-1}+\cdots+a_1\ne0$。证明：$AB=BA$。
+
+\sol 设
+\[
+ g(x)=a_mx^m+a_{m-1}x^{m-1}+\cdots+a_1x,
+ \qquad c=g(1)=\sum_{k=1}^{m}a_k\ne0.
+\]
+对 $g(x)$ 作带余除法，可写为
+\[
+ g(x)=(x-1)h(x)+c
+\]
+其中 $h(x)$ 为某个多项式。题设矩阵等式遂成为
+\[
+ A(B-I_n)=g(B)=h(B)(B-I_n)+cI_n.
+\]
+整理得
+\[
+ \bigl(A-h(B)\bigr)(B-I_n)=cI_n.
+\]
+因为 $c\ne0$，故 $B-I_n$ 有左逆阵 $c^{-1}(A-h(B))$。方阵有左逆即有双侧逆，于是
+\[
+ (B-I_n)\bigl(A-h(B)\bigr)=cI_n.
+\]
+利用 $h(B)B=Bh(B)$，展开上述等式便得
+\[
+ BA-Bh(B)-A+h(B)=cI_n
+ =AB-A-h(B)B+h(B).
+\]
+消去两端相同的项，可得
+\[
+ {AB=BA}.
+\]
+事实上，我们还得到更强的结论
+\[
+ A=h(B)+c(B-I_n)^{-1}.
+\]
+因为 $1$ 不是 $B$ 的特征值，$B$ 的极小多项式 $m_B(x)$ 与 $x-1$ 互素，故由 Bézout 等式可知 $(B-I_n)^{-1}$ 也是 $B$ 的某个多项式。因此，$A$ 本身可表示成 $B$ 的多项式。
+\proofend
+
+\method {多项式除法制造可逆因子。} 条件 $g(1)\ne0$ 表示 $g(x)$ 除以 $x-1$ 的余数非零。由此将原等式整理成矩阵乘积等于非零纯量阵，就能证明 $B-I_n$ 可逆，并进一步推出交换性；无需对矩阵作同时三角化。
+\sourcepage{108}
+
+\question{2021A06}
+\noindent 记 $S$ 为全体 $n$ 阶实反对称阵的集合，
+\[
+ T=\{P\in M_n(\mathbb R):P^{\mathsf T}P=I_n,\ I_n+P\text{ 可逆}\}.
+\]
+定义映射
+\[
+ \varphi(A)=(I_n-A)(I_n+A)^{-1}\quad(A\in S),
+ \qquad
+ \psi(P)=(I_n-P)(I_n+P)^{-1}\quad(P\in T).
+\]
+证明：(1) $\varphi:S\to T$ 为映射；(2) $\psi:T\to S$ 为映射；(3) $\psi\circ\varphi=\mathrm{Id}_S$，$\varphi\circ\psi=\mathrm{Id}_T$；(4) 对元素为 $a_{ij}=1$（$i<j$）、$a_{ij}=-1$（$i>j$）、$a_{ii}=0$ 的矩阵 $A$，求 $\varphi(A)$。
+
+\sol{(1) 验证 $\varphi(A)\in T$。} 由于 $A^{\mathsf T}=-A$，对任意非零实列向量 $x$ 有
+\[
+ x^{\mathsf T}(I_n+A)x=x^{\mathsf T}x>0,
+\]
+故 $I_n+A$ 可逆。记 $P=\varphi(A)$。由 $I_n\pm A$ 互相可交换，得到
+\[
+ P^{\mathsf T}=(I_n-A)^{-1}(I_n+A)=P^{-1},
+\]
+所以 $P^{\mathsf T}P=I_n$，即 $P$ 为正交阵。又
+\[
+ I_n+P=\bigl[(I_n+A)+(I_n-A)\bigr](I_n+A)^{-1}
+ =2(I_n+A)^{-1}
+\]
+可逆。因此 $\varphi$ 的确将 $S$ 映入 $T$。
+
+\par\smallskip\noindent{(2) 验证 $\psi(P)\in S$。} 任取 $P\in T$，令 $Q=\psi(P)$。由 $P^{\mathsf T}=P^{-1}$ 以及 $I_n+P$ 可逆，有
+\begin{align*}
+ Q^{\mathsf T}
+ &= (I_n+P^{\mathsf T})^{-1}(I_n-P^{\mathsf T})\\
+ &= (I_n+P)^{-1}(P-I_n)\\
+ &= -(I_n-P)(I_n+P)^{-1}=-Q.
+\end{align*}
+故 $Q$ 是实反对称阵，从而 $\psi:T\to S$ 是良定义的映射。
+
+\par\smallskip\noindent{(3) 验证两映射互逆。} 对任意 $A\in S$，记 $P=\varphi(A)$，则
+\[
+ I_n-P=2A(I_n+A)^{-1},\qquad
+ I_n+P=2(I_n+A)^{-1}.
+\]
+因而
+\[
+ \psi(\varphi(A))=(I_n-P)(I_n+P)^{-1}=A.
+\]
+对任意 $P\in T$，同理令 $Q=\psi(P)$，则
+\[
+ I_n-Q=2P(I_n+P)^{-1},\qquad
+ I_n+Q=2(I_n+P)^{-1},
+\]
+从而
+\[
+ \varphi(\psi(P))=(I_n-Q)(I_n+Q)^{-1}=P.
+\]
+于是 $\varphi$ 与 $\psi$ 互为逆映射，$S$ 与 $T$ 之间建立了一一对应。
+
+\par\smallskip\noindent{(4) 求特殊矩阵的 Cayley 变换。} 设 $e_1,\ldots,e_n$ 为标准单位列向量，构造有符号循环移位阵
+\[
+ R=\begin{pmatrix}
+ 0&-1&0&\cdots&0\\
+ 0&0&-1&\cdots&0\\
+ \vdots&\vdots&\ddots&\ddots&\vdots\\
+ 0&0&\cdots&0&-1\\
+ 1&0&\cdots&0&0
+ \end{pmatrix}
+ =\begin{pmatrix}O_{(n-1)\times1}&-I_{n-1}\\[2pt]1&O_{1\times(n-1)}\end{pmatrix}.
+\]
+这表示 $Re_1=e_n$，$Re_j=-e_{j-1}$（$2\le j\le n$）。由题设 $A$ 的元素结构，
+\[
+ Ae_1=-\sum_{k=2}^{n}e_k,\quad Ae_n=\sum_{k=1}^{n-1}e_k,
+ \quad Ae_j-Ae_{j-1}=e_{j-1}+e_j\ (2\le j\le n).
+\]
+因此
+\[
+ (I_n+A)Re_1=(I_n+A)e_n=(I_n-A)e_1,
+\]
+并且对 $2\le j\le n$，
+\[
+ (I_n+A)Re_j=-e_{j-1}-Ae_{j-1}=e_j-Ae_j=(I_n-A)e_j.
+\]
+上述等式对全部标准基向量成立，故 $(I_n+A)R=I_n-A$。又 $R$ 与 $A$ 交换（由 $R=(I_n+A)^{-1}(I_n-A)$ 可知），所以
+\[
+ {\displaystyle
+ \varphi(A)=R=
+ \begin{pmatrix}O_{(n-1)\times1}&-I_{n-1}\\[2pt]1&O_{1\times(n-1)}\end{pmatrix}}.
+\]
+当 $n=1$ 时，$A=(0)$ 且 $\varphi(A)=(1)$，与公式的自然退化情形一致。
+\proofend
+
+\method {Cayley 变换。} 反对称性给出 $I_n+A$ 的可逆性，正交性由转置与逆阵的恒等式得到。计算具体 Cayley 变换时，通常不必硬求 $(I_n+A)^{-1}$：只要猜出 $R$ 并检验 $(I_n+A)R=I_n-A$，就能确定结果。
+\sourcepage{108}
+
+\question{2021A07}
+\noindent 设 $A,B$ 为 $n\geq2$ 阶方阵，满足 $AB=BA$。证明：
+\[
+ AB^*=B^*A,
+\]
+其中 $B^*$ 表示 $B$ 的经典伴随阵。
+
+\sol 不能直接用 $B^*=\det(B)B^{-1}$，因为题设没有假定 $B$ 可逆。下面利用{形式参数摄动}统一处理。
+
+引入未定元 $t$，考虑 $B_t=B+tI_n$。由 $AB=BA$ 可得
+\[
+ AB_t=B_tA.
+\]
+又 $\det(B+tI_n)$ 是关于 $t$ 的首一 $n$ 次多项式，故不是零多项式。因此在有理函数域 $K(t)$ 上，$B_t$ 可逆，并且
+\[
+ AB_t^{-1}=B_t^{-1}A.
+\]
+由于 $B_t^*=\det(B_t)B_t^{-1}$，立刻得到
+\[
+ AB_t^*=B_t^*A.
+\]
+伴随阵的每个元素都是 $B_t$ 的元素的代数余子式，因而是关于 $t$ 的多项式。上述等式遂是矩阵多项式恒等式，可以令 $t=0$，得到
+\[
+ {AB^*=B^*A}.
+\]
+证明不论 $B$ 是否奇异都成立。
+\proofend
+
+\method {由非异矩阵过渡到任意矩阵。} 将 $B$ 替换成 $B+tI_n$，先在非异情形借逆阵证明，再使用矩阵元素的多项式性令 $t=0$。从更高的观点看，$B^*$ 总能写成 $B$ 的一个多项式，因而必与所有同 $B$ 交换的矩阵交换。
+\sourcepage{108}
+
+\question{2021A08}
+\noindent 设 $\alpha_1,\ldots,\alpha_p\in K^m$ 线性无关，$\beta_1,\ldots,\beta_q\in K^n$ 线性无关。证明：
+\[
+ \{\alpha_i\beta_j^{\mathsf T}:1\leq i\leq p,\ 1\leq j\leq q\}
+\]
+是 $pq$ 个线性无关的 $m\times n$ 矩阵。
+
+\sol 将两个向量组分别组成列矩阵
+\[
+ U=(\alpha_1,\ldots,\alpha_p)\in M_{m\times p}(K),
+ \qquad V=(\beta_1,\ldots,\beta_q)\in M_{n\times q}(K).
+\]
+由线性无关性，$\rank U=p$ 且 $\rank V=q$。因此存在矩阵
+\[
+ L\in M_{p\times m}(K),\qquad M\in M_{q\times n}(K),
+\]
+满足
+\[
+ LU=I_p,\qquad MV=I_q.
+\]
+（例如将原向量组分别扩充为全空间的一组基，就能构造这样的左逆。）
+
+现在假设存在系数 $c_{ij}\in K$，使得
+\[
+ \sum_{i=1}^{p}\sum_{j=1}^{q}c_{ij}\alpha_i\beta_j^{\mathsf T}=O.
+\]
+记 $C=(c_{ij})\in M_{p\times q}(K)$，则上式恰好可以写成
+\[
+ UCV^{\mathsf T}=O.
+\]
+两边左乘 $L$、右乘 $M^{\mathsf T}$，可得
+\[
+ C=(LU)C(V^{\mathsf T}M^{\mathsf T})
+   =L(UCV^{\mathsf T})M^{\mathsf T}=O.
+\]
+因此 $c_{ij}=0$ 对所有 $i,j$ 都成立，亦即这 $pq$ 个矩阵线性无关。
+\proofend
+
+\method {双侧消去与张量积。} 秩为 $p$ 的 $m\times p$ 矩阵存在左逆，因此可用两个左逆把关系 $UCV^{\mathsf T}=O$ 还原成 $C=O$。此题就是线性无关向量组的张量积仍线性无关的一个矩阵形式；其张成空间的维数恰为 $pq$。
+\sourcepage{108}
+
+\question{2021A09}
+\noindent 设 $A$ 为列满秩的 $m\times n$ 实矩阵。
+
+\par\smallskip\noindent{(1)} 证明：$A^{\mathsf T}A$ 是非异阵。
+
+\par\smallskip\noindent{(2)} 若 $A$ 的第一列元素全为 $1$，令
+\[
+ P=A(A^{\mathsf T}A)^{-1}A^{\mathsf T},
+\]
+证明：$P$ 的所有主对角元均大于等于 $1/m$。
+
+\sol{(1)} 因为 $A$ 列满秩，所以对任意 $0\ne y\in\mathbb R^n$，都有 $Ay\ne0$。于是
+\[
+ y^{\mathsf T}(A^{\mathsf T}A)y
+  =(Ay)^{\mathsf T}(Ay)=\lVert Ay\rVert_2^2>0.
+\]
+即 $A^{\mathsf T}A$ 是正定实对称阵，特别地是非异阵。
+
+\par\smallskip\noindent{(2)} 由定义及 (1) 可知
+\[
+ P^{\mathsf T}=P,\qquad
+ P^2=A(A^{\mathsf T}A)^{-1}(A^{\mathsf T}A)(A^{\mathsf T}A)^{-1}A^{\mathsf T}=P.
+\]
+因此 $P$ 是 $\mathbb R^m$ 到列空间 $W=\Imop A$ 的{正交投影矩阵}。
+
+记 $\boldsymbol 1=(1,\ldots,1)^{\mathsf T}\in\mathbb R^m$。题设说明 $\boldsymbol 1$ 是 $A$ 的第一列，故 $\boldsymbol 1\in W$。令
+\[
+ u=\frac1{\sqrt m}\boldsymbol 1,
+\]
+则 $\lVert u\rVert_2=1$ 且 $Pu=u$。对任一 $1\leq i\leq m$，设 $e_i$ 是第 $i$ 个标准单位列向量。由 $P^2=P^{\mathsf T}=P$ 得
+\[
+ p_{ii}=e_i^{\mathsf T}Pe_i
+  =e_i^{\mathsf T}P^{\mathsf T}Pe_i=\lVert Pe_i\rVert_2^2.
+\]
+利用 Cauchy--Schwarz 不等式及 $Pu=u$，进一步得到
+\begin{align*}
+ p_{ii}
+ &=\lVert Pe_i\rVert_2^2
+ \geq |u^{\mathsf T}Pe_i|^2
+  =|(Pu)^{\mathsf T}e_i|^2\\
+ &=|u^{\mathsf T}e_i|^2=\frac1m.
+\end{align*}
+故
+\[
+ {p_{ii}\geq\frac1m\qquad(1\leq i\leq m)}.
+\]
+而且此界是最优的：若 $n=1$ 且 $A=\boldsymbol 1$，则
+\[
+ P=\frac1m\boldsymbol 1\boldsymbol 1^{\mathsf T},
+\]
+全部主对角元恰好等于 $1/m$。另一方面，$\tr(P)=\rank(P)=n$，故当 $n>1$ 时，不可能全部主对角元都取等号。
+\proofend
+
+\method {正交投影的对角元与固定向量。} 认识到 $P$ 是投影之后，第一列全为 $1$ 的条件等价于投影子空间包含单位向量 $u=\boldsymbol 1/\sqrt m$。于是对角元 $p_{ii}=\lVert Pe_i\rVert^2$ 必至少包含其沿 $u$ 方向的平方分量 $|u^{\mathsf T}e_i|^2=1/m$。这一思路也适用于其他含指定向量的投影子空间。
+\sourcepage{108}
+
+
+\end{document}

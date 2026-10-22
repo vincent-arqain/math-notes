@@ -19,7 +19,7 @@ test('exercise links ignore fenced examples and do not repeat headings', () => {
   assert.deepEqual(problemLinks(body), ['2020S14','2021A02']);
 });
 
-test('seven exercises render with valid search links and one unchanged PDF attachment', async () => {
+test('seven exercises render with valid search links and one consistently typeset PDF attachment', async () => {
   const entries = await loadEntries(fileURLToPath(new URL('../content/',import.meta.url)));
   const entry = entries.find(e => e.sourcePath === sourcePath)!;
   assert.ok(entry);
@@ -27,7 +27,7 @@ test('seven exercises render with valid search links and one unchanged PDF attac
   assert.equal(entries.filter(e => e.sourcePath === entry.attachmentPath).length,0,'The PDF must not create a second library entry');
   assert.deepEqual(problemLinks(entry.body),ids);
   const pdf = await readFile(new URL('../content/'+entry.attachmentPath,import.meta.url));
-  assert.equal(createHash('sha256').update(pdf).digest('hex'),'a2bc2ca5b8508fc222b4ea7482aeeaecafd819938234f4f9a882ca9290924736');
+  assert.equal(createHash('sha256').update(pdf).digest('hex'),'d4aae76109340e63c08bf5754887bf8e43b445a1979f82aead9774b0c51b1c14');
   const article = renderToStaticMarkup(createElement(Markdown,{body:entry.body}));
   assert.doesNotMatch(article,/katex-error/);
   assert.equal([...article.matchAll(/class="katex-display"/g)].length,[...entry.body.matchAll(/^\$\$$/gm)].length/2);

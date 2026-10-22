@@ -1,0 +1,1288 @@
+[
+  {
+    "file": "14A01-14A06.pdf",
+    "originalName": "14A1～A6.pdf",
+    "problemIds": [
+      "2014A01",
+      "2014A02",
+      "2014A03",
+      "2014A04",
+      "2014A05",
+      "2014A06"
+    ],
+    "years": [
+      2014
+    ],
+    "restyled": true,
+    "sourceKind": "recovered-vector-typesetting",
+    "pages": 4,
+    "sourcePages": 3,
+    "sha256": "c84547e636d19361c3cbb3e5d4574a51671345e03aaf54649d465ebd36622eb4",
+    "originalSha256": "8f6811c87e75c41a29c46444dea8f3de9c78583bbae6a0d84a0546a63ae615c5",
+    "fonts": [
+      "CMEX10",
+      "CMEX9",
+      "CMMI10",
+      "CMMI8",
+      "CMR10",
+      "CMR8",
+      "CMSY10",
+      "CMSY8",
+      "FandolSong-Bold",
+      "FandolSong-Regular",
+      "LMRoman10-Regular",
+      "LMRoman12-Bold"
+    ]
+  },
+  {
+    "file": "14A07-14A13.pdf",
+    "originalName": "14A07～A13.pdf",
+    "problemIds": [
+      "2014A07",
+      "2014A08",
+      "2014A09",
+      "2014A10",
+      "2014A11",
+      "2014A12",
+      "2014A13"
+    ],
+    "years": [
+      2014
+    ],
+    "restyled": true,
+    "sourceKind": "recovered-vector-typesetting",
+    "pages": 5,
+    "sourcePages": 5,
+    "sha256": "7a6e085661758d5b16cf8f516b7785c7cb6963c455c1294ed28c17314dbf7f94",
+    "originalSha256": "99a2e54951aaa6f06307bd1a47ed3cf211a4032b0eaf41ac362ef7cbfb7d99fe",
+    "fonts": [
+      "CMEX10",
+      "CMMI10",
+      "CMMI8",
+      "CMR10",
+      "CMR8",
+      "CMSY10",
+      "CMSY8",
+      "FandolSong-Bold",
+      "FandolSong-Regular",
+      "LMRoman10-Regular",
+      "LMRoman12-Bold",
+      "LMRoman8-Regular",
+      "MSAM10",
+      "MSBM10"
+    ]
+  },
+  {
+    "file": "15S01-15S07.pdf",
+    "originalName": "15S01～S07.pdf",
+    "problemIds": [
+      "2015S01",
+      "2015S02",
+      "2015S03",
+      "2015S04",
+      "2015S05",
+      "2015S06",
+      "2015S07"
+    ],
+    "years": [
+      2015
+    ],
+    "restyled": true,
+    "sourceKind": "recovered-vector-typesetting",
+    "pages": 9,
+    "sourcePages": 8,
+    "sha256": "e732128bb58846e5ab601d581c7bbcc1c384d5237af23df434614872d0ff6523",
+    "originalSha256": "58a55dde8aebbfe6d38912d3eff18f6f1489ef74f46cf2148811a390efd26038",
+    "fonts": [
+      "CMEX10",
+      "CMMI10",
+      "CMMI6",
+      "CMMI8",
+      "CMR10",
+      "CMR6",
+      "CMR8",
+      "CMSY10",
+      "CMSY8",
+      "FandolSong-Bold",
+      "FandolSong-Regular",
+      "LMRoman10-Regular",
+      "LMRoman12-Bold",
+      "LMRoman8-Regular",
+      "MSAM10",
+      "MSBM10"
+    ]
+  },
+  {
+    "file": "15S08-15S14.pdf",
+    "originalName": "15S08～S14（重排版）.pdf",
+    "problemIds": [
+      "2015S08",
+      "2015S09",
+      "2015S10",
+      "2015S11",
+      "2015S12",
+      "2015S13",
+      "2015S14"
+    ],
+    "years": [
+      2015
+    ],
+    "restyled": true,
+    "sourceKind": "recovered-vector-typesetting",
+    "pages": 8,
+    "sourcePages": 8,
+    "sha256": "e68e52d1b824f0914188e621926963001f43b8b439969850e748054387e2db17",
+    "originalSha256": "7d2767ec9cdd6c293793386f1a68478f4308f0b5f31090008edb52ca2b059e6e",
+    "fonts": [
+      "CMBX10",
+      "CMEX9",
+      "CMMI10",
+      "CMMI6",
+      "CMMI8",
+      "CMR10",
+      "CMR6",
+      "CMR8",
+      "CMSY10",
+      "CMSY8",
+      "FandolSong-Bold",
+      "FandolSong-Regular",
+      "LMRoman10-Regular",
+      "LMRoman12-Bold",
+      "MSBM10"
+    ]
+  },
+  {
+    "file": "15A01-15A07.pdf",
+    "originalName": "15A01～A07.pdf",
+    "problemIds": [
+      "2015A01",
+      "2015A02",
+      "2015A03",
+      "2015A04",
+      "2015A05",
+      "2015A06",
+      "2015A07"
+    ],
+    "years": [
+      2015
+    ],
+    "restyled": true,
+    "sourceKind": "recovered-vector-typesetting",
+    "pages": 5,
+    "sourcePages": 5,
+    "sha256": "b28b726e2fea980bf0b0a7759952ea0dbe8028b4f959754eb82df18db313659b",
+    "originalSha256": "d0c96c294a399cfb946edc7b541751c099d75213558836904364f53843274b6d",
+    "fonts": [
+      "CMEX9",
+      "CMMI10",
+      "CMMI6",
+      "CMMI8",
+      "CMR10",
+      "CMR6",
+      "CMR8",
+      "CMSY10",
+      "CMSY8",
+      "FandolSong-Bold",
+      "FandolSong-Regular",
+      "LMRoman10-Regular",
+      "LMRoman12-Bold",
+      "MSAM10",
+      "MSBM10",
+      "MSBM7"
+    ]
+  },
+  {
+    "file": "15A08-15A12_16S01-16S02.pdf",
+    "originalName": "15A08～A12、16S01～S02.pdf",
+    "problemIds": [
+      "2015A08",
+      "2015A09",
+      "2015A10",
+      "2015A11",
+      "2015A12",
+      "2016S01",
+      "2016S02"
+    ],
+    "years": [
+      2015,
+      2016
+    ],
+    "restyled": true,
+    "sourceKind": "recovered-vector-typesetting",
+    "pages": 7,
+    "sourcePages": 7,
+    "sha256": "8a69a264bc532b562217eba605351e02b0c17fd4e4cad82241cdd66cee7d2f9d",
+    "originalSha256": "9da7655ce1d849e063a36b7ce849b5e98be844d8d74754dde9305bb31fedb013",
+    "fonts": [
+      "CMEX9",
+      "CMMI10",
+      "CMMI6",
+      "CMMI8",
+      "CMR10",
+      "CMR6",
+      "CMR8",
+      "CMSY10",
+      "CMSY8",
+      "FandolSong-Bold",
+      "FandolSong-Regular",
+      "LMRoman10-Regular",
+      "LMRoman12-Bold",
+      "MSBM10"
+    ]
+  },
+  {
+    "file": "16S03-16S09.pdf",
+    "originalName": "16S03～S09.pdf",
+    "problemIds": [
+      "2016S03",
+      "2016S04",
+      "2016S05",
+      "2016S06",
+      "2016S07",
+      "2016S08",
+      "2016S09"
+    ],
+    "years": [
+      2016
+    ],
+    "restyled": true,
+    "sourceKind": "recovered-vector-typesetting",
+    "pages": 15,
+    "sourcePages": 17,
+    "sha256": "c8acf7e4d12811157d8a208c56fb22eadb79d7f97f26292d234846c9c483f198",
+    "originalSha256": "3cfbacc3be7403c37b733f1ab4e05ad75603d07fb35c9c93231bdc91aade1d94",
+    "fonts": [
+      "CMEX9",
+      "CMMI10",
+      "CMMI6",
+      "CMMI8",
+      "CMR10",
+      "CMR6",
+      "CMR8",
+      "CMSY10",
+      "CMSY6",
+      "CMSY8",
+      "FandolSong-Bold",
+      "FandolSong-Regular",
+      "LMRoman10-Regular",
+      "LMRoman12-Bold",
+      "MSAM10",
+      "MSBM10"
+    ]
+  },
+  {
+    "file": "16S10-16S16.pdf",
+    "originalName": "16S10～S16.pdf",
+    "problemIds": [
+      "2016S10",
+      "2016S11",
+      "2016S12",
+      "2016S13",
+      "2016S14",
+      "2016S15",
+      "2016S16"
+    ],
+    "years": [
+      2016
+    ],
+    "restyled": true,
+    "sourceKind": "recovered-vector-typesetting",
+    "pages": 10,
+    "sourcePages": 13,
+    "sha256": "e2162895116bfc87b5b6e102b0167f8cee51bb77085832c00dc2d07084985371",
+    "originalSha256": "1e9a30161b46d0a44ded33090cebe94d3c4670a5fb4d17a94541d174fa0f6eca",
+    "fonts": [
+      "CMEX9",
+      "CMMI10",
+      "CMMI6",
+      "CMMI8",
+      "CMR10",
+      "CMR6",
+      "CMR8",
+      "CMSY10",
+      "CMSY8",
+      "FandolSong-Bold",
+      "FandolSong-Regular",
+      "LMRoman10-Regular",
+      "LMRoman12-Bold",
+      "MSAM10",
+      "MSBM10"
+    ]
+  },
+  {
+    "file": "16S17-16S20_16A01-16A03.pdf",
+    "originalName": "16S17～S20、16A01～A03.pdf",
+    "problemIds": [
+      "2016S17",
+      "2016S18",
+      "2016S19",
+      "2016S20",
+      "2016A01",
+      "2016A02",
+      "2016A03"
+    ],
+    "years": [
+      2016
+    ],
+    "restyled": true,
+    "sourceKind": "recovered-vector-typesetting",
+    "pages": 9,
+    "sourcePages": 9,
+    "sha256": "e554fbe95c23bc07457a1e5e39ec4fb2f89849f3191638c71a0df7c3dc9e8c08",
+    "originalSha256": "773ad0b532e47b4f007f5580261fa4b9d01e6711fc8272ba28f83a8ac32b65a7",
+    "fonts": [
+      "CMEX10",
+      "CMMI10",
+      "CMMI6",
+      "CMMI8",
+      "CMR10",
+      "CMR6",
+      "CMR8",
+      "CMSY10",
+      "CMSY8",
+      "FandolSong-Bold",
+      "FandolSong-Regular",
+      "LMRoman10-Regular",
+      "LMRoman12-Bold",
+      "MSAM10",
+      "MSBM10",
+      "MSBM7"
+    ]
+  },
+  {
+    "file": "16A04-16A10.pdf",
+    "originalName": "16A04～A10.pdf",
+    "problemIds": [
+      "2016A04",
+      "2016A05",
+      "2016A06",
+      "2016A07",
+      "2016A08",
+      "2016A09",
+      "2016A10"
+    ],
+    "years": [
+      2016
+    ],
+    "restyled": true,
+    "sourceKind": "recovered-vector-typesetting",
+    "pages": 6,
+    "sourcePages": 6,
+    "sha256": "9abef98bbacc8f9575241bae902e500e3addc2c3dc18b22006bdd1f5076b3166",
+    "originalSha256": "3bb43cba9128125aea0d30062f052d1e60b73d6f0c06d88445f9ba25cb597a39",
+    "fonts": [
+      "CMEX9",
+      "CMMI10",
+      "CMMI8",
+      "CMR10",
+      "CMR8",
+      "CMSY10",
+      "CMSY8",
+      "FandolSong-Bold",
+      "FandolSong-Regular",
+      "LMRoman10-Regular",
+      "LMRoman12-Bold",
+      "MSAM10",
+      "MSBM10",
+      "MSBM7"
+    ]
+  },
+  {
+    "file": "16A11-16A16_17S01-17S01.pdf",
+    "originalName": "16A11～16A16及17S01（重排版）.pdf",
+    "problemIds": [
+      "2016A11",
+      "2016A12",
+      "2016A13",
+      "2016A14",
+      "2016A15",
+      "2016A16",
+      "2017S01"
+    ],
+    "years": [
+      2016,
+      2017
+    ],
+    "restyled": true,
+    "sourceKind": "recovered-vector-typesetting",
+    "pages": 6,
+    "sourcePages": 6,
+    "sha256": "09dc092e674857eefeb9cf38f8c39e55cb784e05d78f6bd2f46108b7791c051c",
+    "originalSha256": "c22300fd24346289e11ea3aaf9411c095ef8c9d71b546302a6f0c6a092555b34",
+    "fonts": [
+      "CMEX9",
+      "CMMI10",
+      "CMMI6",
+      "CMMI8",
+      "CMR10",
+      "CMR8",
+      "CMSY10",
+      "CMSY8",
+      "FandolSong-Bold",
+      "FandolSong-Regular",
+      "LMRoman10-Regular",
+      "LMRoman12-Bold",
+      "MSAM10",
+      "MSBM10"
+    ]
+  },
+  {
+    "file": "17S02-17S08.pdf",
+    "originalName": "17S02～S08.pdf",
+    "problemIds": [
+      "2017S02",
+      "2017S03",
+      "2017S04",
+      "2017S05",
+      "2017S06",
+      "2017S07",
+      "2017S08"
+    ],
+    "years": [
+      2017
+    ],
+    "restyled": true,
+    "sourceKind": "recovered-vector-typesetting",
+    "pages": 8,
+    "sourcePages": 8,
+    "sha256": "a82994d321ca2d5286c314733bbf55ed114569ff7d6394602edfd7c69352925f",
+    "originalSha256": "7896d9067ff1ff82479ba8cd1f3f8b1015ee4c1a0947d248d53431f603c5952e",
+    "fonts": [
+      "CMEX9",
+      "CMMI10",
+      "CMMI8",
+      "CMR10",
+      "CMR8",
+      "CMSY10",
+      "CMSY8",
+      "FandolSong-Bold",
+      "FandolSong-Regular",
+      "LMRoman10-Regular",
+      "LMRoman12-Bold",
+      "MSAM10",
+      "MSBM10",
+      "MSBM7"
+    ]
+  },
+  {
+    "file": "17S09-17S15.pdf",
+    "originalName": "17S09～S15(1).pdf",
+    "problemIds": [
+      "2017S09",
+      "2017S10",
+      "2017S11",
+      "2017S12",
+      "2017S13",
+      "2017S14",
+      "2017S15"
+    ],
+    "years": [
+      2017
+    ],
+    "restyled": true,
+    "sourceKind": "recovered-vector-typesetting",
+    "pages": 9,
+    "sourcePages": 9,
+    "sha256": "58bb850a66c473960341028591d00a3fa5a06211b9b56c7200cc101cfe80ab05",
+    "originalSha256": "a99e8939bc07ad9af2c741ab9551f381914ac6ec40bff11150c10ac9ae8c7eb3",
+    "fonts": [
+      "CMEX9",
+      "CMMI10",
+      "CMMI6",
+      "CMMI8",
+      "CMR10",
+      "CMR6",
+      "CMR8",
+      "CMSY10",
+      "CMSY8",
+      "FandolSong-Bold",
+      "FandolSong-Regular",
+      "LMRoman10-Regular",
+      "LMRoman12-Bold",
+      "MSAM10",
+      "MSBM10"
+    ]
+  },
+  {
+    "file": "17S16-17S18_17A01-17A04.pdf",
+    "originalName": "17S16～S18、17A01～A04.pdf",
+    "problemIds": [
+      "2017S16",
+      "2017S17",
+      "2017S18",
+      "2017A01",
+      "2017A02",
+      "2017A03",
+      "2017A04"
+    ],
+    "years": [
+      2017
+    ],
+    "restyled": true,
+    "sourceKind": "recovered-vector-typesetting",
+    "pages": 6,
+    "sourcePages": 7,
+    "sha256": "6d394a7f8649ac99c0af400a14f846619fad6d918a21f1c4c9ef7e9fe10ac42a",
+    "originalSha256": "a9912aafef8f07a9a8b296471224d7903c54ba5c46e84cb00ce12805d9e1d12f",
+    "fonts": [
+      "CMEX9",
+      "CMMI10",
+      "CMMI6",
+      "CMMI8",
+      "CMR10",
+      "CMR6",
+      "CMR8",
+      "CMSY10",
+      "CMSY8",
+      "FandolSong-Bold",
+      "FandolSong-Regular",
+      "LMRoman10-Regular",
+      "LMRoman12-Bold",
+      "LMRoman8-Regular",
+      "MSAM10",
+      "MSAM7",
+      "MSBM7"
+    ]
+  },
+  {
+    "file": "17A05-17A11.pdf",
+    "originalName": "17A05～A11.pdf",
+    "problemIds": [
+      "2017A05",
+      "2017A06",
+      "2017A07",
+      "2017A08",
+      "2017A09",
+      "2017A10",
+      "2017A11"
+    ],
+    "years": [
+      2017
+    ],
+    "restyled": true,
+    "sourceKind": "recovered-vector-typesetting",
+    "pages": 11,
+    "sourcePages": 10,
+    "sha256": "605800ec5ef1da90d947e04ba5fdd6ae3cf5a0f9a0b15c39305072979003e1a1",
+    "originalSha256": "3d0b2f96771d5b3a8441de0c6fa99aacd86fc1a6a21134055160b41f05386b42",
+    "fonts": [
+      "CMEX9",
+      "CMMI10",
+      "CMMI8",
+      "CMR10",
+      "CMR8",
+      "CMSY10",
+      "CMSY8",
+      "FandolSong-Bold",
+      "FandolSong-Regular",
+      "LMRoman10-Regular",
+      "LMRoman12-Bold",
+      "MSBM10"
+    ]
+  },
+  {
+    "file": "17A12-17A16_18S01-18S02.pdf",
+    "originalName": "17A12A16、18S01S02 1.pdf",
+    "problemIds": [
+      "2017A12",
+      "2017A13",
+      "2017A14",
+      "2017A15",
+      "2017A16",
+      "2018S01",
+      "2018S02"
+    ],
+    "years": [
+      2017,
+      2018
+    ],
+    "restyled": true,
+    "sourceKind": "recovered-vector-typesetting",
+    "pages": 9,
+    "sourcePages": 9,
+    "sha256": "965ff47aa6fcafbf3501cce75501c1892f6bf6f14efc069d90376dadd5402650",
+    "originalSha256": "c90f1da8a5bf786638d734c260eb7eb889feaa35d5e5c1f419da9e7f5b81f772",
+    "fonts": [
+      "CMEX10",
+      "CMEX9",
+      "CMMI10",
+      "CMMI8",
+      "CMR10",
+      "CMR6",
+      "CMR8",
+      "CMSY10",
+      "CMSY6",
+      "CMSY8",
+      "FandolSong-Bold",
+      "FandolSong-Regular",
+      "LMRoman10-Regular",
+      "LMRoman12-Bold",
+      "LMRoman8-Regular",
+      "MSBM10"
+    ]
+  },
+  {
+    "file": "18S03-18S09.pdf",
+    "originalName": "18S03～S09.pdf",
+    "problemIds": [
+      "2018S03",
+      "2018S04",
+      "2018S05",
+      "2018S06",
+      "2018S07",
+      "2018S08",
+      "2018S09"
+    ],
+    "years": [
+      2018
+    ],
+    "restyled": true,
+    "sourceKind": "recovered-vector-typesetting",
+    "pages": 6,
+    "sourcePages": 6,
+    "sha256": "d12eb623c5f650a21363751bb6e34027aeac7493bd85f69b2108cec53d93564b",
+    "originalSha256": "b4413423dfb3b3502c90b15872048a90458218ae6159caeab43bca29763ba8df",
+    "fonts": [
+      "CMEX9",
+      "CMMI10",
+      "CMMI6",
+      "CMMI8",
+      "CMR10",
+      "CMR6",
+      "CMR8",
+      "CMSY10",
+      "CMSY6",
+      "CMSY8",
+      "FandolSong-Bold",
+      "FandolSong-Regular",
+      "LMRoman10-Regular",
+      "LMRoman12-Bold",
+      "MSBM10"
+    ]
+  },
+  {
+    "file": "18S10-18S16.pdf",
+    "originalName": "18S10～S16-重新排版.pdf",
+    "problemIds": [
+      "2018S10",
+      "2018S11",
+      "2018S12",
+      "2018S13",
+      "2018S14",
+      "2018S15",
+      "2018S16"
+    ],
+    "years": [
+      2018
+    ],
+    "restyled": true,
+    "sourceKind": "recovered-vector-typesetting",
+    "pages": 7,
+    "sourcePages": 6,
+    "sha256": "c1de3c61683fd53b2d5a6b735a37647686961c58e31540ddf18ad270a36df657",
+    "originalSha256": "83b761d6cc862b2786bc05eeef1738f561835f99878875fd97dfc0ccedd800aa",
+    "fonts": [
+      "CMEX10",
+      "CMEX9",
+      "CMMI10",
+      "CMMI8",
+      "CMR10",
+      "CMR8",
+      "CMSY10",
+      "CMSY8",
+      "FandolSong-Bold",
+      "FandolSong-Regular",
+      "LMRoman10-Regular",
+      "LMRoman12-Bold"
+    ]
+  },
+  {
+    "file": "18A01-18A07.pdf",
+    "originalName": "18A01～A07.pdf",
+    "problemIds": [
+      "2018A01",
+      "2018A02",
+      "2018A03",
+      "2018A04",
+      "2018A05",
+      "2018A06",
+      "2018A07"
+    ],
+    "years": [
+      2018
+    ],
+    "restyled": true,
+    "sourceKind": "recovered-vector-typesetting",
+    "pages": 7,
+    "sourcePages": 7,
+    "sha256": "568e1af0916884806aa524e9df78c72b2ea4cd2347c2c6336c0baba70e7687e8",
+    "originalSha256": "d6559a4859bcbd56d8b3b1d9026c8236c38f439a5d3802dc60620cf3e495fde4",
+    "fonts": [
+      "CMEX10",
+      "CMEX9",
+      "CMMI10",
+      "CMMI8",
+      "CMR10",
+      "CMR8",
+      "CMSY10",
+      "CMSY6",
+      "CMSY8",
+      "FandolSong-Bold",
+      "FandolSong-Regular",
+      "LMRoman10-Regular",
+      "LMRoman12-Bold",
+      "LMRoman8-Regular",
+      "MSBM10"
+    ]
+  },
+  {
+    "file": "18A08-18A14.pdf",
+    "originalName": "18A08～A14.pdf",
+    "problemIds": [
+      "2018A08",
+      "2018A09",
+      "2018A10",
+      "2018A11",
+      "2018A12",
+      "2018A13",
+      "2018A14"
+    ],
+    "years": [
+      2018
+    ],
+    "restyled": true,
+    "sourceKind": "recovered-vector-typesetting",
+    "pages": 7,
+    "sourcePages": 7,
+    "sha256": "da1174ed98e9f8d4a49c8b241df4350bcc973738e866551db18169aa1bcecfbf",
+    "originalSha256": "c66f1d4ea94c175c6637e00f5447e7468221e3e71dc24b4fabdddea9c4f60bbe",
+    "fonts": [
+      "CMEX10",
+      "CMEX9",
+      "CMMI10",
+      "CMMI8",
+      "CMR10",
+      "CMR8",
+      "CMSY10",
+      "CMSY8",
+      "FandolSong-Bold",
+      "FandolSong-Regular",
+      "LMRoman10-Regular",
+      "LMRoman12-Bold",
+      "LMRoman8-Regular",
+      "MSBM10"
+    ]
+  },
+  {
+    "file": "19S01-19S07.pdf",
+    "originalName": "19S01～S07.pdf",
+    "problemIds": [
+      "2019S01",
+      "2019S02",
+      "2019S03",
+      "2019S04",
+      "2019S05",
+      "2019S06",
+      "2019S07"
+    ],
+    "years": [
+      2019
+    ],
+    "restyled": true,
+    "sourceKind": "recovered-vector-typesetting",
+    "pages": 7,
+    "sourcePages": 7,
+    "sha256": "d6b91fbc182216d032e65d8bf367170faf575abe69850076c59d4e9ebb58ecb3",
+    "originalSha256": "fb0915a9f7c1a28f06e9c5d8871efb3702416fdb06df65381564378b4499be84",
+    "fonts": [
+      "CMEX10",
+      "CMMI10",
+      "CMMI6",
+      "CMMI8",
+      "CMR10",
+      "CMR6",
+      "CMR8",
+      "CMSY10",
+      "CMSY6",
+      "CMSY8",
+      "FandolSong-Bold",
+      "FandolSong-Regular",
+      "LMRoman10-Regular",
+      "LMRoman12-Bold",
+      "LMRoman8-Regular",
+      "MSBM10"
+    ]
+  },
+  {
+    "file": "19S08-19S14.pdf",
+    "originalName": "19S08～S14（标点校订版）.pdf",
+    "problemIds": [
+      "2019S08",
+      "2019S09",
+      "2019S10",
+      "2019S11",
+      "2019S12",
+      "2019S13",
+      "2019S14"
+    ],
+    "years": [
+      2019
+    ],
+    "restyled": true,
+    "sourceKind": "recovered-vector-typesetting",
+    "pages": 7,
+    "sourcePages": 7,
+    "sha256": "aed6036188aa272df52cbe8c8f79ca4807627afc551ba44b6f0041a8b8cc6c4a",
+    "originalSha256": "9040940198754bbe67f108d8e858883035520a5d21e8016040539aed6e781d95",
+    "fonts": [
+      "CMEX10",
+      "CMMI10",
+      "CMMI6",
+      "CMMI8",
+      "CMR10",
+      "CMR6",
+      "CMR8",
+      "CMSY10",
+      "CMSY8",
+      "FandolSong-Bold",
+      "FandolSong-Regular",
+      "LMRoman10-Regular",
+      "LMRoman12-Bold",
+      "MSBM10"
+    ]
+  },
+  {
+    "file": "19S15-19S15_19A01-19A06.pdf",
+    "originalName": "19S15、19A01～A06.pdf",
+    "problemIds": [
+      "2019S15",
+      "2019A01",
+      "2019A02",
+      "2019A03",
+      "2019A04",
+      "2019A05",
+      "2019A06"
+    ],
+    "years": [
+      2019
+    ],
+    "restyled": true,
+    "sourceKind": "recovered-vector-typesetting",
+    "pages": 8,
+    "sourcePages": 7,
+    "sha256": "20f0d36cf96f9c986da118da7b795cd5c6d4b06f0b73e69ab07a14798ed6f7ba",
+    "originalSha256": "c3f2ca4238a73b4c459e4afd54e14af1c516eaea0792115ca3c81223a388c8ce",
+    "fonts": [
+      "CMEX10",
+      "CMMI10",
+      "CMMI6",
+      "CMMI8",
+      "CMR10",
+      "CMR6",
+      "CMR8",
+      "CMSY10",
+      "CMSY6",
+      "CMSY8",
+      "FandolSong-Bold",
+      "FandolSong-Regular",
+      "LMRoman10-Regular",
+      "LMRoman12-Bold",
+      "MSAM10",
+      "MSBM10"
+    ]
+  },
+  {
+    "file": "19A07-19A13.pdf",
+    "originalName": "19A07～A13.pdf",
+    "problemIds": [
+      "2019A07",
+      "2019A08",
+      "2019A09",
+      "2019A10",
+      "2019A11",
+      "2019A12",
+      "2019A13"
+    ],
+    "years": [
+      2019
+    ],
+    "restyled": true,
+    "sourceKind": "recovered-vector-typesetting",
+    "pages": 8,
+    "sourcePages": 8,
+    "sha256": "a52ccd17995f897dcd696a59068bfcd9a781f79300d07086e9a047393c716695",
+    "originalSha256": "1eb48b0441b8dcd563c6a916b065a0f8f5ead84757b99038e312b6b8cbf1f9c3",
+    "fonts": [
+      "CMEX10",
+      "CMMI10",
+      "CMMI6",
+      "CMMI8",
+      "CMR10",
+      "CMR8",
+      "CMSY10",
+      "CMSY8",
+      "FandolSong-Bold",
+      "FandolSong-Regular",
+      "LMRoman10-Regular",
+      "LMRoman12-Bold",
+      "LMRoman8-Regular",
+      "MSAM10",
+      "MSBM10"
+    ]
+  },
+  {
+    "file": "19A14-19A14_20S01-20S06.pdf",
+    "originalName": "19A14、20S01～S06.pdf",
+    "problemIds": [
+      "2019A14",
+      "2020S01",
+      "2020S02",
+      "2020S03",
+      "2020S04",
+      "2020S05",
+      "2020S06"
+    ],
+    "years": [
+      2019,
+      2020
+    ],
+    "restyled": true,
+    "sourceKind": "recovered-vector-typesetting",
+    "pages": 7,
+    "sourcePages": 7,
+    "sha256": "6479515fe4d1867c818ca5e3546db09997fb59d6449a3076963f5ad9164ef24e",
+    "originalSha256": "555c8822abae2e375794e6ca0260ad84791b1cc455fd39638c1cef6438c7ddf1",
+    "fonts": [
+      "CMEX10",
+      "CMMI10",
+      "CMMI6",
+      "CMMI8",
+      "CMR10",
+      "CMR8",
+      "CMSY10",
+      "CMSY8",
+      "FandolSong-Bold",
+      "FandolSong-Regular",
+      "LMRoman10-Regular",
+      "LMRoman12-Bold",
+      "MSAM10",
+      "MSBM10"
+    ]
+  },
+  {
+    "file": "20S07-20S13.pdf",
+    "originalName": "20S07～S13.pdf",
+    "problemIds": [
+      "2020S07",
+      "2020S08",
+      "2020S09",
+      "2020S10",
+      "2020S11",
+      "2020S12",
+      "2020S13"
+    ],
+    "years": [
+      2020
+    ],
+    "restyled": true,
+    "sourceKind": "recovered-vector-typesetting",
+    "pages": 8,
+    "sourcePages": 7,
+    "sha256": "1571e4b54c6f80c32c8ab3b95186000ac87c098a01d4d820d82d3fe1fdaff3cf",
+    "originalSha256": "53f59b22f818f46242736e0c54ca5b1afa9b319d0884b8b7d886e7ca0e76bbcb",
+    "fonts": [
+      "CMEX10",
+      "CMMI10",
+      "CMMI6",
+      "CMMI8",
+      "CMR10",
+      "CMR6",
+      "CMR8",
+      "CMSY10",
+      "CMSY8",
+      "FandolSong-Bold",
+      "FandolSong-Regular",
+      "LMRoman10-Regular",
+      "LMRoman12-Bold",
+      "LMRoman8-Regular",
+      "MSAM10",
+      "MSBM10"
+    ]
+  },
+  {
+    "file": "20S14-S18_21A01-A02.pdf",
+    "originalName": "20S14～S18、21A01～A02(1).pdf",
+    "problemIds": [
+      "2020S14",
+      "2020S15",
+      "2020S16",
+      "2020S17",
+      "2020S18",
+      "2021A01",
+      "2021A02"
+    ],
+    "years": [
+      2020,
+      2021
+    ],
+    "restyled": true,
+    "sourceKind": "latex",
+    "pages": 8,
+    "sourcePages": 8,
+    "sha256": "d4aae76109340e63c08bf5754887bf8e43b445a1979f82aead9774b0c51b1c14",
+    "originalSha256": "a2bc2ca5b8508fc222b4ea7482aeeaecafd819938234f4f9a882ca9290924736",
+    "fonts": [
+      "CMBX10",
+      "CMEX10",
+      "CMMI10",
+      "CMMI8",
+      "CMR10",
+      "CMR6",
+      "CMR8",
+      "CMSS8",
+      "CMSY10",
+      "CMSY8",
+      "FandolSong-Bold",
+      "FandolSong-Regular",
+      "LMRoman10-Regular",
+      "LMRoman12-Bold",
+      "MSAM10",
+      "MSBM10"
+    ]
+  },
+  {
+    "file": "21A03-21A09.pdf",
+    "originalName": "21A03～A09.pdf",
+    "problemIds": [
+      "2021A03",
+      "2021A04",
+      "2021A05",
+      "2021A06",
+      "2021A07",
+      "2021A08",
+      "2021A09"
+    ],
+    "years": [
+      2021
+    ],
+    "restyled": true,
+    "sourceKind": "latex",
+    "pages": 7,
+    "sourcePages": 8,
+    "sha256": "cdb9569043cd629361d657e85ae593c0f70950a8378bd257a30c4a6b48523bb5",
+    "originalSha256": "e8a961c3210462532981c48e666ccca4df6cc1942db33a3d5ff62d6482b7adc0",
+    "fonts": [
+      "CMBX10",
+      "CMEX10",
+      "CMMI10",
+      "CMMI8",
+      "CMR10",
+      "CMR8",
+      "CMSS8",
+      "CMSY10",
+      "CMSY8",
+      "FandolSong-Bold",
+      "FandolSong-Regular",
+      "LMRoman10-Regular",
+      "LMRoman12-Bold",
+      "MSAM10",
+      "MSBM10"
+    ]
+  },
+  {
+    "file": "21A10-21A15_22S01-22S01.pdf",
+    "originalName": "21A10-A15_22S01(1).pdf",
+    "problemIds": [
+      "2021A10",
+      "2021A11",
+      "2021A12",
+      "2021A13",
+      "2021A14",
+      "2021A15",
+      "2022S01"
+    ],
+    "years": [
+      2021,
+      2022
+    ],
+    "restyled": true,
+    "sourceKind": "recovered-vector-typesetting",
+    "pages": 8,
+    "sourcePages": 8,
+    "sha256": "b74b36253277d3538686dab192725f819a98df32f3b6c579148e70465306e0a3",
+    "originalSha256": "e6d1eb8846faa67f179aefd4afeac322ccfe9b365379d7562964bb69a5ea54e6",
+    "fonts": [
+      "CMEX10",
+      "CMMI10",
+      "CMMI6",
+      "CMMI8",
+      "CMR10",
+      "CMR6",
+      "CMR8",
+      "CMSY10",
+      "CMSY8",
+      "FandolSong-Bold",
+      "FandolSong-Regular",
+      "LMRoman10-Regular",
+      "LMRoman12-Bold",
+      "MSAM10",
+      "MSBM10"
+    ]
+  },
+  {
+    "file": "22S02-22S08.pdf",
+    "originalName": "22S02-S08.pdf",
+    "problemIds": [
+      "2022S02",
+      "2022S03",
+      "2022S04",
+      "2022S05",
+      "2022S06",
+      "2022S07",
+      "2022S08"
+    ],
+    "years": [
+      2022
+    ],
+    "restyled": true,
+    "sourceKind": "recovered-vector-typesetting",
+    "pages": 7,
+    "sourcePages": 7,
+    "sha256": "053b73637b9f1d43d4cc5f0d0e5acfa40e1bab7403d3771063eba70c2ec0de0c",
+    "originalSha256": "d81db2f3db8b3a88463738c515282884449bf0381fca518d3a87e2efc50e0269",
+    "fonts": [
+      "CMEX10",
+      "CMMI10",
+      "CMMI8",
+      "CMR10",
+      "CMR8",
+      "CMSY10",
+      "CMSY8",
+      "FandolSong-Bold",
+      "FandolSong-Regular",
+      "LMRoman10-Regular",
+      "LMRoman12-Bold",
+      "MSAM10",
+      "MSBM10"
+    ]
+  },
+  {
+    "file": "22S09-22S15.pdf",
+    "originalName": "22S09-S15.pdf",
+    "problemIds": [
+      "2022S09",
+      "2022S10",
+      "2022S11",
+      "2022S12",
+      "2022S13",
+      "2022S14",
+      "2022S15"
+    ],
+    "years": [
+      2022
+    ],
+    "restyled": true,
+    "sourceKind": "recovered-vector-typesetting",
+    "pages": 8,
+    "sourcePages": 7,
+    "sha256": "695638f9d18140cd5828b227ac5a9d7e9531249137c0a6a0edee2eeb1c0d43c7",
+    "originalSha256": "5e16a2077765578f8db22157ab50bff6327dfa290a28d225e39394d5fa73a0c3",
+    "fonts": [
+      "CMEX10",
+      "CMMI10",
+      "CMMI8",
+      "CMR10",
+      "CMR6",
+      "CMR8",
+      "CMSY10",
+      "CMSY8",
+      "FandolSong-Bold",
+      "FandolSong-Regular",
+      "LMRoman10-Regular",
+      "LMRoman12-Bold",
+      "LMRoman8-Regular",
+      "MSAM10",
+      "MSBM10"
+    ]
+  },
+  {
+    "file": "22S16-22S18_22A01-22A04.pdf",
+    "originalName": "22S16-S18_22A01-A04.pdf",
+    "problemIds": [
+      "2022S16",
+      "2022S17",
+      "2022S18",
+      "2022A01",
+      "2022A02",
+      "2022A03",
+      "2022A04"
+    ],
+    "years": [
+      2022
+    ],
+    "restyled": true,
+    "sourceKind": "recovered-vector-typesetting",
+    "pages": 8,
+    "sourcePages": 8,
+    "sha256": "60337f2706b3c5f78921fb78ff20cdb6c01689c832ff8f92a883945efee60814",
+    "originalSha256": "dd417529de9703c8c41643d8df26fde593bfc6e945cc0f923f55e65c30da758b",
+    "fonts": [
+      "CMEX10",
+      "CMEX8",
+      "CMMI10",
+      "CMMI6",
+      "CMMI8",
+      "CMR10",
+      "CMR6",
+      "CMR8",
+      "CMSY10",
+      "CMSY8",
+      "FandolSong-Bold",
+      "FandolSong-Regular",
+      "LMRoman10-Regular",
+      "LMRoman12-Bold",
+      "LMRoman8-Regular",
+      "MSAM10",
+      "MSBM10"
+    ]
+  },
+  {
+    "file": "22A05-22A11.pdf",
+    "originalName": "22A05-A11.pdf",
+    "problemIds": [
+      "2022A05",
+      "2022A06",
+      "2022A07",
+      "2022A08",
+      "2022A09",
+      "2022A10",
+      "2022A11"
+    ],
+    "years": [
+      2022
+    ],
+    "restyled": true,
+    "sourceKind": "recovered-vector-typesetting",
+    "pages": 7,
+    "sourcePages": 7,
+    "sha256": "265a2c97102aa1bd35ea859bd3533bcac45c0a9ea949383b02a64df41b705b30",
+    "originalSha256": "9cac67266b4798d36d641832c1314e02d2a67943ab9a9777b735c9be63fb2e1b",
+    "fonts": [
+      "CMEX10",
+      "CMMI10",
+      "CMMI6",
+      "CMMI8",
+      "CMR10",
+      "CMR8",
+      "CMSY10",
+      "CMSY8",
+      "FandolSong-Bold",
+      "FandolSong-Regular",
+      "LMRoman10-Regular",
+      "LMRoman12-Bold",
+      "LMRoman8-Regular",
+      "MSAM10",
+      "MSBM10"
+    ]
+  }
+]

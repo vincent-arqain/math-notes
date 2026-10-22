@@ -1,0 +1,435 @@
+% Recovered from the previously completed PDF; no new mathematical content.
+% Prose is editable; formula boxes retain original symbol positions.
+% Build from repository root: xelatex -no-shell-escape -halt-on-error -output-directory=... print/fudan/NAME.tex
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=23mm,headheight=14pt,headsep=8.5mm,footskip=10mm]{geometry}
+\usepackage{amsmath,amssymb}
+\DeclareMathAlphabet{\mathsf}{OT1}{cmss}{m}{n}
+\usepackage[no-math]{fontspec}
+\usepackage{xeCJK}
+\setmainfont{Latin Modern Roman}
+\setCJKmainfont{FandolSong-Regular.otf}[Path=assets/fonts/fandol/,BoldFont=FandolSong-Bold.otf,ItalicFont=FandolSong-Regular.otf,Script=CustomDefault]
+\xeCJKsetup{PunctStyle=quanjiao,CheckSingle=true}
+\usepackage{setspace}\setstretch{1.12}
+\setlength{\parindent}{2em}\setlength{\parskip}{3pt}
+\emergencystretch=6em
+\hfuzz=9pt
+\usepackage{titlesec}
+\titleformat{\section}{\centering\normalfont\Large\bfseries}{}{0pt}{}
+\titlespacing*{\section}{0pt}{1.8\baselineskip}{1.0\baselineskip}
+\usepackage{fancyhdr}\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small 数学手记·高等代数}\fancyhead[R]{\small 20S14–20S18、21A01–21A02}
+\fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0.4pt}
+\usepackage[hidelinks,unicode]{hyperref}
+\hypersetup{pdftitle={20S14–20S18、21A01–21A02：题目、解答与小结},pdfauthor={Vincent Arqain}}
+\newcommand{\RB}[4]{\raisebox{0pt}[#2bp][#3bp]{\hbox to #1bp{#4\hss}}}
+\newcommand{\RG}[5]{\hbox to 0pt{\kern#1bp\raisebox{#2bp}[0pt][0pt]{\fontsize{#3bp}{#3bp}\csname font#4\endcsname\char#5}\hss}}
+\newcommand{\RT}[4]{\hbox to 0pt{\kern#1bp\raisebox{#2bp}[0pt][0pt]{\fontsize{#3bp}{#3bp}\selectfont#4}\hss}}
+\newcommand{\RS}[4]{\hbox to 0pt{\kern#1bp\raisebox{#2bp}[0pt][0pt]{\fontsize{#3bp}{#3bp}\selectfont\ensuremath{#4}}\hss}}
+\newcommand{\RR}[4]{\hbox to 0pt{\kern#1bp\raisebox{#2bp}[0pt][0pt]{\rule{#3bp}{#4bp}}\hss}}
+\newcommand{\fontmi}{\usefont{OML}{cmm}{m}{it}}
+\newcommand{\fontsy}{\usefont{OMS}{cmsy}{m}{n}}
+\newcommand{\fontex}{\usefont{OMX}{cmex}{m}{n}}
+\newcommand{\fontrm}{\usefont{OT1}{cmr}{m}{n}}
+\newcommand{\fontbf}{\usefont{OT1}{cmr}{bx}{n}}
+\newcommand{\fontam}{\usefont{U}{msa}{m}{n}}
+\newcommand{\fontbb}{\usefont{U}{msb}{m}{n}}
+\widowpenalty=10000\clubpenalty=10000\raggedbottom
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\adj}{adj}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Imop}{Im}
+\newcounter{fudanquestion}
+\newcommand{\question}[1]{\stepcounter{fudanquestion}\section*{#1}}
+\newcommand{\sol}{\par\noindent 解：\ }
+\newcommand{\method}{\par\noindent 方法提炼：\ }
+\newcommand{\sourcepage}[1]{\par\noindent{\small 题目来源：谢启鸿《复旦大学高等代数习题集（2023 版）》，第 #1 页。}}
+\newcommand{\proofend}{\hfill$\square$\par}
+\newcommand{\id}{I_n}
+
+\begin{document}
+\begin{center}{\LARGE\bfseries 20S14–20S18、21A01–21A02\par}\vspace{8pt}复旦大学高等代数习题集·题目与解答\end{center}
+
+
+\question{2020S14}
+\noindent 设 $n$ 元实二次型
+\[
+  f(x_1,\ldots,x_n)=\sum_{i,j=1}^{n}\max\{i,j\}\,x_i x_j.
+\]
+求此二次型的规范标准型。
+
+\sol 记 $s=\sum_{i=1}^{n}x_i$。本题的关键是将系数 $\max\{i,j\}$ 改写为与部分和有关的表达式。对任意 $1\leq i,j\leq n$，有
+\[
+\max\{i,j\}=n-\sum_{k=1}^{n-1}
+ \mathbf 1_{\{i\leq k\}}\mathbf 1_{\{j\leq k\}},
+\]
+其中 $\mathbf 1_E$ 表示事件 $E$ 的示性函数。事实上，上式求和项为满足 $k\geq\max\{i,j\}$ 的整数 $k\in\{1,\ldots,n-1\}$ 的个数，恰好等于 $n-\max\{i,j\}$。
+
+因此，交换有限求和的次序后，
+\begin{align*}
+ f(x_1,\ldots,x_n)
+ &=n\Bigl(\sum_{i=1}^{n}x_i\Bigr)^2
+   -\sum_{k=1}^{n-1}
+    \sum_{i,j=1}^{k}x_i x_j\\
+ &=n\Bigl(\sum_{i=1}^{n}x_i\Bigr)^2
+   -\sum_{k=1}^{n-1}\Bigl(\sum_{i=1}^{k}x_i\Bigr)^2.
+\end{align*}
+作可逆线性换元
+\[
+ y_k=x_1+\cdots+x_k\quad(1\leq k\leq n),
+ \qquad x_1=y_1,\quad x_k=y_k-y_{k-1}\ (k\geq2).
+\]
+便得到合同对角形式
+\[
+ f=n y_n^2-y_1^2-y_2^2-\cdots-y_{n-1}^2.
+\]
+再令 $z_n=\sqrt n\,y_n$，$z_k=y_k$（$1\leq k\leq n-1$），可得规范标准型
+\[
+ {\ f=z_n^2-z_1^2-\cdots-z_{n-1}^2\ }.
+\]
+因此，该二次型的正惯性指数为 $1$，负惯性指数为 $n-1$，秩为 $n$。特别地，相应对称矩阵
+$M=(\max\{i,j\})_{n\times n}$ 满足
+\[
+ \det M=(-1)^{n-1}n.
+\]
+这是因为 $x\mapsto y$ 的变换矩阵是行列式为 $1$ 的下三角阵。
+\proofend
+\method 对“最大值”型矩阵，可用{前缀和换元}。恒等式
+$\max\{i,j\}=n-(n-\max\{i,j\})$ 把原二次型化为一个正平方项与 $n-1$ 个负平方项之和，无须计算特征值。
+\sourcepage{94}
+
+\question{2020S15}
+\noindent 设 $M$ 为 $n$ 阶实方阵。若对任意 $x\in\mathbb R^n$，均有
+\(x^{\mathsf T}Mx\geq0\)，则称 $M$ 为{亚半正定阵}。
+
+\par\smallskip\noindent{(1)} 证明下列条件等价：$M$ 为亚半正定阵；$M+M^{\mathsf T}$ 为半正定阵；存在半正定实对称阵 $H$ 及实反对称阵 $S$，使得 $M=H+S$。
+
+\par\smallskip\noindent{(2)} 设 $A,B$ 为亚半正定阵，$c\geq0$。证明：
+\par\noindent\quad (2.1) $A+B$、$cA$、$A^{\mathsf T}$ 和伴随阵 $A^*$ 都是亚半正定阵；
+\par\noindent\quad (2.2) 对任意实方阵 $C$，$C^{\mathsf T}AC$ 也是亚半正定阵；
+\par\noindent\quad (2.3) 若 $C$ 为亚正定阵，则 $A+C$ 也是亚正定阵；
+\par\noindent\quad (2.4) $A$ 的所有特征值的实部均非负，且 $\det A\geq0$；
+\par\noindent\quad (2.5) 举例说明：非异亚半正定阵不一定是亚正定阵。
+
+\sol{(1)} 对任意实列向量 $x$，标量 $x^{\mathsf T}Mx$ 等于其转置，故
+\[
+ x^{\mathsf T}Mx=x^{\mathsf T}M^{\mathsf T}x
+   =\frac12 x^{\mathsf T}(M+M^{\mathsf T})x.
+\]
+于是 $M$ 亚半正定当且仅当对称阵 $M+M^{\mathsf T}$ 半正定。另一方面，任意实方阵都有唯一分解
+\[
+ M=\underbrace{\frac{M+M^{\mathsf T}}2}_{H}
+   +\underbrace{\frac{M-M^{\mathsf T}}2}_{S},
+ \qquad H^{\mathsf T}=H,\quad S^{\mathsf T}=-S.
+\]
+由于 $x^{\mathsf T}Sx=0$，故 $M$ 亚半正定当且仅当 $H$ 半正定，三个条件因而等价。
+
+\par\smallskip\noindent{(2.1) 前三类矩阵。} 对任意 $x\in\mathbb R^n$，由已知条件直接得到
+\[
+\begin{aligned}
+ x^{\mathsf T}(A+B)x&=x^{\mathsf T}Ax+x^{\mathsf T}Bx\geq0,\\
+ x^{\mathsf T}(cA)x&=c\,x^{\mathsf T}Ax\geq0,\\
+ x^{\mathsf T}A^{\mathsf T}x&=x^{\mathsf T}Ax\geq0.
+\end{aligned}
+\]
+因此三者均亚半正定。关于伴随阵 $A^*$ 的断言稍后由谱性质及摄动法证明。
+
+\par\smallskip\noindent{(2.2)} 对任意 $x\in\mathbb R^n$，有
+\[
+ x^{\mathsf T}(C^{\mathsf T}AC)x
+  =(Cx)^{\mathsf T}A(Cx)\geq0.
+\]
+故 $C^{\mathsf T}AC$ 亚半正定；这里不要求 $C$ 可逆。
+
+\par\smallskip\noindent{(2.3)} 由亚正定阵的定义，对任何 $x\neq0$，有
+\[
+ x^{\mathsf T}(A+C)x=x^{\mathsf T}Ax+x^{\mathsf T}Cx
+  \geq x^{\mathsf T}Cx>0.
+\]
+因此 $A+C$ 亚正定。
+
+\par\smallskip\noindent{(2.4)} 设 $Av=\lambda v$，其中 $0\neq v\in\mathbb C^n$。由 (1) 知 $H=(A+A^{\mathsf T})/2$ 半正定，因此
+\[
+ 2\operatorname{Re}\lambda\,\lVert v\rVert_2^2
+ =v^*(A+A^{\mathsf T})v
+ =2v^*Hv\geq0.
+\]
+此处 $v^*$ 表示共轭转置。因此 $\operatorname{Re}\lambda\geq0$。由于 $A$ 是实矩阵，非实特征值成共轭对出现，每一对的乘积为 $|\lambda|^2\geq0$；其余实特征值均非负。于是所有特征值之积满足
+\[
+ {\det A\geq0}.
+\]
+此外，若 $A$ 亚正定，则上面的不等号严格成立，从而每个特征值的实部都严格为正，特别有 $\det A>0$。
+
+\par\smallskip\noindent{(2.1) 伴随阵。} 此处按原书记号，$A^*=\adj(A)$ 表示{经典伴随矩阵}，并非共轭转置。取任意 $\varepsilon>0$，令
+\[
+ A_\varepsilon=A+\varepsilon I_n.
+\]
+由 (2.3)，$A_\varepsilon$ 亚正定，因而由刚证得的谱性质，$\det A_\varepsilon>0$ 且 $A_\varepsilon$ 可逆。对任意 $x\neq0$，令 $y=A_\varepsilon^{-1}x\neq0$，则
+\[
+ x^{\mathsf T}A_\varepsilon^{-1}x
+ =(A_\varepsilon y)^{\mathsf T}y
+ =y^{\mathsf T}A_\varepsilon y>0.
+\]
+故 $A_\varepsilon^{-1}$ 亚正定，进而
+\[
+ x^{\mathsf T}\adj(A_\varepsilon)x
+ =\det(A_\varepsilon)\,x^{\mathsf T}A_\varepsilon^{-1}x\geq0.
+\]
+伴随阵各元素是矩阵元素的多项式，所以 $\adj(A_\varepsilon)\to\adj(A)$。令 $\varepsilon\downarrow0$，得到
+\[
+ x^{\mathsf T}A^*x\geq0\qquad(x\in\mathbb R^n),
+\]
+即 $A^*$ 也是亚半正定阵。
+
+\par\smallskip\noindent{(2.5)} 取二阶实反对称阵
+\[
+ A=\begin{pmatrix}0&-1\\1&0\end{pmatrix}.
+\]
+此时 $\det A=1$，故 $A$ 非异；但对任意 $x\in\mathbb R^2$，恒有 $x^{\mathsf T}Ax=0$。因此 $A$ 亚半正定，却不是亚正定阵。
+\proofend
+\method 所有结论统一于{对称部分} $H=(A+A^{\mathsf T})/2$；谱的实部由 $v^*Hv$ 控制。非异情形的伴随阵用 $\adj(A)=\det(A)A^{-1}$ 处理，奇异情形再借 $A+\varepsilon I_n$ 的摄动取极限。
+\sourcepage{94}
+
+\question{2020S16}
+\noindent 设 $a>0$。证明下列 $n$ 阶实对称矩阵正定：
+\[
+ A=\begin{pmatrix}
+ a & \dfrac{a^2}{2} & \cdots & \dfrac{a^n}{n}\\[4pt]
+ \dfrac{a^2}{2} & \dfrac{a^3}{3} & \cdots & \dfrac{a^{n+1}}{n+1}\\
+ \vdots & \vdots & \ddots & \vdots\\
+ \dfrac{a^n}{n} & \dfrac{a^{n+1}}{n+1} & \cdots & \dfrac{a^{2n-1}}{2n-1}
+ \end{pmatrix}.
+\]
+
+\sol 观察到 $A$ 的第 $(i,j)$ 个元素为
+\[
+ a_{ij}=\frac{a^{i+j-1}}{i+j-1}
+         =\int_0^a t^{i+j-2}\,\mathrm dt
+         \qquad(1\leq i,j\leq n).
+\]
+任取非零实列向量 $x=(x_1,\ldots,x_n)^{\mathsf T}$，令
+\[
+ p(t)=x_1+x_2t+\cdots+x_nt^{n-1}.
+\]
+那么，利用有限求和与积分的交换，
+\begin{align*}
+ x^{\mathsf T}Ax
+ &=\sum_{i,j=1}^{n}x_i a_{ij}x_j
+  =\sum_{i,j=1}^{n}x_ix_j\int_0^a t^{i+j-2}\,\mathrm dt\\
+ &=\int_0^a\left(\sum_{i=1}^{n}x_i t^{i-1}\right)^2\mathrm dt
+  =\int_0^a p(t)^2\,\mathrm dt.
+\end{align*}
+由于 $x\neq0$，$p$ 是非零多项式。非零多项式不可能在整个区间 $[0,a]$ 上恒为零；又 $p(t)^2$ 连续且非负，因此
+\[
+ \int_0^a p(t)^2\,\mathrm dt>0.
+\]
+故对任意 $x\neq0$ 都有 $x^{\mathsf T}Ax>0$，即 $A$ 是正定实对称阵。
+\proofend
+
+\method $A$ 实际上是 $L^2[0,a]$ 中线性无关函数组 $1,t,\ldots,t^{n-1}$ 的{Gram 矩阵}。对矩阵元素形如 $\int\!\phi_i(t)\phi_j(t)\,\mathrm dt$ 的题目，优先把二次型写成一个平方积分；正定性便转化为函数组的线性无关性。
+
+\noindent{补充。} 令 $H_n=(1/(i+j-1))_{n\times n}$，$D=\diag(a^{1/2},a^{3/2},\ldots,a^{n-1/2})$，则
+\[
+ A=DH_nD,\qquad \det A=a^{n^2}\det H_n>0.
+\]
+这说明本题是 Hilbert 矩阵正定性的一个带尺度参数的版本。
+\sourcepage{95}
+
+\question{2020S17}
+\noindent 设 $V$ 为区间 $[-1,1]$ 上次数不超过 $3$ 的实系数多项式构成的线性空间，内积定义为
+$\langle f,h\rangle=\int_{-1}^{1}f(x)h(x)\,\mathrm dx$。求
+\[
+ \min_{f\in V}\int_{-1}^{1}\bigl(\sin(\pi x)-f(x)\bigr)^2\,\mathrm dx.
+\]
+
+\sol 令 $g(x)=\sin(\pi x)$。所求即 $g$ 到有限维内积子空间 $V$ 的{最佳平方逼近}。由于 $g$ 是奇函数，且奇函数与偶函数在对称区间上的内积为零，故只需考虑 $V$ 的奇多项式部分 $L(x,x^3)$。
+
+该二维空间的一组标准正交基是归一化的 Legendre 多项式
+\[
+ w_1(x)=\sqrt{\frac32}\,x,\qquad
+ w_3(x)=\sqrt{\frac78}\,(5x^3-3x).
+\]
+由分部积分可得
+\[
+ \int_{-1}^{1}x\sin(\pi x)\,\mathrm dx=\frac2\pi,
+ \qquad
+ \int_{-1}^{1}x^3\sin(\pi x)\,\mathrm dx
+ =\frac2\pi-\frac{12}{\pi^3}.
+\]
+因此，$g$ 在这两个正交方向上的投影系数分别为
+\[
+\begin{aligned}
+ \langle g,w_1\rangle&=\sqrt{\frac32}\cdot\frac2\pi
+     =\frac{\sqrt6}\pi,\\
+ \langle g,w_3\rangle&=\sqrt{\frac78}\left[5\left(\frac2\pi-\frac{12}{\pi^3}\right)-\frac6\pi\right]
+     =\frac{\sqrt{14}(\pi^2-15)}{\pi^3}.
+\end{aligned}
+\]
+由正交投影定理，唯一的最佳逼近多项式为
+\begin{align*}
+ f_*(x)&=\langle g,w_1\rangle w_1(x)
+       +\langle g,w_3\rangle w_3(x)\\
+ &=\frac{15(21-\pi^2)}{2\pi^3}x
+   +\frac{35(\pi^2-15)}{2\pi^3}x^3.
+\end{align*}
+同时，$\lVert g\rVert^2=\int_{-1}^{1}\sin^2(\pi x)\,\mathrm dx=1$。利用勾股恒等式，得到
+\begin{align*}
+ \min_{f\in V}\lVert g-f\rVert^2
+ &=\lVert g\rVert^2-|\langle g,w_1\rangle|^2
+                         -|\langle g,w_3\rangle|^2\\
+ &={\ 1-\frac6{\pi^2}-\frac{14(\pi^2-15)^2}{\pi^6}\ }\\
+ &\approx0.00878023323873.
+\end{align*}
+等号当且仅当 $f=f_*$ 时成立，故上式就是所求最小值。
+\proofend
+\method 本题的核心是{正交投影与奇偶性}。先把四维多项式空间缩减为二维奇多项式空间，再用正交 Legendre 基计算两个内积；这样避免了对四个待定系数建立正规方程。
+\sourcepage{95}
+
+\question{2020S18}
+\noindent 设 $Q$ 为 $n$ 阶实正交矩阵，且 $1$ 不是 $Q$ 的特征值。设
+\[
+ P=I_n-2uu^{\mathsf T},\qquad u\in\mathbb R^n,\quad u^{\mathsf T}u=1.
+\]
+证明：$1$ 是 $PQ$ 的特征值。
+
+\sol 因 $1$ 不是 $Q$ 的特征值，$I_n-Q$ 可逆。构造非零列向量
+\[
+ v=(I_n-Q)^{-1}u.
+\]
+于是
+\[
+ (I_n-Q)v=u,\qquad Qv=v-u.
+\]
+利用 $Q$ 的正交性，得到 $\lVert Qv\rVert_2=\lVert v\rVert_2$，故
+\[
+ \lVert v-u\rVert_2^2=\lVert v\rVert_2^2.
+\]
+展开左端，结合 $u^{\mathsf T}u=1$，有
+\[
+ \lVert v\rVert_2^2-2u^{\mathsf T}v+1
+   =\lVert v\rVert_2^2,
+ \qquad\text{从而}\quad u^{\mathsf T}v=\frac12.
+\]
+因此
+\[
+ u^{\mathsf T}Qv
+ =u^{\mathsf T}(v-u)
+ =\frac12-1=-\frac12.
+\]
+最后直接计算：
+\begin{align*}
+ PQv&=(I_n-2uu^{\mathsf T})Qv\\
+    &=Qv-2u(u^{\mathsf T}Qv)\\
+    &=(v-u)-2u\left(-\frac12\right)=v.
+\end{align*}
+由于 $u\neq0$ 且 $I_n-Q$ 可逆，故 $v=(I_n-Q)^{-1}u\neq0$。这样便构造出了 $PQ$ 的属于特征值 $1$ 的非零特征向量，结论得证。
+\proofend
+\method 反射矩阵 $P=I_n-2uu^{\mathsf T}$ 只沿 $u$ 的方向改变向量。由 $I_n-Q$ 可逆，主动寻找满足 $(I_n-Q)v=u$ 的向量，再利用 $\|Qv\|=\|v\|$，即可得到 $PQv=v$；这比直接展开 $\det(I_n-PQ)$ 更直观。
+\sourcepage{95}
+
+\question{2021A01}
+\noindent 求下列 $n$ 阶行列式的值：
+\[
+ D_n=\begin{vmatrix}
+ 1&a&a^2&\cdots&a^{n-1}\\
+ a&1&a&\cdots&a^{n-2}\\
+ a^2&a&1&\cdots&a^{n-3}\\
+ \vdots&\vdots&\vdots&\ddots&\vdots\\
+ a^{n-1}&a^{n-2}&a^{n-3}&\cdots&1
+ \end{vmatrix}.
+\]
+
+\sol 设 $A=(a^{|i-j|})_{1\leq i,j\leq n}$。对行列式依次施行初等行变换
+\[
+ R_i\longleftarrow R_i-aR_{i-1},
+ \qquad i=n,n-1,\ldots,2.
+\]
+这里必须{从下往上}操作，以保证每一步用到的 $R_{i-1}$ 仍是原来的行。记变换后的第 $(i,j)$ 个元素为 $b_{ij}$。当 $i\geq2$ 时，
+\[
+ b_{ij}=a^{|i-j|}-a\,a^{|i-1-j|}
+ =\begin{cases}
+ 0,&j<i,\\[2pt]
+ 1-a^2,&j=i,\\[2pt]
+ (1-a^2)a^{j-i},&j>i.
+ \end{cases}
+\]
+第一行不变。因此，所得矩阵为上三角阵，主对角元依次为
+\[
+ 1,\quad 1-a^2,\quad\ldots,\quad1-a^2.
+\]
+第三类初等行变换不改变行列式的值，故
+\[
+ {\ D_n=(1-a^2)^{n-1}\ }.
+\]
+当 $n=1$ 时公式也成立；当 $a=\pm1$ 且 $n\geq2$ 时，行列式确为零。
+\proofend
+\method 本题属于{等比型对称 Toeplitz 行列式}。沿相邻两行作 $R_i-aR_{i-1}$，并注意自下而上的操作次序，可一次消去主对角线以下全部元素。对于实数 $a$ 且 $n\geq2$，还可由各阶顺序主子式立即判断：该矩阵正定当且仅当 $|a|<1$。
+\sourcepage{107}
+
+\question{2021A02}
+\noindent 设 $n\geq2$，求行列式
+\[
+ D=\begin{vmatrix}
+ 1&x_1&\cdots&x_1^{n-2}&(x_2+\cdots+x_n)^n\\
+ 1&x_2&\cdots&x_2^{n-2}&(x_1+x_3+\cdots+x_n)^n\\
+ \vdots&\vdots&\ddots&\vdots&\vdots\\
+ 1&x_n&\cdots&x_n^{n-2}&(x_1+\cdots+x_{n-1})^n
+ \end{vmatrix}.
+\]
+
+\sol 记
+\[
+ s=x_1+\cdots+x_n,\qquad
+ \Delta=\prod_{1\leq i<j\leq n}(x_j-x_i).
+\]
+原行列式第 $i$ 行末项为 $(s-x_i)^n$。由二项式定理，
+\[
+ (s-x_i)^n
+ =\sum_{k=0}^{n}(-1)^k\binom nk s^{n-k}x_i^k.
+\]
+由于原行列式的前 $n-1$ 列依次是 $1,x_i,\ldots,x_i^{n-2}$，可用这些列消去最后一列中所有 $x_i^k$（$0\leq k\leq n-2$）的项，而行列式不变。故
+\[
+ D=(-1)^{n-1}ns\,\Delta+(-1)^n E,
+\]
+其中
+\[
+ E=\det\begin{pmatrix}
+ 1&x_1&\cdots&x_1^{n-2}&x_1^n\\
+ 1&x_2&\cdots&x_2^{n-2}&x_2^n\\
+ \vdots&\vdots&\ddots&\vdots&\vdots\\
+ 1&x_n&\cdots&x_n^{n-2}&x_n^n
+ \end{pmatrix}.
+\]
+为了计算 $E$，考虑首一多项式
+\[
+ p(t)=\prod_{j=1}^{n}(t-x_j)
+     =t^n-st^{n-1}+q(t),\qquad\deg q\leq n-2.
+\]
+将 $t=x_i$ 代入 $p(t)=0$，便有
+\[
+ x_i^n=sx_i^{n-1}-q(x_i)\qquad(1\leq i\leq n).
+\]
+因此 $E$ 的最后一列可替换成 $sx_i^{n-1}$，因为 $q(x_i)$ 对应的列是前 $n-1$ 列的线性组合。根据 Vandermonde 行列式公式，
+\[
+ E=s\det(x_i^{j-1})_{1\leq i,j\leq n}=s\Delta.
+\]
+代回原式，得到
+\begin{align*}
+ D&=(-1)^{n-1}ns\Delta+(-1)^ns\Delta\\
+  &=(-1)^{n-1}(n-1)s\Delta.
+\end{align*}
+即
+\[
+ {\ D=(-1)^{n-1}(n-1)
+ \left(\sum_{i=1}^{n}x_i\right)
+ \prod_{1\leq i<j\leq n}(x_j-x_i)\ }.
+\]
+上述推导完全是多项式恒等式，因此即使若干 $x_i$ 相同，结论仍然成立。
+\proofend
+\method 对于{Vandermonde 型行列式}，先利用已有的 $1,x,\ldots,x^{n-2}$ 列把高次多项式削减成两项。剩余的 $x^n$ 列利用根多项式 $\prod(t-x_i)$ 降为 $s x^{n-1}$，可避免繁琐的行列式展开。
+\sourcepage{107}
+
+
+\end{document}

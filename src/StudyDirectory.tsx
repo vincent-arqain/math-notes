@@ -23,7 +23,7 @@ export function StudyDirectory({items}:{items:PublicEntry[]}) {
       </section>
       <section className="study-room" aria-labelledby="problems-heading">
         <div className="room-heading"><span className="room-number" aria-hidden="true">02</span><h2 id="problems-heading"><a href="/problems/">题库与作答</a></h2></div>
-        <nav className="directory-links" aria-label="题库入口"><a href="/problems/"><span>全部题目与解答</span><span aria-hidden="true">↗</span></a><a href="/problems/#problem-index"><span>按题号查找</span><span aria-hidden="true">↗</span></a></nav>
+        <nav className="directory-links" aria-label="题库入口"><a href="/problems/#problem-years"><span>按年份阅读 PDF</span><span aria-hidden="true">↗</span></a><a href="/problems/#problem-index"><span>按题号查找</span><span aria-hidden="true">↗</span></a><a href="/problems/"><span>全部题目与解答</span><span aria-hidden="true">↗</span></a></nav>
         {selected.problems.length>0&&<div className="room-topics"><h3>近期专题</h3>{selected.problems.map(entry=><a key={entry.id} href={entryUrl(entry)+'/'}>{entry.title}</a>)}</div>}
         <a className="room-more" href="/problems/">进入题库 <span aria-hidden="true">→</span></a>
       </section>
