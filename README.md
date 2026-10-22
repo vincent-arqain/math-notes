@@ -143,7 +143,7 @@ npm run preview
 
 ## 字体与内容
 
-保留纯白阅读背景。屏幕与打印中文统一使用 Fandol Song 的真实常规体与粗体，英文采用 Times New Roman 风格（本机 Times New Roman 或随站 Liberation Serif，含独立粗体和斜体）。这是常见试卷与论文风格的排版选择，不宣称为考试机构指定字体。可见数学公式由 XeLaTeX 使用原版 Computer Modern / AMS 字体排版，转换为矢量 SVG；KaTeX 仅提供辅助阅读的 MathML。正文与公式不使用描边、阴影或人工加粗。
+保留纯白阅读背景。屏幕与打印中文统一使用 Fandol Song 的真实常规体与粗体，英文采用 Times New Roman 风格（本机 Times New Roman 或随站 Liberation Serif，含独立粗体和斜体）。这是常见试卷与论文风格的排版选择，不宣称为考试机构指定字体。可见数学公式由 XeLaTeX 使用原版 Computer Modern / AMS 字体排版，转换为矢量 SVG；KaTeX 仅提供辅助阅读的 MathML。屏幕文字增加 0.15 px 的轻微笔画厚度，以改善偏瘦的观感；数学公式和打印版仍使用原始字形，不增加描边或阴影。
 
 旧 Noto Serif SC 资源保留在仓库中，但网页不再加载。Liberation Serif 2.1.5 使用原始 TTF，许可与来源见 `public/fonts/liberation-serif/`。
 

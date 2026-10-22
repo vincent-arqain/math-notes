@@ -123,6 +123,12 @@
 @media(max-width:360px){.site-header nav{gap:10px;font-size:15px}.english-directory,.english-primary{column-gap:10px}.english-directory>a,.english-primary>a{font-size:17px}.category-number{display:none}}
 
 
+/* A small screen-only increase in stroke weight keeps the existing font faces. */
+@media screen{
+  body{-webkit-text-stroke:.15px currentColor}
+  .katex{-webkit-text-stroke:0}
+}
+
 @media print{
   :root{--serif:"Study Times","Fandol Song",serif}
   html{scroll-behavior:auto}
