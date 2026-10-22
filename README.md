@@ -101,7 +101,7 @@ $$
 
 `/math/` 是数学总览，按讲义、题库、论文、文章排列。原有 `notes/`、`problems/`、`papers/`、`essays/` 阅读地址不变；书架与参考链接保留在页脚和数学总览。题库页的“按题号查找”直接链接到各专题中的题目与解答章节。
 
-屏幕文字使用 Noto Serif SC（思源宋体风格）的真实 500 字重，导航使用 600、标题使用 700；英文优先使用 Times New Roman，设备缺少该字体时使用随站提供的 Liberation Serif。正文约 20–23 px、1.85 倍行高，阅读行宽上限 880 px。
+中文统一使用与数学 PDF 同源的 Fandol 宋体：正文使用 Regular（400），大标题使用 Bold（700），普通导航使用常规体；英文优先使用 Times New Roman，设备缺少该字体时使用随站提供的 Liberation Serif。正文约 21–24 px、1.85 倍行高，阅读行宽上限 880 px。
 
 ## 英语目录
 
@@ -143,11 +143,11 @@ npm run preview
 
 ## 字体与内容
 
-保留纯白阅读背景。屏幕中文使用 Noto Serif SC 的真实中等字重与粗体，英文采用 Times New Roman 风格（本机 Times New Roman 或随站 Liberation Serif，含独立粗体和斜体）。这是常见试卷与论文风格的排版选择，不宣称为考试机构指定字体。可见数学公式由 XeLaTeX 使用原版 Computer Modern / AMS 字体排版，转换为矢量 SVG；KaTeX 仅提供辅助阅读的 MathML。正文与公式不使用描边、阴影或人工加粗。
+保留纯白阅读背景。屏幕与打印中文统一使用 Fandol Song 的真实常规体与粗体，英文采用 Times New Roman 风格（本机 Times New Roman 或随站 Liberation Serif，含独立粗体和斜体）。这是常见试卷与论文风格的排版选择，不宣称为考试机构指定字体。可见数学公式由 XeLaTeX 使用原版 Computer Modern / AMS 字体排版，转换为矢量 SVG；KaTeX 仅提供辅助阅读的 MathML。正文与公式不使用描边、阴影或人工加粗。
 
-Noto Serif SC 的既有 WOFF2 分片按实际字符范围加载，200–900 可变字重由字体本身提供；许可见 `public/fonts/noto-serif-sc/OFL.txt`。Liberation Serif 2.1.5 使用原始 TTF，许可与来源见 `public/fonts/liberation-serif/`。
+旧 Noto Serif SC 资源保留在仓库中，但网页不再加载。Liberation Serif 2.1.5 使用原始 TTF，许可与来源见 `public/fonts/liberation-serif/`。
 
-公式中的中文与打印版继续使用 Fandol。Fandol 字体随站部署，原始 OTF 位于 `assets/fonts/fandol/`，网页使用同一字体的 WOFF2 编码；许可证为带字体嵌入例外的 GPL-3.0，见 `public/fonts/fandol/COPYING`。公式以内容和排版器版本缓存到忽略的 `.latex-cache/`，发布只复制本次实际用到的公式。编译禁止 shell、文件读取命令和宏定义；公式编译错误会阻止发布。
+网页、公式中的中文与数学 PDF 使用同源 Fandol。Fandol 字体随站部署，原始 OTF 位于 `assets/fonts/fandol/`，网页使用同一字体的 WOFF2 编码；许可证为带字体嵌入例外的 GPL-3.0，见 `public/fonts/fandol/COPYING`。公式以内容和排版器版本缓存到忽略的 `.latex-cache/`，发布只复制本次实际用到的公式。编译禁止 shell、文件读取命令和宏定义；公式编译错误会阻止发布。
 
 Debian / Ubuntu 可用 `sudo apt-get install texlive-xetex texlive-latex-extra texlive-fonts-recommended poppler-utils poppler-data` 安装构建工具。GitHub Actions 已执行相同安装，并缓存公式以加快后续发布。数学类打印版沿用《利用初等微分方程与围道积分的傅里叶变换反演(1).pdf》的版式：A4 纸、23 mm 页边距、11pt 正文、1.12 倍基线间距、3pt 段间距，中文为 Fandol 宋体、标题为加粗宋体、数学为 Computer Modern。编译 `print/` 下的 XeLaTeX 源码另需安装 `texlive-lang-chinese`（提供 xeCJK）；具体编译命令见对应源码开头。附件与外部资料的使用条件以原作者和来源说明为准。
 
