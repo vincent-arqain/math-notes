@@ -118,6 +118,8 @@ $$
 | 熟词僻义 | `vocabulary` |
 | 阅读技巧 | `reading-types` |
 
+点击“往年考研真题”后显示年份网格，按试卷年份从新到旧排列。点击年份直接打开该年的 PDF 阅读，或使用“下载附件”保存原文件；仍可使用上方搜索框查找。年份取自试卷标题、附件文件名或标签，不使用上传日期；没有明确年份的资料仍保留入口。其他分类及“全部英语”继续显示资料列表。
+
 原有 `reading-logic`（阅读逻辑）入口继续保留。七种阅读题型位于 `reading-types/` 下：`detail`、`main-idea`、`inference`、`meaning`、`attitude`、`example`、`structure`，对应细节题、主旨题、推理题、词义句意题、作者态度题、例证题、篇章结构题。放在 `content/english/` 根目录的文件为待分类；Markdown 也可用 `category` 字段指定分类。新增分类尚无内容时显示真实空状态，上传页使用同一套分类。
 
 `content/english/sentences/sentence-v1-index.md` 是 Sentence-v1 总目录；L01—L37、F01—F37为经典长难句与词熟句难的74个独立条目，沿用 `sentences` 分类。首页“长难句”进入完整分类，使用“句库目录”标签可找到总目录。目录按分类、年份、Text和句号导航，每条支持语法/障碍标签检索及同篇两类互跳。原句不整批重印，英文训练均明确标为原创，不附既有PDF；出处抽查与版权核查记录见 `docs/reviews/sentence-v1-web.md`。

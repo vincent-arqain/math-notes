@@ -103,7 +103,7 @@ test('real collection data and site script support all seven filters, search and
   const location=new URL('english/?category=reading-types%2Finference',config.siteUrl);
   const historyUrls:string[]=[location.href];let historyIndex=0;
   const form={addEventListener(type:string,fn:()=>void){handlers.set(type,fn);}};
-  const collection={querySelector:()=>form,querySelectorAll:(selector:string)=>selector==='[data-entry]'?entries:filters};
+  const collection={querySelector:(selector:string)=>selector==='form'?form:null,querySelectorAll:(selector:string)=>selector==='[data-entry]'?entries:selector==='[data-filter]'?filters:[]};
   vm.runInNewContext(await readFile(new URL('../public/site.js',import.meta.url),'utf8'),{
     document:{querySelector:()=>collection,getElementById:(id:string)=>({query,category,'result-count':count,'no-results':empty})[id]},
     location,URL,URLSearchParams,history:{pushState(_state:unknown,_title:string,url:string){location.href=new URL(url,location).href;historyUrls.splice(++historyIndex);historyUrls.push(location.href);}},

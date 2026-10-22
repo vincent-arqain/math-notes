@@ -7,6 +7,9 @@ if (collection) {
   const filters = [...collection.querySelectorAll('[data-filter]')];
   const count = document.getElementById('result-count');
   const empty = document.getElementById('no-results');
+  const examDirectory = collection.querySelector('[data-exam-directory]');
+  const examCards = [...collection.querySelectorAll('[data-exam-id]')];
+  const entryList = collection.querySelector('.entry-list');
   function update() {
     const params = new URLSearchParams(location.search);
     query.value = (params.get('q') || '').slice(0, 200);
@@ -14,11 +17,21 @@ if (collection) {
     categoryInput.value = category;
     const words = query.value.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
     let visible = 0;
+    const visibleIds = new Set();
     for (const entry of entries) {
       const values = [entry.dataset.category, ...JSON.parse(entry.dataset.readingTopics || '[]')];
       const matches = !category || (category === 'uncategorized' ? !entry.dataset.category : values.some(value => value === category || value.startsWith(category + '/')));
       entry.hidden = !(matches && words.every(word => entry.dataset.search.includes(word)));
-      if (!entry.hidden) visible++;
+      if (!entry.hidden) {
+        visible++;
+        visibleIds.add(entry.dataset.entryId);
+      }
+    }
+    if (examDirectory) {
+      const showYears = category === 'exams';
+      examDirectory.hidden = !showYears;
+      if (entryList) entryList.hidden = showYears;
+      for (const card of examCards) card.hidden = !visibleIds.has(card.dataset.examId);
     }
     for (const link of filters) {
       if (link.dataset.filter === category) link.setAttribute('aria-current', 'page');

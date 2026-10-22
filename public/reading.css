@@ -94,6 +94,19 @@
 .english-primary>a[aria-current=page] .category-number{color:#e0e0e0}
 .category-utilities{display:flex;gap:24px;flex-wrap:wrap;font-size:16px;color:var(--muted)}
 .category-utilities a[aria-current=page]{color:var(--accent);text-decoration:underline;text-underline-offset:5px}
+.exam-directory{margin:24px 0 32px}
+.exam-directory h2{font-size:25px;margin:0 0 8px}
+.exam-hint{font-size:17px;color:var(--muted);margin:0 0 22px}
+.exam-years{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.exam-year{min-width:0;padding:18px;border:1px solid var(--line);background:#fff}
+.exam-year h3{margin:0;font-weight:400}
+.exam-year-link{display:flex;flex-direction:column;gap:8px;padding:4px 0;font-size:27px;font-variant-numeric:tabular-nums}
+.exam-action{font-size:16px;color:var(--accent)}
+.exam-year p{font-size:15px;line-height:1.6;color:var(--muted);margin:12px 0 6px;overflow-wrap:anywhere}
+.exam-download{display:inline-flex;align-items:center;min-height:44px;font-size:16px;color:var(--accent);text-decoration:underline;text-underline-offset:4px}
+.exam-year:focus-within,.exam-year:hover{border-color:var(--accent)}
+@media(max-width:800px){.exam-years{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:400px){.exam-years{gap:10px}.exam-year{padding:12px}.exam-year-link{font-size:24px}}
 .problem-index{padding:26px 0;border-bottom:1px solid var(--line);scroll-margin-top:25px}
 .problem-index h2{font-size:23px;margin-bottom:14px}
 .problem-group+ .problem-group{margin-top:20px}
