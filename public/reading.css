@@ -148,6 +148,12 @@ h1,h2{font-family:var(--heading-serif)}
 .prose .katex{font-size:1em}
 .katex-display{padding:0 2px;margin-block:.75em}
 
+/* Restore the previously approved slight increase in screen text weight. */
+@media screen{
+  body{-webkit-text-stroke:.15px currentColor}
+  .katex{-webkit-text-stroke:0}
+}
+
 @page{
   size:A4;
   margin:23mm;
