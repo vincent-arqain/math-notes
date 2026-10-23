@@ -27,7 +27,7 @@ export function signedRequest(bucket:string,region:string,key:string,transport:t
     const authorization=COS.getAuthorization({SecretId,SecretKey,Method:method as COS.Method,Key:key,Headers:signedHeaders,Query:query,Expires:300});
     const url=new URL(`https://${host}${pathname}`);
     for(const [name,value]of Object.entries(query))url.searchParams.set(name,value);
-    const signal=method==='DELETE'?AbortSignal.timeout(5_000):AbortSignal.any([deadline,AbortSignal.timeout(90_000)]);
+    const signal=method==='DELETE'?AbortSignal.timeout(5_000):AbortSignal.any([deadline,AbortSignal.timeout(105_000)]);
     const response=await transport(url,{method,headers:{...headers,Authorization:authorization},body:body as BodyInit|undefined,signal,redirect:'error'});
     const responseBody=await response.text();
     if(!response.ok||field(responseBody,'Code'))throw new Error(`COS HTTP ${response.status} ${field(responseBody,'Code')??''}: ${field(responseBody,'Message')??response.statusText}`);
