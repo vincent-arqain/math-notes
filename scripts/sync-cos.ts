@@ -1,7 +1,8 @@
 import {spawn} from 'node:child_process';
 import path from 'node:path';
 import {createInterface} from 'node:readline';
-import {pathToFileURL} from 'node:url';
+import {fileURLToPath,pathToFileURL} from 'node:url';
+import {stat} from 'node:fs/promises';
 
 export const defaults={concurrency:8,fileTimeoutMs:120_000,listTimeoutMs:120_000,maxAttempts:3};
 type Settings=typeof defaults;
@@ -28,10 +29,11 @@ const annotation=(level:'warning'|'error',message:string)=>
 // Spawn directly, without a shell: spaces and Chinese filenames stay intact.
 // A process deadline bounds the whole file attempt, including all API calls,
 // rather than just the I/O idle period controlled by rclone's --timeout.
-export const runRclone:RcloneRunner=(args,{label,timeoutMs,log})=>new Promise((resolve,reject)=>{
+export const runRclone:RcloneRunner=(args,options)=>runProcess('rclone',args,options);
+export function runProcess(command:string,args:string[],{label,timeoutMs,log}:RunOptions):Promise<string>{return new Promise((resolve,reject)=>{
   const secrets=Object.entries(process.env).filter(([name,value])=>value&&
     /^(?:RCLONE_CONFIG_.+_(?:ACCESS_KEY_ID|SECRET_ACCESS_KEY|SESSION_TOKEN)|TENCENT_SECRET_ID|TENCENT_SECRET_KEY)$/.test(name)).map(([,value])=>value!);
-  const child=spawn('rclone',args,{stdio:['ignore','pipe','pipe']});
+  const child=spawn(command,args,{stdio:['ignore','pipe','pipe']});
   let output='',errorTail='',timedOut=false;
   const timer=setTimeout(()=>{timedOut=true;child.kill('SIGKILL');},timeoutMs);
   const lines=createInterface({input:child.stderr});
@@ -50,11 +52,11 @@ export const runRclone:RcloneRunner=(args,{label,timeoutMs,log})=>new Promise((r
   child.once('error',error=>{clearTimeout(timer);lines.close();reject(error);});
   child.once('close',(code,signal)=>{
     clearTimeout(timer);lines.close();
-    if(timedOut)reject(new Error(`hard timeout after ${timeoutMs/1000}s; rclone killed${errorTail?'\n'+errorTail.trim():''}`));
-    else if(code!==0)reject(new Error(`rclone exited ${code??signal}${errorTail?'\n'+errorTail.trim():''}`));
+    if(timedOut)reject(new Error(`hard timeout after ${timeoutMs/1000}s; ${path.basename(command)} killed${errorTail?'\n'+errorTail.trim():''}`));
+    else if(code!==0)reject(new Error(`${path.basename(command)} exited ${code??signal}${errorTail?'\n'+errorTail.trim():''}`));
     else resolve(output);
   });
-});
+});}
 
 function parseInventory(raw:string,label:string):InventoryFile[]{
   const data:unknown=JSON.parse(raw);
@@ -164,7 +166,12 @@ export async function syncDirectory(source:string,destination:string,options:{
 async function main(){
   const bucket=process.env.COS_BUCKET;
   if(!bucket||!/^[a-z0-9][a-z0-9-]*-[0-9]+$/.test(bucket))throw new Error('COS_BUCKET must be a bucket name ending in -APPID');
-  await syncDirectory('dist/',`cos:${bucket}/`,{settings:{
+  await syncDirectory('dist/',`cos:${bucket}/`,{run:async(args,options)=>{
+    if(args[0]==='copyto'&&(await stat(args[1])).size>=1024*1024){
+      return runProcess(process.execPath,['--import','tsx',fileURLToPath(new URL('./cos-upload.ts',import.meta.url)),args[1],args[2]],options);
+    }
+    return runRclone(args,options);
+  },settings:{
     concurrency:Number(process.env.COS_UPLOAD_CONCURRENCY??defaults.concurrency),
     fileTimeoutMs:Number(process.env.COS_FILE_TIMEOUT_SECONDS??defaults.fileTimeoutMs/1000)*1000,
     maxAttempts:Number(process.env.COS_MAX_ATTEMPTS??defaults.maxAttempts),
