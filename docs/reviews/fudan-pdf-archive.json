@@ -1285,5 +1285,46 @@
       "MSAM10",
       "MSBM10"
     ]
+  },
+  {
+    "file": "22A12-A15_23S01-S03.pdf",
+    "originalName": "22A12-A15_23S01-S03.pdf",
+    "problemIds": [
+      "2022A12",
+      "2022A13",
+      "2022A14",
+      "2022A15",
+      "2023S01",
+      "2023S02",
+      "2023S03"
+    ],
+    "years": [
+      2022,
+      2023
+    ],
+    "restyled": true,
+    "sourceKind": "transcribed-semantic-latex",
+    "pages": 7,
+    "sourcePages": 7,
+    "sha256": "f0a6d45ec8b0bd27e5e392d6c9b3eb6f0cfb0f8dfdbfa3e8a56b0d33cd5dd5a9",
+    "originalSha256": "a206899c7994d07491a6b46f54ad08531022d5896a6e06d6ea6884c901738947",
+    "fonts": [
+      "CMEX10",
+      "CMMI10",
+      "CMMI8",
+      "CMR10",
+      "CMR8",
+      "CMSS8",
+      "CMSY10",
+      "CMSY8",
+      "FandolSong-Bold",
+      "FandolSong-Regular",
+      "LMRoman10-Regular",
+      "LMRoman12-Bold",
+      "MSAM10",
+      "MSBM10"
+    ],
+    "reviewedAt": "2026-10-23",
+    "review": "fudan-2022a12-2023s03.md"
   }
 ]

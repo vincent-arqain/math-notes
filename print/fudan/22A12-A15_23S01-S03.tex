@@ -1,0 +1,348 @@
+% Transcribed from the completed seven-page PDF; proofs and wording preserved.
+% Typography correction only: match the reference's 1.12 baseline stretch.
+% Build from repository root with XeLaTeX; no shell escape required.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=23mm,headheight=14pt,headsep=8.5mm,footskip=10mm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage[no-math]{fontspec}
+\usepackage{xeCJK}
+\setmainfont{Latin Modern Roman}
+\setCJKmainfont{FandolSong-Regular.otf}[Path=assets/fonts/fandol/,BoldFont=FandolSong-Bold.otf,ItalicFont=FandolSong-Regular.otf,Script=CustomDefault]
+\xeCJKsetup{PunctStyle=quanjiao,CheckSingle=true}
+\linespread{1.12}
+\setlength{\parindent}{2em}\setlength{\parskip}{3pt}
+\usepackage{titlesec}
+\titleformat{\section}{\centering\normalfont\Large\bfseries}{}{0pt}{}
+\titlespacing*{\section}{0pt}{1.8\baselineskip}{1.0\baselineskip}
+\usepackage{fancyhdr}\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small 复旦大学高等代数习题集·续作}
+\fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0.4pt}
+\usepackage[hidelinks,unicode]{hyperref}
+\hypersetup{pdftitle={2022A12—A15、2023S01—S03 七题解答}}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\tr}{tr}
+\newcommand{\question}[1]{\fancyhead[R]{\small #1}\section*{问题 #1}}
+\newcommand{\sourcepage}[1]{\par\noindent{\small 题目来源：谢启鸿《复旦大学高等代数习题集（2023 版）》，第 #1 页。}}
+\newcommand{\proofend}{\hfill$\square$\par}
+\widowpenalty=10000\clubpenalty=10000\raggedbottom
+\begin{document}
+\question{2022A12}
+\noindent 设 $V$ 是有理数域上的 $n$ 维线性空间。证明：存在 $V$ 上的 $n$ 个线性变换 $\varphi_1,\ldots,\varphi_n$，使得对任意非零向量 $\alpha\in V$，向量组 $\varphi_1(\alpha),\ldots,\varphi_n(\alpha)$ 均线性无关。
+
+\noindent 证明：设 $n\geq1$。任取 $V$ 的一组基 $e_1,\ldots,e_n$，定义线性变换 $T$：
+\[
+ T(e_j)=e_{j+1}\quad(1\leq j<n),\qquad T(e_n)=2e_1.
+\]
+每个基向量经过 $n$ 次作用恰好循环一周，并被乘以 $2$，所以
+\[
+ T^n=2I_V.
+\]
+取 $\varphi_j=T^{j-1}$（$1\leq j\leq n$）。下面证明它们满足要求。
+
+先说明 $f(x)=x^n-2$ 在 $\mathbb Q[x]$ 中不可约。$n=1$ 时成立；$n\geq2$ 时，若它在 $\mathbb Q[x]$ 中可约，则由 Gauss 引理可写成两个正次数首一整系数多项式的乘积 $f=uv$。模 $2$ 约化后有 $\overline u\,\overline v=x^n$，故 $\overline u=x^{\deg u}$、$\overline v=x^{\deg v}$。于是 $u(0)$、$v(0)$ 均为偶数，从而 $4\mid u(0)v(0)=-2$，矛盾。这就是本题所需的 Eisenstein 判别法。
+
+这里使用的 Gauss 引理可简述如下：本原整系数多项式的乘积仍为本原多项式，因为模任一素数约化后，两个非零多项式的乘积非零。对有理系数因式清除分母并提取各系数的最大公因数，便得到整系数分解；首一性又使两个因式可取为首一。
+
+任取 $\alpha\ne0$。若有
+\[
+ c_0\alpha+c_1T\alpha+\cdots+c_{n-1}T^{n-1}\alpha=0,\qquad c_j\in\mathbb Q,
+\]
+令 $g(x)=c_0+c_1x+\cdots+c_{n-1}x^{n-1}$，则 $g(T)\alpha=0$。若系数不全为零，则 $0\leq\deg g<n$。由 $f$ 不可约，$\gcd(f,g)=1$；辗转相除法给出 $u_1,v_1\in\mathbb Q[x]$，使
+\[
+ u_1(x)f(x)+v_1(x)g(x)=1.
+\]
+代入 $T$ 并作用于 $\alpha$，利用 $f(T)=0$，得到
+\[
+ \alpha=u_1(T)f(T)\alpha+v_1(T)g(T)\alpha=0,
+\]
+矛盾。因此所有 $c_j$ 均为零，所构造的 $n$ 个向量线性无关。\proofend
+\noindent 方法小结：用不可约多项式构造循环变换；低次多项式与它互素，Bézout 恒等式便保证任一非零向量都能生成一组循环基。
+\sourcepage{125}
+
+\newpage
+\question{2022A13}
+\noindent 求一个次数最小的实系数多项式 $f(x)$，使得 $f(x)$ 除以 $x^2+1$ 余 $x+1$，且除以 $x^3+x^2+1$ 余 $x^2-1$。
+
+\noindent 解：记
+\[
+ a(x)=x^2+1,\qquad b(x)=x^3+x^2+1.
+\]
+先满足第二个余式条件，设
+\[
+ f(x)=x^2-1+b(x)h(x).
+\]
+在模 $a(x)$ 的意义下，$x^2\equiv-1$，因而
+\[
+ x^2-1\equiv-2,\qquad b(x)\equiv-x.
+\]
+第一个余式条件遂变为
+\[
+ -2-xh(x)\equiv x+1\pmod{a(x)},
+\]
+即 $-xh(x)\equiv x+3$。由于 $(-x)x\equiv1\pmod{a(x)}$，两边乘以 $x$ 得
+\[
+ h(x)\equiv x(x+3)\equiv3x-1\pmod{a(x)}.
+\]
+取 $h(x)=3x-1$，便得到
+\begin{align*}
+ f_0(x)&=x^2-1+(3x-1)(x^3+x^2+1)\\
+ &=3x^4+2x^3+3x-2.
+\end{align*}
+其两个余式也可由下面的等式直接核验：
+\begin{align*}
+ f_0(x)&=(x^2+1)(3x^2+2x-3)+(x+1),\\
+ f_0(x)&=(x^3+x^2+1)(3x-1)+(x^2-1).
+\end{align*}
+最后证明次数最小。注意到
+\[
+ xb(x)+(-x^2-x+1)a(x)=1,
+\]
+所以 $a,b$ 互素。任意另一解 $f$ 与 $f_0$ 具有相同余式，故 $a\mid(f-f_0)$、$b\mid(f-f_0)$，进而 $ab\mid(f-f_0)$。因此所有解恰为
+\[
+ f(x)=f_0(x)+(x^2+1)(x^3+x^2+1)k(x),\qquad k(x)\in\mathbb R[x].
+\]
+若 $k\ne0$，右侧第二项的次数至少为 $5$，不能被四次多项式 $f_0$ 的最高次项抵消，所以 $\deg f\geq5$。故唯一的最低次解为
+\[
+ \boxed{f(x)=3x^4+2x^3+3x-2},\qquad\deg f=4.
+\]
+\noindent 方法小结：先把一个余式条件写入表达式，再在另一个模多项式下求逆。要证明次数最小，还需说明所有解只相差两个模多项式乘积的倍数。
+\sourcepage{125}
+
+\newpage
+\question{2022A14}
+\noindent 设 $f(x)$ 是有理数域上的不可约多项式，$a$ 与 $1/a$ 都是 $f(x)$ 的复根。证明：若 $b$ 是 $f(x)$ 的任一复根，则 $1/b$ 也是 $f(x)$ 的复根。
+
+\noindent 证明：将 $f$ 除以其首项系数，不改变根与不可约性，故可设
+\[
+ f(x)=x^n+c_{n-1}x^{n-1}+\cdots+c_1x+c_0,\qquad c_j\in\mathbb Q.
+\]
+因 $a\ne0$，有 $c_0\ne0$。事实上，若 $c_0=0$，则 $x\mid f$；由 $f$ 不可约且首一，只能有 $f=x$，这与 $f(a)=0$、$a\ne0$ 矛盾。特别地，$f$ 的每个根都非零。
+
+构造倒数多项式
+\[
+ f^*(x)=x^nf(1/x)=c_0x^n+c_1x^{n-1}+\cdots+c_{n-1}x+1.
+\]
+由于 $c_0\ne0$，它是 $n$ 次有理系数多项式。题设给出
+\[
+ f^*(a)=a^nf(1/a)=0,
+\]
+故 $f$ 与 $f^*$ 有公共根 $a$。
+
+若 $\gcd(f,f^*)=1$，辗转相除法便给出 $u,v\in\mathbb Q[x]$，使
+\[
+ u(x)f(x)+v(x)f^*(x)=1.
+\]
+代入 $x=a$ 会得到 $0=1$。因此它们的最大公因式不是常数；又因 $f$ 不可约，必有 $f\mid f^*$。两者次数相同，再比较首项系数，得到
+\[
+ f^*(x)=c_0f(x),\qquad\text{即}\quad x^nf(1/x)=c_0f(x).
+\]
+现在任取 $f$ 的根 $b$。由 $b\ne0$，上式给出
+\[
+ b^nf(1/b)=c_0f(b)=0,
+\]
+从而 $f(1/b)=0$，结论成立。\proofend
+\noindent 补充观察：比较 $f^*=c_0f$ 的常数项，还可得
+\[
+ 1=c_0^2,\qquad c_0=\pm1.
+\]
+所以题设不仅保证根集在取倒数后保持不变，也限制了首一多项式的常数项。
+
+\noindent 方法小结：把根的变换 $x\mapsto1/x$ 转化为多项式变换 $f\mapsto f^*$。不可约性将“有一个公共根”提升为“两个多项式相差常数倍”，从而控制全部根。
+\sourcepage{125}
+
+\newpage
+\question{2022A15}
+\noindent 证明：实系数多项式 $x^3+px^2+qx+r$ 的三个根（按重数计）都是实数的充要条件是
+\[
+ 4p^3r-p^2q^2-18pqr+4q^3+27r^2\leq0.
+\]
+\noindent 证明：令 $y=x+p/3$，消去二次项，得
+\[
+ x^3+px^2+qx+r=H(y):=y^3+Py+Q,
+\]
+其中
+\[
+ P=q-\frac{p^2}{3},\qquad Q=r-\frac{pq}{3}+\frac{2p^3}{27}.
+\]
+实数平移不改变根是否为实数。下面证明 $H$ 的三个根均为实数当且仅当
+\[
+ 4P^3+27Q^2\leq0.
+\]
+若 $P>0$，则 $H'(y)=3y^2+P>0$，故 $H$ 只有一个实根，且该根为单根；此时 $4P^3+27Q^2>0$。若 $P=0$，则 $H(y)=y^3+Q$；当 $Q\ne0$ 时唯一实根为单根，当 $Q=0$ 时 $0$ 为三重根。因此 $P=0$ 时，三个根均为实数恰好等价于 $Q=0$，也等价于上述不等式。
+
+以下设 $P<0$，记
+\[
+ t=\sqrt{-P/3}>0,\qquad P=-3t^2.
+\]
+由 $H'(y)=3(y^2-t^2)$，函数 $H$ 在 $(-\infty,-t)$、$(t,+\infty)$ 上严格递增，在 $(-t,t)$ 上严格递减，且
+\[
+ H(-t)=Q+2t^3,\qquad H(t)=Q-2t^3.
+\]
+因 $H(y)\to\pm\infty$（$y\to\pm\infty$），$H$ 有三个实根（按重数计）当且仅当极大值不小于零、极小值不大于零，即
+\[
+ Q+2t^3\geq0,\qquad Q-2t^3\leq0.
+\]
+两个不等式都严格时，三个单调区间各有一个实根；取等号时，由
+\[
+ y^3-3t^2y+2t^3=(y-t)^2(y+2t),\qquad
+ y^3-3t^2y-2t^3=(y+t)^2(y-2t)
+\]
+可知仍有三个实根。若其中一个符号条件不成立，则只剩一个实根。
+
+因此所需条件等价于
+\[
+ |Q|\leq2t^3\quad\Longleftrightarrow\quad27Q^2\leq108t^6=-4P^3.
+\]
+最后展开，有
+\begin{align*}
+ 4P^3+27Q^2
+ &=4\left(q-\frac{p^2}{3}\right)^3+27\left(r-\frac{pq}{3}+\frac{2p^3}{27}\right)^2\\
+ &=4p^3r-p^2q^2-18pqr+4q^3+27r^2.
+\end{align*}
+于是原结论成立。\proofend
+\noindent 方法小结：先平移消去二次项，再比较两个极值与零的大小。严格小于零对应三个互异实根，等于零对应有重根；这样无需直接引用三次方程判别式。
+\sourcepage{125}
+
+\newpage
+\question{2023S01}
+\noindent 设 $V$ 是数域 $K$ 上的 $n$ 维线性空间，$\varphi$ 是 $V$ 上的线性变换。设 $f,g\in K[x]$ 为首一多项式，$d=\gcd(f,g)$、$m=\operatorname{lcm}(f,g)$。证明：
+\[
+ \Ker d(\varphi)=\Ker f(\varphi)\cap\Ker g(\varphi),\qquad
+ \Ker m(\varphi)=\Ker f(\varphi)+\Ker g(\varphi).
+\]
+\noindent 证明：写成 $f=df_1$、$g=dg_1$，则
+\[
+ \gcd(f_1,g_1)=1,\qquad m=df_1g_1.
+\]
+由辗转相除法，存在 $u,v\in K[x]$，满足
+\[
+ uf_1+vg_1=1,\qquad uf+vg=d.
+\]
+代入同一线性变换所得的各多项式彼此交换，且乘法关系保持不变。
+
+\noindent （1）最大公因式对应核的交。因 $f(\varphi)=f_1(\varphi)d(\varphi)$、$g(\varphi)=g_1(\varphi)d(\varphi)$，有
+\[
+ \Ker d(\varphi)\subseteq\Ker f(\varphi)\cap\Ker g(\varphi).
+\]
+反之，若 $\alpha\in\Ker f(\varphi)\cap\Ker g(\varphi)$，则
+\[
+ d(\varphi)\alpha=u(\varphi)f(\varphi)\alpha+v(\varphi)g(\varphi)\alpha=0.
+\]
+这给出反向包含，从而第一个等式成立。
+
+\noindent （2）最小公倍式对应核的和。因为 $f\mid m$、$g\mid m$，所以
+\[
+ \Ker f(\varphi)+\Ker g(\varphi)\subseteq\Ker m(\varphi).
+\]
+任取 $\alpha\in\Ker m(\varphi)$。利用 $uf_1+vg_1=1$，将其分解为
+\[
+ \alpha=\beta+\gamma,\qquad\beta=v(\varphi)g_1(\varphi)\alpha,\qquad
+ \gamma=u(\varphi)f_1(\varphi)\alpha.
+\]
+由 $fg_1=gf_1=m$，分别有
+\begin{align*}
+ f(\varphi)\beta&=v(\varphi)(fg_1)(\varphi)\alpha=v(\varphi)m(\varphi)\alpha=0,\\
+ g(\varphi)\gamma&=u(\varphi)(gf_1)(\varphi)\alpha=u(\varphi)m(\varphi)\alpha=0.
+\end{align*}
+故 $\beta\in\Ker f(\varphi)$、$\gamma\in\Ker g(\varphi)$，从而 $\alpha\in\Ker f(\varphi)+\Ker g(\varphi)$。第二个等式成立。\proofend
+\noindent 方法小结：整除关系给出一个方向的包含，Bézout 恒等式负责反向包含及向量的显式分解。这里一般只是子空间的和；若 $d=1$，交空间为零，才得到直和。
+\sourcepage{135}
+
+\newpage
+\question{2023S02}
+\noindent 设 $V=M_n(\mathbb C)$，将它看作实线性空间。定义
+\[
+ \varphi(X)=J\overline XJ^{\mathsf T},
+\]
+其中 $J$ 是基础循环矩阵，$\overline X$ 表示逐项共轭。求 $\varphi$ 的表示矩阵的全体复特征值。
+
+\noindent 解：取实基
+\[
+ \mathcal B=(E_{11},E_{12},\ldots,E_{nn};\ iE_{11},iE_{12},\ldots,iE_{nn}).
+\]
+这里 $\dim_{\mathbb R}V=2n^2$。约定下标按模 $n$ 计算，并取 $Je_j=e_{j-1}$，则
+\[
+ \varphi(E_{ij})=E_{i-1,j-1},\qquad\varphi(iE_{ij})=-iE_{i-1,j-1}.
+\]
+因此 $\varphi$ 的实表示矩阵为
+\[
+ M=\begin{pmatrix}S&0\\0&-S\end{pmatrix},
+\]
+其中 $S$ 表示实矩阵空间上的置换 $E_{ij}\mapsto E_{i-1,j-1}$。
+
+对每个 $d=0,1,\ldots,n-1$，令
+\[
+ W_d=\operatorname{span}_{\mathbb R}\{E_{i,i+d}:1\leq i\leq n\}.
+\]
+矩阵单位按差值 $j-i$ 恰好分成这 $n$ 类，故 $M_n(\mathbb R)=\bigoplus_{d=0}^{n-1}W_d$。每个 $W_d$ 都在 $S$ 下不变，且其 $n$ 个基向量构成一个长度为 $n$ 的循环。一个循环的特征多项式为 $\lambda^n-1$：若循环基满足 $Ce_k=e_{k-1}$，则对每个 $\zeta^n=1$，向量 $\sum_{k=0}^{n-1}\zeta^ke_k$ 是特征值 $\zeta$ 的特征向量。它们的特征值互异，故已给出全部 $n$ 个特征值。
+
+于是
+\[
+ \chi_S(\lambda)=(\lambda^n-1)^n,\qquad
+ \chi_{-S}(\lambda)=\bigl(\lambda^n-(-1)^n\bigr)^n,
+\]
+从而
+\[
+ \chi_M(\lambda)=(\lambda^n-1)^n\bigl(\lambda^n-(-1)^n\bigr)^n.
+\]
+据此分两种情形列出答案：
+
+若 $n$ 为奇数，则 $\chi_M(\lambda)=(\lambda^{2n}-1)^n$，全体复特征值为
+\[
+ \boxed{\lambda_k=e^{k\pi i/n}\quad(0\leq k<2n),\qquad\text{每个的代数重数为}\,n.}
+\]
+若 $n$ 为偶数，则 $\chi_M(\lambda)=(\lambda^n-1)^{2n}$，全体复特征值为
+\[
+ \boxed{\lambda_k=e^{2k\pi i/n}\quad(0\leq k<n),\qquad\text{每个的代数重数为}\,2n.}
+\]
+两种情形的重数总和都为 $2n^2$，与实表示矩阵的阶数一致。由上述循环分解，表示矩阵在 $\mathbb C$ 上可对角化，故相应几何重数也等于代数重数。
+
+\noindent 方法小结：先将复矩阵拆成实部与虚部，共轭使虚部块多出负号；再按矩阵单位的循环轨道计算谱。这里求的是实表示矩阵的复特征值，不能把 $\varphi$ 当作复线性变换。
+\sourcepage{135}
+
+\newpage
+\question{2023S03}
+\noindent 设二阶实方阵 $A,B$ 满足 $AB=BA$。证明：对任意实数 $x,y,z$，
+\[
+ 4xz\det(xA^2+yAB+zB^2)\geq(4xz-y^2)\bigl(x\det A-z\det B\bigr)^2.
+\]
+\noindent 证明：先说明 $A,B$ 可同时在复数域上化为上三角形。取 $A$ 的一个复特征值 $a_1$，则非零空间 $E=\Ker(A-a_1I)$ 在 $B$ 下不变，因为
+\[
+ (A-a_1I)Bv=B(A-a_1I)v=0\qquad(v\in E).
+\]
+$B|_E$ 在复数域上有特征向量，故存在 $A,B$ 的公共特征向量。将它扩充为 $\mathbb C^2$ 的一组基，便有某个可逆复矩阵 $P$ 使
+\[
+ P^{-1}AP=\begin{pmatrix}a_1&*\\0&a_2\end{pmatrix},\qquad
+ P^{-1}BP=\begin{pmatrix}b_1&*\\0&b_2\end{pmatrix}.
+\]
+记
+\[
+ \alpha=\det A=a_1a_2,\qquad\beta=\det B=b_1b_2,
+\]
+以及
+\[
+ c=a_1b_2+a_2b_1=\tr A\tr B-\tr(AB).
+\]
+虽然 $a_j,b_j$ 可能不是实数，但 $A,B$ 为实矩阵，故 $\alpha,\beta,c\in\mathbb R$。
+
+令 $D=\det(xA^2+yAB+zB^2)$。由上三角形的对角元可得
+\begin{align*}
+ D&=(xa_1^2+ya_1b_1+zb_1^2)(xa_2^2+ya_2b_2+zb_2^2)\\
+ &=x^2\alpha^2+xy\alpha c+xz(c^2-2\alpha\beta)+y^2\alpha\beta+yz\beta c+z^2\beta^2\\
+ &=(x\alpha-z\beta)^2+yc(x\alpha+z\beta)+xzc^2+y^2\alpha\beta.
+\end{align*}
+因此，原不等式两边之差为
+\begin{align*}
+ &4xzD-(4xz-y^2)(x\alpha-z\beta)^2\\
+ &\quad=4xz\bigl[yc(x\alpha+z\beta)+xzc^2+y^2\alpha\beta\bigr]+y^2(x\alpha-z\beta)^2\\
+ &\quad=4x^2z^2c^2+4xyzc(x\alpha+z\beta)+y^2(x\alpha+z\beta)^2\\
+ &\quad=\bigl[2xzc+y(x\alpha+z\beta)\bigr]^2\geq0.
+\end{align*}
+最后一步中的括号为实数，所以原不等式对所有实数 $x,y,z$ 都成立。整个论证没有除以 $x,z$ 或 $4xz-y^2$，也涵盖它们为零的情形。\proofend
+\noindent 等号成立当且仅当
+\[
+ 2xz\bigl(\tr A\tr B-\tr(AB)\bigr)+y\bigl(x\det A+z\det B\bigr)=0.
+\]
+\noindent 方法小结：交换性保证同时上三角化，从而把行列式化为标量乘积；再用迹与行列式把复特征值组合还原为实数，最终得到一个完全平方。
+\sourcepage{135}
+\end{document}
