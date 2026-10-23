@@ -52,9 +52,17 @@ jobs:
           node-version: '22'
 
       - name: Install build and sync tools
+        timeout-minutes: 5
+        env:
+          DEBIAN_FRONTEND: noninteractive
         run: |
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends texlive-xetex texlive-latex-extra texlive-fonts-recommended poppler-utils poppler-data rclone
+          # The Azure HTTP mirror can stream packages at only ~60 kB/s without
+          # hitting an idle timeout. Use Ubuntu's official HTTPS mirror instead.
+          sudo find /etc/apt -type f \( -name '*.sources' -o -name '*.list' -o -name 'apt-mirrors*.txt' \) \
+            -exec sed -i 's|http://azure.archive.ubuntu.com/ubuntu|https://archive.ubuntu.com/ubuntu|g' {} +
+          apt_options=(-o Acquire::Retries=2 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20)
+          sudo --preserve-env=DEBIAN_FRONTEND apt-get "${apt_options[@]}" update
+          sudo --preserve-env=DEBIAN_FRONTEND apt-get "${apt_options[@]}" install -y --no-install-recommends texlive-xetex texlive-latex-extra texlive-fonts-recommended poppler-utils poppler-data rclone
 
       - uses: actions/cache@v4
         with:

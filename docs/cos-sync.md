@@ -13,6 +13,12 @@
 
 原来的 `sync --checksum` 已按大小和 MD5 跳过相同文件，并默认使用 4 路文件传输；`sync` 不等于全量重传。默认 NOTICE 日志隐藏了成功文件和 DEBUG 级的底层重试。Secrets 检查只验证存在性和格式，build/verify 只证明本地产物通过检查，均不能证明上传链路正常。这次错误明确来自 COS 的慢上传响应，现有日志不足以确定公网链路的具体瓶颈。
 
+## 安装阶段的慢下载
+
+旧运行记录删除后，重新执行 main 的 [run 39975406536](https://github.com/vincent-arqain/math-notes/actions/runs/39975406536)。本次尚未进入测试、构建或 COS 上传：APT 索引约 4 秒完成，但 `azure.archive.ubuntu.com` 的 HTTP 软件包下载约为 60 kB/s；仅 16.5 MB 的 rclone 包就从 15:09:26 UTC 下载到 15:14:12 UTC。安装运行超过 10 分钟后主动取消，桶内对象未因本次运行发生变化。此前成功的 Pages 工作流中，同类 TeX 安装约需 77 秒。
+
+COS 工作流现将 Ubuntu Azure HTTP 镜像替换为 Ubuntu 官方 `https://archive.ubuntu.com/ubuntu`，保留发行版、组件和软件包签名校验。仅处理 runner 的 APT 源文件和镜像列表，不修改仓库的依赖版本。APT 连接/空闲超时为 20 秒，最多重试 2 次；整个安装步骤另设 **5 分钟硬上限**，持续但过慢的下载也不能无限等待。安装失败或超时会阻止后续上传。
+
 ## 当前同步行为
 
 工作流调用 `npm run sync:cos`，由 `scripts/sync-cos.ts` 调用原来的 rclone 后端，继续使用原有四项 Secrets。
