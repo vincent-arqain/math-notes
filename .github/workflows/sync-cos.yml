@@ -3,6 +3,7 @@ name: Sync website to Tencent COS
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -83,9 +84,13 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
       - run: npm run verify
 
-      - name: Mirror dist contents to the bucket root
+      - name: Incrementally sync dist contents to the bucket root
+        timeout-minutes: 15
         env:
           COS_BUCKET: ${{ secrets.COS_BUCKET }}
+          COS_UPLOAD_CONCURRENCY: '8'
+          COS_FILE_TIMEOUT_SECONDS: '120'
+          COS_MAX_ATTEMPTS: '3'
           RCLONE_CONFIG_COS_TYPE: s3
           RCLONE_CONFIG_COS_PROVIDER: TencentCOS
           RCLONE_CONFIG_COS_ACCESS_KEY_ID: ${{ secrets.TENCENT_SECRET_ID }}
@@ -94,14 +99,4 @@ jobs:
           RCLONE_CONFIG_COS_ENDPOINT: https://cos.${{ secrets.COS_REGION }}.myqcloud.com
           RCLONE_CONFIG_COS_NO_CHECK_BUCKET: 'true'
         run: |
-          test -s dist/index.html
-          # Delete stale objects (including previously uploaded excluded paths)
-          # only after uploads succeed. Credentials stay in environment variables.
-          rclone sync dist/ "cos:${COS_BUCKET}/" \
-            --config /dev/null \
-            --checksum \
-            --delete-after \
-            --delete-excluded \
-            --exclude '.git/**' \
-            --exclude 'tauri/**' \
-            --exclude '.github/workflows/**'
+          npm run sync:cos

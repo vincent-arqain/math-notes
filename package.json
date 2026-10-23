@@ -8,6 +8,7 @@
     "check": "tsc --noEmit",
     "test": "tsx --test scripts/*.test.ts",
     "verify": "node scripts/verify.mjs",
+    "sync:cos": "tsx scripts/sync-cos.ts",
     "preview": "node scripts/preview.mjs"
   },
   "dependencies": {
