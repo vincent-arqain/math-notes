@@ -106,6 +106,5 @@ jobs:
           RCLONE_CONFIG_COS_REGION: ${{ secrets.COS_REGION }}
           RCLONE_CONFIG_COS_ENDPOINT: https://cos.${{ secrets.COS_REGION }}.myqcloud.com
           RCLONE_CONFIG_COS_NO_CHECK_BUCKET: 'true'
-          RCLONE_CONFIG_COS_DISABLE_HTTP2: 'true'
         run: |
           npm run sync:cos
