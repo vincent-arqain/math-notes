@@ -12,6 +12,7 @@ import {loadStorage} from '../src/storage';
 import {releaseEntries} from '../src/releases';
 import {copyLatexMathAssets} from '../src/latexMath';
 import {availableProblemYears,ProblemYearPage} from '../src/ProblemYears';
+import {sentenceGroups,SentenceYearPage} from '../src/SentenceDirectory';
 
 const root=fileURLToPath(new URL('..',import.meta.url));
 const output=path.resolve(root,'dist');
@@ -55,6 +56,10 @@ await page('','学习目录',<Home items={items}/>);
 await page('math/','数学',<MathOverview items={items}/>);
 for(const [section,title]of Object.entries(sections))await page(section+'/',title,<Collection section={section as Section} items={items.filter(e=>e.section===section)}/>);
 for(const year of availableProblemYears(items))await page(`problems/years/${year}/`,`${year} 年高等代数解答`,<ProblemYearPage items={items} year={year}/>);
+for(const group of sentenceGroups(items)){
+  await page(`english/sentences/years/${group.year}/`,`${group.year} 年长难句`,<SentenceYearPage items={items} year={group.year}/>);
+  for(const text of group.texts.filter(text=>text.entries.length))await page(`english/sentences/years/${group.year}/text-${text.text}/`,`${group.year} 年 Text ${text.text} 长难句`,<SentenceYearPage items={items} year={group.year} text={text.text}/>);
+}
 await page('search/','搜索书房',<Collection items={items}/>,true);
 await page('manage/','管理资料',<Manage items={items} storage={storage}/>,true);
 await page('about/','关于这间书房',<About/>);

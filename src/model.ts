@@ -5,11 +5,17 @@ export const mathSections = ['notes','problems','papers','essays'] as const;
 export const englishStudyCategories = [
   {id:'exams',label:'往年考研真题'}, {id:'reading-answers',label:'真题阅读解答'},
   {id:'writing',label:'作文'}, {id:'translation',label:'文章与直译'},
-  {id:'sentences',label:'长难句'}, {id:'core-vocabulary',label:'核心单词'},
+  {id:'sentences',label:'长难句'}, {id:'sentence-patterns',label:'不同句式'}, {id:'core-vocabulary',label:'核心单词'},
   {id:'vocabulary',label:'熟词僻义'}, {id:'reading-types',label:'阅读技巧'},
+] as const;
+export const sentencePatternCategories = [
+  {id:'sentence-patterns/writing',label:'写作高级句式',description:'整理适合写作的表达结构、使用场景与仿写。'},
+  {id:'sentence-patterns/common',label:'常见句式',description:'梳理常用句型、搭配与容易混淆的用法。'},
+  {id:'sentence-patterns/complex',label:'长难句句式',description:'归纳从句、非谓语、倒装与复杂结构的拆解方法。'},
 ] as const;
 export const englishCategories = [
   ...englishStudyCategories, {id:'reading-logic',label:'阅读逻辑'},
+  ...sentencePatternCategories,
   {id:'reading-types/detail',label:'细节题'}, {id:'reading-types/main-idea',label:'主旨题'},
   {id:'reading-types/inference',label:'推理题'}, {id:'reading-types/meaning',label:'词义句意题'},
   {id:'reading-types/attitude',label:'作者态度题'}, {id:'reading-types/example',label:'例证题'},

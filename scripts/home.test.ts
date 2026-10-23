@@ -48,14 +48,14 @@ test('English highlights take the latest item from up to three distinct top-leve
   assert.deepEqual(ids(selectHomeEntries([entry('uncategorized','english')]).english),['uncategorized']);
 });
 
-test('home exposes three fixed study areas and eight English destinations without decorative imagery',()=>{
+test('home exposes three fixed study areas and nine English destinations without decorative imagery',()=>{
   const home=renderToStaticMarkup(createElement(Home,{items:[]}));
   assert.match(home,/暂无公开资料/);
   assert.doesNotMatch(home,/<(?:svg|figure|img)\b|一间安静的电子书房|思考的地方/);
   const areas=[...home.matchAll(/<h2 id="(math|problems|english)-heading">/g)].map(m=>m[1]);
   assert.deepEqual(areas,['math','problems','english']);
   for(const href of ['/math/','/notes/','/problems/','/papers/','/essays/','/problems/#problem-index'])assert.ok(home.includes(`href="${href}"`));
-  assert.equal(englishStudyCategories.length,8);
+  assert.equal(englishStudyCategories.length,9);
   for(const category of englishStudyCategories){
     assert.ok(home.includes(`href="/english/?category=${category.id}"`));
     assert.ok(home.includes(category.label));

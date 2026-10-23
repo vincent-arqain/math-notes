@@ -1,5 +1,5 @@
 import React from 'react';
-import {sections,descriptions,englishCategories,formatSize,type Section} from './model';
+import {sections,descriptions,englishCategories,sentencePatternCategories,formatSize,type Section} from './model';
 import type {PublicEntry} from './content';
 import type {StorageSummary} from './storage';
 import config from '../site.config.json';
@@ -24,6 +24,10 @@ export default function Manage({items,storage}:{items:PublicEntry[];storage:Stor
       return <section className="margin-note" key={key}><h2>{label}</h2><p>{descriptions[key as Section]}</p><div className="actions">{key!=='links'&&<a className="button" href="#upload" data-select-section={key}>上传文件 ↑</a>}<a className="text-link" href={`${repo}/new/main/content/${key}?filename=新资料.md&value=${encodeURIComponent(template)}`} target="_blank" rel="noopener">新建{key==='links'?'链接':'文章'} ↗</a></div></section>;
     })}</div>
     <h2 className="manage-subtitle">英语分类上传</h2><nav className="upload-categories" aria-label="按英语类别上传">{englishCategories.map(c=><a href="#upload" data-select-section="english" data-select-category={c.id} key={c.id}>{c.label} ↑</a>)}</nav>
+    <section id="sentence-patterns" className="pattern-editor" aria-labelledby="pattern-editor-heading"><h2 id="pattern-editor-heading" className="manage-subtitle">整理不同句式</h2><p>选择用途，记录句式结构、例句、适用场景与仿写。</p><div className="pattern-grid">{sentencePatternCategories.map(category=>{
+      const template=`---\ntitle: "填写句式名称"\ncategory: ${category.id}\ndescription: ""\ntags: []\n---\n\n## 句式结构\n\n## 例句与翻译\n\n## 使用场景与注意事项\n\n## 我的仿写\n`;
+      return <a key={category.id} href={`${repo}/new/main/content/english/${category.id}?filename=新句式.md&value=${encodeURIComponent(template)}`} target="_blank" rel="noopener"><h3>{category.label}</h3><p>{category.description}</p><span>新建句式笔记 ↗</span></a>;
+    })}</div></section>
     <div className="prose"><h2>文件与网页，各归其位</h2><p>附件保存到 GitHub Releases，网站只生成分类、介绍和下载入口，不把大文件复制进网站发布包。原文件不压缩、不拆分、不改写。</p><p>Markdown 和 TXT 上传后可下载原文件；需要显示网页正文时，使用上方“新建文章”。已有资料继续保留原来的阅读与下载地址。</p><p><a href={`${repo}/blob/main/README.md`} target="_blank" rel="noopener">阅读详细使用说明 ↗</a></p></div>
     <h2 className="manage-subtitle">编辑已公开资料</h2>{items.length?<div className="room-index">{items.map(e=><a key={e.id} href={e.editUrl||`${repo}/${/\.(md|txt)$/i.test(e.sourcePath)?'edit':'blob'}/main/content/${encoded(e.sourcePath)}`} target="_blank" rel="noopener"><span>{e.title}</span><span>{sections[e.section]} ↗</span></a>)}</div>:<p className="muted">还没有已公开资料，可以从上方选择栏目开始。</p>}
     <noscript><p className="notice">上传前检查需要 JavaScript。请启用 JavaScript 后选择文件。</p></noscript><script type="module" src="/upload.js"/>

@@ -10,6 +10,8 @@ if (collection) {
   const examDirectory = collection.querySelector('[data-exam-directory]');
   const examCards = [...collection.querySelectorAll('[data-exam-id]')];
   const entryList = collection.querySelector('.entry-list');
+  const sentenceDirectory = collection.querySelector('[data-sentence-directory]');
+  const sentencePatterns = collection.querySelector('[data-sentence-patterns]');
   function update() {
     const params = new URLSearchParams(location.search);
     query.value = (params.get('q') || '').slice(0, 200);
@@ -30,11 +32,15 @@ if (collection) {
     if (examDirectory) {
       const showYears = category === 'exams';
       examDirectory.hidden = !showYears;
-      if (entryList) entryList.hidden = showYears;
       for (const card of examCards) card.hidden = !visibleIds.has(card.dataset.examId);
     }
+    const showSentences = category === 'sentences' && words.length === 0;
+    if (sentenceDirectory) sentenceDirectory.hidden = !showSentences;
+    if (entryList) entryList.hidden = (Boolean(examDirectory) && category === 'exams') || (Boolean(sentenceDirectory) && showSentences);
+    const showPatterns = category === 'sentence-patterns' || category.startsWith('sentence-patterns/');
+    if (sentencePatterns) sentencePatterns.hidden = !showPatterns;
     for (const link of filters) {
-      if (link.dataset.filter === category) link.setAttribute('aria-current', 'page');
+      if (link.dataset.filter === category || (link.dataset.filter === 'sentence-patterns' && showPatterns)) link.setAttribute('aria-current', 'page');
       else link.removeAttribute('aria-current');
       const url = new URL(link.href);
       if (query.value) url.searchParams.set('q', query.value);
