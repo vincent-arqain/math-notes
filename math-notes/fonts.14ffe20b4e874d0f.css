@@ -1,0 +1,60 @@
+/* Match the reference PDF: Latin Modern Roman + Fandol Song.
+   All faces use unmodified outlines and are served with the site. */
+
+@font-face {
+  font-family: "Study Latin Modern";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/math-notes/fonts/latin-modern/lmroman10-regular.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Study Latin Modern";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/math-notes/fonts/latin-modern/lmroman10-bold.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Study Latin Modern";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/math-notes/fonts/latin-modern/lmroman10-italic.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Study Latin Modern";
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/math-notes/fonts/latin-modern/lmroman10-bolditalic.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Study Latin Modern Heading";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/math-notes/fonts/latin-modern/lmroman12-bold.woff2) format("woff2");
+}
+
+/* Unmodified Fandol font outlines, encoded as WOFF2 for the web. */
+@font-face {
+  font-family: "Fandol Song";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/math-notes/fonts/fandol/FandolSong-Regular.woff2) format("woff2");
+}
+
+/* Unmodified Fandol font outlines, encoded as WOFF2 for the web. */
+@font-face {
+  font-family: "Fandol Song";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/math-notes/fonts/fandol/FandolSong-Bold.woff2) format("woff2");
+}

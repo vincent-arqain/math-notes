@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://vincent-arqain.github.io/math-notes/sitemap.xml
