@@ -163,7 +163,7 @@ h1,h2{font-family:var(--heading-serif)}
 
 /* Keep regular screen text crisp; real bold faces and math need no added stroke. */
 @media screen{
-  body{-webkit-text-stroke:.15px currentColor}
+  body{-webkit-text-stroke:.22px currentColor}
   h1,h2,h3,strong,b,.brand,.katex{-webkit-text-stroke:0}
   .article-header .entry-meta{font-size:max(16px,.83em)}
 }

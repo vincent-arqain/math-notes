@@ -164,7 +164,7 @@ npm run preview
 
 ## 字体与内容
 
-保留纯白阅读背景。屏幕与打印中文统一使用 Fandol Song 的真实常规体与粗体，英文采用参考文件 `22S16-S18_22A01-A04.pdf` 中的 Latin Modern Roman：正文用 Roman 10，标题用 Roman 12 Bold，均随站提供真实的常规、粗体及斜体字形。这是常见试卷与论文风格的排版选择，不宣称为考试机构指定字体。可见数学公式由 XeLaTeX 使用原版 Computer Modern / AMS 字体排版，转换为矢量 SVG；KaTeX 仅提供辅助阅读的 MathML。屏幕正文为 19–21 px、1.55 倍行高，使用 400 常规体与 0.15 px 轻微描边；标题和强调文字使用真实粗体，不叠加描边。公式与打印仍使用原始字形。网页打印采用 A4、23 mm 页边距和 LaTeX 11 pt 正文的实际尺寸、约 1.39 倍行高、3 pt 段间距，配有页眉、页码；题库按题号分页。
+保留纯白阅读背景。屏幕与打印中文统一使用 Fandol Song 的真实常规体与粗体，英文采用参考文件 `22S16-S18_22A01-A04.pdf` 中的 Latin Modern Roman：正文用 Roman 10，标题用 Roman 12 Bold，均随站提供真实的常规、粗体及斜体字形。这是常见试卷与论文风格的排版选择，不宣称为考试机构指定字体。可见数学公式由 XeLaTeX 使用原版 Computer Modern / AMS 字体排版，转换为矢量 SVG；KaTeX 仅提供辅助阅读的 MathML。屏幕正文为 19–21 px、1.55 倍行高，使用 400 常规体与 0.22 px 轻微描边；标题和强调文字使用真实粗体，不叠加描边。公式与打印仍使用原始字形。网页打印采用 A4、23 mm 页边距和 LaTeX 11 pt 正文的实际尺寸、约 1.39 倍行高、3 pt 段间距，配有页眉、页码；题库按题号分页。
 
 旧 Noto Serif SC 与 Liberation Serif 资源保留在仓库中，网页不再加载。Latin Modern 的 WOFF2 仅转换封装，保留原字形与字宽，来源与 GUST 字体许可证见 `public/fonts/latin-modern/`。
 
