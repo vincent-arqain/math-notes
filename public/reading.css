@@ -267,6 +267,14 @@ h1,h2{font-family:var(--heading-serif)}
 .pattern-grid a>span{font-size:16px;color:var(--selected);margin-top:auto}
 .pattern-grid>a:hover,.pattern-grid>a[aria-current=page]{border-color:var(--selected);background:var(--selected-soft);color:#1d4ed8}
 .pattern-manage{color:var(--selected)}
+.pattern-start{display:flex;flex-wrap:wrap;gap:12px 24px;margin:18px 0;font-size:18px;color:var(--selected)}
+.pattern-start a{padding-block:8px}
+.prose .table-scroll{max-width:100%;overflow-x:auto;margin-block:1em}
+.prose .table-scroll:focus-visible{outline:2px solid var(--selected);outline-offset:3px}
+.prose table{border-collapse:collapse;width:100%;min-width:34em;text-align:left;font-size:.94em}
+.prose th,.prose td{padding:.6em .7em;border:1px solid var(--line);vertical-align:top}
+.prose th{font-weight:700}
+@media print{.prose .table-scroll{overflow:visible}.prose table{min-width:0}}
 .pattern-editor{margin-top:36px}
 @media(max-width:900px){.sentence-year-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.sentence-browser{grid-template-columns:140px minmax(0,1fr);gap:24px}.sentence-sidebar{padding-right:16px}.sentence-text-grid{gap:8px}.sentence-text-grid>a,.sentence-text-empty{padding:12px}.pattern-grid{gap:12px}.pattern-grid>a{padding:18px}}
 @media(max-width:600px){.sentence-directory-heading{align-items:flex-start;flex-direction:column;gap:8px}.sentence-year-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.sentence-browser{grid-template-columns:1fr;gap:24px}.sentence-sidebar{border-right:0;border-bottom:1px solid var(--line);padding:0 0 20px}.sentence-sidebar nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.sentence-sidebar a{padding:8px;font-size:17px;gap:6px;flex-wrap:wrap}.sentence-text-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.sentence-text-grid>a,.sentence-text-empty{padding:14px}.sentence-results{margin-top:24px;padding-top:22px}.sentence-cards li{padding:20px}.sentence-cards h3{font-size:21px}.pattern-grid{grid-template-columns:1fr}.sentence-prompt{padding:24px 18px}}

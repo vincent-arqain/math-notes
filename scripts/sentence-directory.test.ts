@@ -60,7 +60,7 @@ test('only unambiguous source tags determine year and Text; other materials stay
   assert.deepEqual(order(sentenceGroups([...items].reverse())),order(groups));
 });
 
-test('new sentence-pattern categories have genuine empty counts and are accepted for content',()=>{
+test('sentence-pattern categories show actual counts and retain genuine empty states',()=>{
   assert.equal(validCategory('sentence-patterns'),true);
   const panel=renderToStaticMarkup(createElement(SentencePatterns,{items}));
   for(const category of sentencePatternCategories){
@@ -68,7 +68,14 @@ test('new sentence-pattern categories have genuine empty counts and are accepted
     assert.ok(panel.includes(`data-filter="${category.id}"`));
     assert.ok(panel.includes(category.label));
   }
-  assert.equal((panel.match(/0 份资料/g)||[]).length,3);
+  assert.ok(panel.includes('7 份资料'));
+  assert.ok(panel.includes('5 份资料'));
+  assert.ok(panel.includes('1 份资料'));
+  const emptyPanel=renderToStaticMarkup(createElement(SentencePatterns,{items:[]}));
+  assert.equal((emptyPanel.match(/0 份资料/g)||[]).length,3);
+  assert.ok(!emptyPanel.includes('从这里开始'));
+  assert.ok(panel.indexOf('长难句句式')<panel.indexOf('常见句式'));
+  assert.ok(panel.indexOf('常见句式')<panel.indexOf('写作高级句式'));
   const page=renderToStaticMarkup(createElement(Collection,{items,section:'english'}));
   const reading=page.match(/<nav aria-label="阅读题型分类">([\s\S]*?)<\/nav>/)![1];
   assert.equal((reading.match(/data-filter=/g)||[]).length,7);
@@ -99,7 +106,13 @@ test('sentence browsing, cross-year search, pattern filters and browser history 
   search('no-such-sentence');assert.equal(empty.hidden,false);
   search('');assert.equal(sentences.hidden,false);assert.equal(list.hidden,true);
   click('sentence-patterns');assert.equal(sentences.hidden,true);assert.equal(patterns.hidden,false);assert.equal(list.hidden,false);
-  for(const group of sentencePatternCategories){click(group.id);assert.equal(patterns.hidden,false);assert.equal(filters.find(link=>link.dataset.filter===group.id)!.current,'page');assert.equal(filters.find(link=>link.dataset.filter==='sentence-patterns')!.current,'page');}
+  for(const group of sentencePatternCategories){click(group.id);assert.equal(patterns.hidden,false);assert.equal(filters.find(link=>link.dataset.filter===group.id)!.current,'page');assert.equal(filters.find(link=>link.dataset.filter==='sentence-patterns')!.current,'page');assert.equal(rows.filter(row=>!row.hidden).length,items.filter(entry=>entry.category===group.id).length);}
+  click('sentence-patterns');assert.equal(rows.filter(row=>!row.hidden).length,14);
+  search('形式宾语');assert.ok(rows.some(row=>!row.hidden&&row.dataset.search.includes('r07')));
+  assert.ok(rows.filter(row=>!row.hidden).every(row=>row.dataset.category.startsWith('sentence-patterns')));
+  search('');click('sentence-patterns/writing');search('W09');assert.equal(rows.filter(row=>!row.hidden).length,1);
+  search('no-such-pattern');assert.equal(empty.hidden,false);
+  search('');
   click('exams');assert.equal(patterns.hidden,true);assert.equal(exams.hidden,false);
   click('writing');assert.equal(exams.hidden,true);assert.equal(list.hidden,false);assert.equal(rows.filter(row=>!row.hidden).length,32);
   location.search='?category=sentences';handlers.get('popstate')!();assert.equal(sentences.hidden,false);assert.equal(list.hidden,true);

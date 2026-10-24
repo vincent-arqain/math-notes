@@ -135,7 +135,7 @@ PDF 条目用 `problem_ids: [2020S14, 2020S15, 2021A01]` 声明实际包含的�
 
 `content/english/sentences/sentence-v1-index.md` 是 Sentence-v1 总目录；L01—L37、F01—F37为经典长难句与词熟句难的74个独立条目，沿用 `sentences` 分类。首页“长难句”先显示年份，点击后选择 Text 1—4，再进入该篇的句子与解析；未收录的 Text 明确显示“暂未收录”。年份和 Text 从条目的唯一 `YYYY年`、`Text N` 标签提取，不使用更新时间、正文或相关导航中的年份。总目录与未标注来源的资料保留在年份网格下方。输入搜索词后可搜索全部长难句，不受当前年份限制。年份与 Text 使用静态页面，可直接访问、分享和使用浏览器前进后退；句子文章顶部提供返回对应 Text 的入口。目录按分类、年份、Text和句号导航，每条支持语法/障碍标签检索及同篇两类互跳。原句不整批重印，英文训练均明确标为原创，不附既有PDF；出处抽查与版权核查记录见 `docs/reviews/sentence-v1-web.md`。
 
-“不同句式”与作文、真题并列，含 `sentence-patterns/writing`（写作高级句式）、`sentence-patterns/common`（常见句式）、`sentence-patterns/complex`（长难句句式）。尚无资料时显示真实空状态；“管理资料 → 整理不同句式”提供按分类新建笔记的入口，模板包含句式结构、例句与翻译、使用场景与注意事项、我的仿写。附件上传也支持这些分类。栏目选中状态与键盘焦点使用蓝色。
+“不同句式”与作文、真题并列，按阅读优先排列三个分类：`sentence-patterns/complex`（长难句句式，7课）、`sentence-patterns/common`（常见句式，5课）、`sentence-patterns/writing`（写作高级句式，1篇含10个模板）。总导读 `content/english/sentence-patterns/reading-first-guide.md` 保留四步拆句法、12类结构速查表和学习顺序，阅读短课沿用R01—R12编号并支持上一课、下一课、参考答案导航；写作专题用W01—W10作章节锚点。课程与Sentence-v1相互链接，全文和标签沿用现有检索；原PDF不公开。语法复核记录见 `docs/reviews/sentence-patterns-web.md`。Markdown速查表使用标准GFM表格，窄屏可在表格内横向滚动，键盘也可聚焦滚动区域。“管理资料 → 整理不同句式”及原有附件上传入口保持可用，栏目选中状态与键盘焦点沿用蓝色。
 
 ## 自动发布与本机检查
 
