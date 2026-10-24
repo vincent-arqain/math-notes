@@ -69,8 +69,12 @@ test('classification/year navigation reaches all 74 entries and every related en
       if(target.origin!=='https://local.test'||!target.pathname.startsWith('/english/'))continue;
       const targetId=target.pathname.split('/')[2]||id;
       if(target.pathname==='/english/')continue;
-      assert.ok(html.has(targetId),target.href);
-      if(target.hash)assert.ok(html.get(targetId)!.includes(`id="${decodeURIComponent(target.hash.slice(1))}"`),target.href);
+      const destination=all.find(entry=>entry.section==='english'&&entry.id===targetId);
+      assert.ok(destination,target.href);
+      if(target.hash){
+        const targetHtml=html.get(targetId)||renderToStaticMarkup(createElement(Markdown,{body:destination.body}));
+        assert.ok(targetHtml.includes(`id="${decodeURIComponent(target.hash.slice(1))}"`),target.href);
+      }
     }
   }
 });

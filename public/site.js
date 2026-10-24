@@ -66,3 +66,25 @@ if (collection) {
   addEventListener('popstate', update);
   update();
 }
+
+// Web-font swaps can move a chapter after the browser's initial fragment jump.
+// Realign once when fonts settle, unless the reader has already interacted.
+const article = document.querySelector('.article-shell');
+const initialFragment = location.hash;
+if (article && initialFragment && document.fonts) {
+  let interrupted = false;
+  const cancel = () => { interrupted = true; };
+  const events = ['wheel', 'touchstart', 'pointerdown', 'keydown'];
+  for (const event of events) addEventListener(event, cancel, {once: true, passive: true});
+  const align = () => {
+    for (const event of events) removeEventListener(event, cancel);
+    if (interrupted || location.hash !== initialFragment) return;
+    let id;
+    try { id = decodeURIComponent(initialFragment.slice(1)); } catch { return; }
+    const target = document.getElementById(id);
+    if (target && article.contains(target)) target.scrollIntoView({behavior: 'instant', block: 'start'});
+  };
+  const settle = () => document.fonts.ready.then(() => requestAnimationFrame(align));
+  if (document.readyState === 'complete') settle();
+  else addEventListener('load', settle, {once: true});
+}

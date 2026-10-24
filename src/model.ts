@@ -9,9 +9,9 @@ export const englishStudyCategories = [
   {id:'vocabulary',label:'熟词僻义'}, {id:'reading-types',label:'阅读技巧'},
 ] as const;
 export const sentencePatternCategories = [
-  {id:'sentence-patterns/writing',label:'写作高级句式',description:'整理适合写作的表达结构、使用场景与仿写。'},
-  {id:'sentence-patterns/common',label:'常见句式',description:'梳理常用句型、搭配与容易混淆的用法。'},
   {id:'sentence-patterns/complex',label:'长难句句式',description:'归纳从句、非谓语、倒装与复杂结构的拆解方法。'},
+  {id:'sentence-patterns/common',label:'常见句式',description:'辨清插入、省略、否定与 it，读准常见结构。'},
+  {id:'sentence-patterns/writing',label:'写作高级句式',description:'读懂结构之后，练习写作用途、表达与仿写。'},
 ] as const;
 export const englishCategories = [
   ...englishStudyCategories, {id:'reading-logic',label:'阅读逻辑'},
