@@ -13,10 +13,10 @@ const entries=loadEntries(fileURLToPath(new URL('../content/',import.meta.url)))
 test('all completed batches appear once, indexed by problem years rather than upload date',async()=>{
   const items=await entries;
   const batches=items.filter(e=>e.problemIds?.length);
-  assert.equal(batches.length,34);
-  assert.equal(batches.reduce((n,e)=>n+e.problemIds!.length,0),237);
-  assert.equal(new Set(batches.flatMap(e=>e.problemIds!)).size,237);
-  assert.equal(new Set(batches.map(e=>e.attachmentPath)).size,34);
+  assert.equal(batches.length,36);
+  assert.equal(batches.reduce((n,e)=>n+e.problemIds!.length,0),249);
+  assert.equal(new Set(batches.flatMap(e=>e.problemIds!)).size,249);
+  assert.equal(new Set(batches.map(e=>e.attachmentPath)).size,36);
   assert.deepEqual(availableProblemYears(items),[2023,2022,2021,2020,2019,2018,2017,2016,2015,2014]);
   assert.deepEqual(problemYears({...batches[0],section:'english'}),[]);
   assert.deepEqual(problemYears({...batches[0],problemIds:[],body:'',title:'2026 年上传的 PDF',updated_at:'2026-10-22'}),[]);
@@ -63,7 +63,8 @@ test('October 23 batch adds exactly seven new problems and one shared PDF',async
   assert.deepEqual(entry.problemIds,['2022A12','2022A13','2022A14','2022A15','2023S01','2023S02','2023S03']);
   assert.deepEqual(problemYears(entry),[2022,2023]);
   assert.equal(yearPDFs(items,2022).length,6);
-  assert.deepEqual(yearPDFs(items,2023).map(e=>e.id),[entry.id]);
+  assert.equal(yearPDFs(items,2023)[0].id,entry.id);
+  assert.equal(yearPDFs(items,2023).length,3);
   const grid=renderToStaticMarkup(createElement(ProblemYears,{items}));
   assert.ok(grid.includes('href="/problems/years/2023/"'));
   const oldIds=new Set(items.filter(e=>e.id!==entry.id).flatMap(e=>e.problemIds||[]));
