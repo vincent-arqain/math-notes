@@ -14,23 +14,23 @@ export function MathNavigation({section}:{section?:string}) {
 export function StudyDirectory({items}:{items:PublicEntry[]}) {
   const selected=selectHomeEntries(items);
   return <section className="study-directory wrap" aria-labelledby="directory-heading">
-    <header className="directory-heading"><h1 id="directory-heading">学习目录</h1><a href="/search/">查找资料 <span aria-hidden="true">↗</span></a></header>
+    <header className="directory-heading"><h1 id="directory-heading">学习目录</h1><a href="/search/">查找资料</a></header>
     <div className="study-grid">
       <section className="study-room" aria-labelledby="math-heading">
         <div className="room-heading"><span className="room-number" aria-hidden="true">01</span><h2 id="math-heading"><a href="/math/">数学</a></h2></div>
-        <nav className="directory-links" aria-label="数学入口">{mathSections.map(key=><a key={key} href={`/${key}/`}><span>{key==='problems'?'题库':sections[key]}</span><span aria-hidden="true">↗</span></a>)}</nav>
-        <a className="room-more" href="/math/">数学总览 <span aria-hidden="true">→</span></a>
+        <nav className="directory-links" aria-label="数学入口">{mathSections.map(key=><a key={key} href={`/${key}/`}><span>{key==='problems'?'题库':sections[key]}</span></a>)}</nav>
+        <a className="room-more" href="/math/">数学总览</a>
       </section>
       <section className="study-room" aria-labelledby="problems-heading">
         <div className="room-heading"><span className="room-number" aria-hidden="true">02</span><h2 id="problems-heading"><a href="/problems/">题库与作答</a></h2></div>
-        <nav className="directory-links" aria-label="题库入口"><a href="/problems/#problem-years"><span>按年份阅读 PDF</span><span aria-hidden="true">↗</span></a><a href="/problems/#problem-index"><span>按题号查找</span><span aria-hidden="true">↗</span></a><a href="/problems/"><span>全部题目与解答</span><span aria-hidden="true">↗</span></a></nav>
+        <nav className="directory-links" aria-label="题库入口"><a href="/problems/#problem-years"><span>按年份阅读 PDF</span></a><a href="/problems/#problem-index"><span>按题号查找</span></a><a href="/problems/"><span>全部题目与解答</span></a></nav>
         {selected.problems.length>0&&<div className="room-topics"><h3>近期专题</h3>{selected.problems.map(entry=><a key={entry.id} href={entryUrl(entry)+'/'}>{entry.title}</a>)}</div>}
-        <a className="room-more" href="/problems/">进入题库 <span aria-hidden="true">→</span></a>
+        <a className="room-more" href="/problems/">进入题库</a>
       </section>
       <section className="study-room" aria-labelledby="english-heading">
         <div className="room-heading"><span className="room-number" aria-hidden="true">03</span><h2 id="english-heading"><a href="/english/">英语</a></h2></div>
-        <nav className="directory-links english-directory" aria-label="英语入口">{englishStudyCategories.map(c=><a key={c.id} href={'/english/?category='+c.id}><span>{c.label}</span><span aria-hidden="true">↗</span></a>)}</nav>
-        <a className="room-more" href="/english/">全部英语资料 <span aria-hidden="true">→</span></a>
+        <nav className="directory-links english-directory" aria-label="英语入口">{englishStudyCategories.map(c=><a key={c.id} href={'/english/?category='+c.id}><span>{c.label}</span></a>)}</nav>
+        <a className="room-more" href="/english/">全部英语资料</a>
       </section>
     </div>
   </section>;
@@ -44,11 +44,11 @@ export function MathOverview({items}:{items:PublicEntry[]}) {
       const entries=items.filter(e=>e.section===section);
       return <section className="math-shelf" key={section} aria-labelledby={'shelf-'+section}>
         <div className="section-heading"><h2 id={'shelf-'+section}><a href={`/${section}/`}>{section==='problems'?'题库':sections[section]}</a></h2><span className="muted">{entries.length} 份</span></div>
-        {entries.length?<ul>{entries.slice(0,3).map(e=><li key={e.id}><a href={entryUrl(e)+'/'}>{e.title}<span aria-hidden="true">↗</span></a></li>)}</ul>:<p className="shelf-empty">暂无资料</p>}
-        <a className="room-more" href={`/${section}/`}>查看全部 <span aria-hidden="true">→</span></a>
+        {entries.length?<ul>{entries.slice(0,3).map(e=><li key={e.id}><a href={entryUrl(e)+'/'}>{e.title}</a></li>)}</ul>:<p className="shelf-empty">暂无资料</p>}
+        <a className="room-more" href={`/${section}/`}>查看全部</a>
       </section>;
     })}</div>
-    <nav className="support-links" aria-label="数学参考资料"><a href="/books/">书架 ↗</a><a href="/links/">参考链接 ↗</a></nav>
+    <nav className="support-links" aria-label="数学参考资料"><a href="/books/">书架</a><a href="/links/">参考链接</a></nav>
   </section>;
 }
 
