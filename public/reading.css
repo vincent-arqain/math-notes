@@ -287,3 +287,13 @@ a:is(:hover,:active,:focus-visible,[aria-current=page]) :is(span,small),.pattern
 .button.primary:is(:hover,:active,:focus-visible){background:var(--selected);border-color:var(--selected);color:#fff}
 .english-primary>a[aria-current=page],.category-group a[aria-current=page],.sentence-sidebar a[aria-current=page]{color:#fff}
 .sentence-year-grid>a:is(:hover,:active,:focus-visible){color:var(--selected);border-color:var(--selected)}
+
+/* Reading archive: one year, three complementary original PDF resources. */
+.reading-resource-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.reading-resource-card{display:flex;flex-direction:column;align-items:flex-start;border:1px solid var(--line);padding:26px;min-width:0}
+.reading-resource-card h2{font-size:25px;margin-bottom:14px}
+.reading-resource-card>p{font-size:18px;line-height:1.7}
+.reading-resource-card .reading-file-meta{font-size:16px;color:var(--muted);margin-top:auto}
+.reading-resource-card .actions{gap:12px 18px}
+.reading-detail-link{font-size:16px;margin-top:20px;text-decoration:underline;text-underline-offset:4px}
+@media(max-width:800px){.reading-resource-grid{grid-template-columns:1fr}.reading-resource-card{padding:24px}.reading-resource-card h2{font-size:24px}}

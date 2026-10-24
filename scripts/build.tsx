@@ -13,6 +13,7 @@ import {releaseEntries} from '../src/releases';
 import {copyLatexMathAssets} from '../src/latexMath';
 import {availableProblemYears,ProblemYearPage} from '../src/ProblemYears';
 import {sentenceGroups,SentenceYearPage} from '../src/SentenceDirectory';
+import {readingGroups,ReadingIndexPage,ReadingYearPage} from '../src/ReadingDirectory';
 
 const root=fileURLToPath(new URL('..',import.meta.url));
 const output=path.resolve(root,'dist');
@@ -60,6 +61,8 @@ for(const group of sentenceGroups(items)){
   await page(`english/sentences/years/${group.year}/`,`${group.year} 年长难句`,<SentenceYearPage items={items} year={group.year}/>);
   for(const text of group.texts.filter(text=>text.entries.length))await page(`english/sentences/years/${group.year}/text-${text.text}/`,`${group.year} 年 Text ${text.text} 长难句`,<SentenceYearPage items={items} year={group.year} text={text.text}/>);
 }
+await page('english/translation/','阅读与直译',<ReadingIndexPage items={items}/>);
+for(const group of readingGroups(items))await page(`english/translation/years/${group.year}/`,`${group.year} 年阅读与直译`,<ReadingYearPage items={items} year={group.year}/>);
 await page('search/','搜索书房',<Collection items={items}/>,true);
 await page('manage/','管理资料',<Manage items={items} storage={storage}/>,true);
 await page('about/','关于这间书房',<About/>);
