@@ -12,6 +12,7 @@ if (collection) {
   const entryList = collection.querySelector('.entry-list');
   const sentenceDirectory = collection.querySelector('[data-sentence-directory]');
   const sentencePatterns = collection.querySelector('[data-sentence-patterns]');
+  const readingDirectory = collection.querySelector('[data-reading-directory]');
   function update() {
     const params = new URLSearchParams(location.search);
     query.value = (params.get('q') || '').slice(0, 200);
@@ -36,7 +37,9 @@ if (collection) {
     }
     const showSentences = category === 'sentences' && words.length === 0;
     if (sentenceDirectory) sentenceDirectory.hidden = !showSentences;
-    if (entryList) entryList.hidden = (Boolean(examDirectory) && category === 'exams') || (Boolean(sentenceDirectory) && showSentences);
+    const showReadings = category === 'translation' && words.length === 0;
+    if (readingDirectory) readingDirectory.hidden = !showReadings;
+    if (entryList) entryList.hidden = (Boolean(readingDirectory) && showReadings) || (Boolean(examDirectory) && category === 'exams') || (Boolean(sentenceDirectory) && showSentences);
     const showPatterns = category === 'sentence-patterns' || category.startsWith('sentence-patterns/');
     if (sentencePatterns) sentencePatterns.hidden = !showPatterns;
     for (const link of filters) {

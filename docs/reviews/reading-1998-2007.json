@@ -1,0 +1,430 @@
+{
+  "date": "2026-10-24",
+  "sourceArchives": [
+    "1998～2007阅读原文.zip",
+    "1998～2007阅读翻译.zip",
+    "1998～2007阅读单词.zip"
+  ],
+  "files": [
+    {
+      "year": 1998,
+      "kind": "阅读单词",
+      "path": "english/translation/1998英一阅读单词.pdf",
+      "sha256": "c3bbcb8164a134faf379487cb0524a3dd64a36959893dca37287d01167232369",
+      "bytes": 185279,
+      "pages": 4,
+      "textPages": {
+        "1": 1,
+        "2": 2,
+        "3": 3,
+        "4": 4
+      }
+    },
+    {
+      "year": 1999,
+      "kind": "阅读单词",
+      "path": "english/translation/1999英一阅读单词.pdf",
+      "sha256": "8c40a625836428ddbdd9db8062e1a59a383cc5e96beca4ab33d687c094ca7fc2",
+      "bytes": 157832,
+      "pages": 4,
+      "textPages": {
+        "1": 1,
+        "2": 2,
+        "3": 3,
+        "4": 4
+      }
+    },
+    {
+      "year": 2000,
+      "kind": "阅读单词",
+      "path": "english/translation/2000英一阅读单词.pdf",
+      "sha256": "522226d3f99a0d45cdbe24565c6faec44192d8eb9614f26814efcb25b7c9ec9c",
+      "bytes": 160727,
+      "pages": 4,
+      "textPages": {
+        "1": 1,
+        "2": 2,
+        "3": 3,
+        "4": 4
+      }
+    },
+    {
+      "year": 2001,
+      "kind": "阅读单词",
+      "path": "english/translation/2001英一阅读单词.pdf",
+      "sha256": "da053401904bc5422165303b95e79530dc77d481049137b1a2f4ec2d8a12f40f",
+      "bytes": 161817,
+      "pages": 4,
+      "textPages": {
+        "1": 1,
+        "2": 2,
+        "3": 3,
+        "4": 4
+      }
+    },
+    {
+      "year": 2002,
+      "kind": "阅读单词",
+      "path": "english/translation/2002英一阅读单词.pdf",
+      "sha256": "eba320963f393258ed9bdf91f43d513c1ddffbe80ed60c162cf070d3b3587bf9",
+      "bytes": 159350,
+      "pages": 4,
+      "textPages": {
+        "1": 1,
+        "2": 2,
+        "3": 3,
+        "4": 4
+      }
+    },
+    {
+      "year": 2003,
+      "kind": "阅读单词",
+      "path": "english/translation/2003英一阅读单词.pdf",
+      "sha256": "5d1ecb12fa02da5225411b3eabd9b9deedd7895d13ef9dc2c9bc0d3432f248f2",
+      "bytes": 164189,
+      "pages": 4,
+      "textPages": {
+        "1": 1,
+        "2": 2,
+        "3": 3,
+        "4": 4
+      }
+    },
+    {
+      "year": 2004,
+      "kind": "阅读单词",
+      "path": "english/translation/2004英一阅读单词.pdf",
+      "sha256": "2d0e33558405298fd12e340b958919170e08b41a8c2ff25200e623b7cce72908",
+      "bytes": 162467,
+      "pages": 4,
+      "textPages": {
+        "1": 1,
+        "2": 2,
+        "3": 3,
+        "4": 4
+      }
+    },
+    {
+      "year": 2005,
+      "kind": "阅读单词",
+      "path": "english/translation/2005英一阅读单词.pdf",
+      "sha256": "20e13786520303e1fd5dd710d76a9f0387acde59c0f7ab64210d7d5a30c9f1ee",
+      "bytes": 159004,
+      "pages": 4,
+      "textPages": {
+        "1": 1,
+        "2": 2,
+        "3": 3,
+        "4": 4
+      }
+    },
+    {
+      "year": 2006,
+      "kind": "阅读单词",
+      "path": "english/translation/2006英一阅读单词.pdf",
+      "sha256": "958b618d0bd2a842b9af68cadb56479ac1e20bddb19c57e33cae40d2182e98a0",
+      "bytes": 171285,
+      "pages": 4,
+      "textPages": {
+        "1": 1,
+        "2": 2,
+        "3": 3,
+        "4": 4
+      }
+    },
+    {
+      "year": 2007,
+      "kind": "阅读单词",
+      "path": "english/translation/2007英一阅读单词.pdf",
+      "sha256": "cb247b83fc74aeb02d813d52bd983cb07b1c4b2c098eaa580eb2694bc1c23a16",
+      "bytes": 172929,
+      "pages": 4,
+      "textPages": {
+        "1": 1,
+        "2": 2,
+        "3": 3,
+        "4": 4
+      }
+    },
+    {
+      "year": 1998,
+      "kind": "阅读原文",
+      "path": "english/translation/1998英一阅读原文.pdf",
+      "sha256": "1e0f52be6ccaf499eb9031da253016ac23b403227ae795e54f011c04af5cd009",
+      "bytes": 44903,
+      "pages": 4,
+      "textPages": {
+        "1": 1,
+        "2": 2,
+        "3": 3,
+        "4": 4
+      }
+    },
+    {
+      "year": 1999,
+      "kind": "阅读原文",
+      "path": "english/translation/1999英一阅读原文.pdf",
+      "sha256": "955741adf98967bc2f6c0cb5e5ff8ee196998601a95fb9ce4c13aae7804b8c9d",
+      "bytes": 42849,
+      "pages": 4,
+      "textPages": {
+        "1": 1,
+        "2": 2,
+        "3": 3,
+        "4": 4
+      }
+    },
+    {
+      "year": 2000,
+      "kind": "阅读原文",
+      "path": "english/translation/2000英一阅读原文.pdf",
+      "sha256": "0bfbf817bbb276f21bbdba7479739cf43bc8a3596694d1ffb6f14f4bfa4a34af",
+      "bytes": 44599,
+      "pages": 4,
+      "textPages": {
+        "1": 1,
+        "2": 2,
+        "3": 3,
+        "4": 4
+      }
+    },
+    {
+      "year": 2001,
+      "kind": "阅读原文",
+      "path": "english/translation/2001英一阅读原文.pdf",
+      "sha256": "33d65a28ea9b1eb34ce1b797fefee24f769d9030cb4cebf77fd788012945e9f1",
+      "bytes": 44157,
+      "pages": 4,
+      "textPages": {
+        "1": 1,
+        "2": 2,
+        "3": 3,
+        "4": 4
+      }
+    },
+    {
+      "year": 2002,
+      "kind": "阅读原文",
+      "path": "english/translation/2002英一阅读原文.pdf",
+      "sha256": "07030b34cc59e86bc681ccc4f6d169000d926491b12d5719d9360dadea858859",
+      "bytes": 44951,
+      "pages": 4,
+      "textPages": {
+        "1": 1,
+        "2": 2,
+        "3": 3,
+        "4": 4
+      }
+    },
+    {
+      "year": 2003,
+      "kind": "阅读原文",
+      "path": "english/translation/2003英一阅读原文.pdf",
+      "sha256": "409f3ee2f3c7a7a0449443b6a73b25ed021cefa1ffe5af22774add1dbb8cb46a",
+      "bytes": 46134,
+      "pages": 4,
+      "textPages": {
+        "1": 1,
+        "2": 2,
+        "3": 3,
+        "4": 4
+      }
+    },
+    {
+      "year": 2004,
+      "kind": "阅读原文",
+      "path": "english/translation/2004英一阅读原文.pdf",
+      "sha256": "d7f4348822a9e1ede19905210b010468945c6beb0160412f9dd85b070e5c68d3",
+      "bytes": 44959,
+      "pages": 4,
+      "textPages": {
+        "1": 1,
+        "2": 2,
+        "3": 3,
+        "4": 4
+      }
+    },
+    {
+      "year": 2005,
+      "kind": "阅读原文",
+      "path": "english/translation/2005英一阅读原文.pdf",
+      "sha256": "522a16fa551739510df782310eaddc7f70855fd9096e0bff02d6379157359940",
+      "bytes": 44613,
+      "pages": 4,
+      "textPages": {
+        "1": 1,
+        "2": 2,
+        "3": 3,
+        "4": 4
+      }
+    },
+    {
+      "year": 2006,
+      "kind": "阅读原文",
+      "path": "english/translation/2006英一阅读原文.pdf",
+      "sha256": "9254bc01436c36c71cdd2da57031bb431ebcaf4cf2c6f980d4a0ff1f1dd3a369",
+      "bytes": 44503,
+      "pages": 4,
+      "textPages": {
+        "1": 1,
+        "2": 2,
+        "3": 3,
+        "4": 4
+      }
+    },
+    {
+      "year": 2007,
+      "kind": "阅读原文",
+      "path": "english/translation/2007英一阅读原文.pdf",
+      "sha256": "cae1794955113b2ebc7a96b72cea76c41b612d6159750c1099c468efe59d7264",
+      "bytes": 44564,
+      "pages": 4,
+      "textPages": {
+        "1": 1,
+        "2": 2,
+        "3": 3,
+        "4": 4
+      }
+    },
+    {
+      "year": 1998,
+      "kind": "阅读直译",
+      "path": "english/translation/1998英一阅读翻译.pdf",
+      "sha256": "e6cd7e285c6666e5e3eb34d9fc436e84e91d4b54e863ecf52e0c16dada96bcc3",
+      "bytes": 350800,
+      "pages": 8,
+      "textPages": {
+        "1": 1,
+        "2": 3,
+        "3": 5,
+        "4": 7
+      }
+    },
+    {
+      "year": 1999,
+      "kind": "阅读直译",
+      "path": "english/translation/1999英一阅读翻译.pdf",
+      "sha256": "a1bd62fe23f4e007e3d251b3bc405ebae8b730adfdd91120fe0ff3d71d13f06d",
+      "bytes": 332253,
+      "pages": 8,
+      "textPages": {
+        "1": 1,
+        "2": 3,
+        "3": 5,
+        "4": 7
+      }
+    },
+    {
+      "year": 2000,
+      "kind": "阅读直译",
+      "path": "english/translation/2000英一阅读翻译.pdf",
+      "sha256": "08f5c32b5f9eb142963f07d2f984638e2147c6c579a6a6d6ab8659b7c6225ec7",
+      "bytes": 323608,
+      "pages": 8,
+      "textPages": {
+        "1": 1,
+        "2": 3,
+        "3": 5,
+        "4": 7
+      }
+    },
+    {
+      "year": 2001,
+      "kind": "阅读直译",
+      "path": "english/translation/2001英一阅读翻译.pdf",
+      "sha256": "73bc463e38e251b387c2be50f764379c186f172afca7e233af3992052b2d0a6f",
+      "bytes": 319376,
+      "pages": 8,
+      "textPages": {
+        "1": 1,
+        "2": 3,
+        "3": 5,
+        "4": 7
+      }
+    },
+    {
+      "year": 2002,
+      "kind": "阅读直译",
+      "path": "english/translation/2002英一阅读翻译.pdf",
+      "sha256": "d1d159a9d0d87b45957476a3344a5d9d2c274fb1d116af85df7dac46b9e4c1ec",
+      "bytes": 345563,
+      "pages": 8,
+      "textPages": {
+        "1": 1,
+        "2": 3,
+        "3": 5,
+        "4": 7
+      }
+    },
+    {
+      "year": 2003,
+      "kind": "阅读直译",
+      "path": "english/translation/2003英一阅读翻译.pdf",
+      "sha256": "5ca9b67edda71d15774c7257ff25a376561cfd3d45c5760bf89c1fb839999699",
+      "bytes": 369964,
+      "pages": 8,
+      "textPages": {
+        "1": 1,
+        "2": 3,
+        "3": 5,
+        "4": 7
+      }
+    },
+    {
+      "year": 2004,
+      "kind": "阅读直译",
+      "path": "english/translation/2004英一阅读翻译.pdf",
+      "sha256": "487656c78c1d441cff5af4a565fb0b7e0c377613d69488e7a976309398b11a38",
+      "bytes": 366971,
+      "pages": 8,
+      "textPages": {
+        "1": 1,
+        "2": 3,
+        "3": 5,
+        "4": 7
+      }
+    },
+    {
+      "year": 2005,
+      "kind": "阅读直译",
+      "path": "english/translation/2005英一阅读翻译.pdf",
+      "sha256": "c7198797f24aee1dddef34ba02710c4b2f2d1f9e1bed265b2fbffe893d067980",
+      "bytes": 346179,
+      "pages": 8,
+      "textPages": {
+        "1": 1,
+        "2": 3,
+        "3": 5,
+        "4": 7
+      }
+    },
+    {
+      "year": 2006,
+      "kind": "阅读直译",
+      "path": "english/translation/2006英一阅读翻译.pdf",
+      "sha256": "304acaf999b58a16f398699355ae65357c73ddcaaf6a9eaf5630eff0a345280c",
+      "bytes": 351637,
+      "pages": 8,
+      "textPages": {
+        "1": 1,
+        "2": 3,
+        "3": 5,
+        "4": 7
+      }
+    },
+    {
+      "year": 2007,
+      "kind": "阅读直译",
+      "path": "english/translation/2007英一阅读翻译.pdf",
+      "sha256": "4b75c8b71f60f36fa3a0e32935c7241f774df35d0c6f00e5f12320258450d1ee",
+      "bytes": 353962,
+      "pages": 8,
+      "textPages": {
+        "1": 1,
+        "2": 3,
+        "3": 5,
+        "4": 7
+      }
+    }
+  ]
+}

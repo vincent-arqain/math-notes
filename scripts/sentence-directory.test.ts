@@ -89,10 +89,10 @@ test('sentence browsing, cross-year search, pattern filters and browser history 
   const rows=[...html.matchAll(/<article\b[^>]+>/g)].map(([tag])=>({dataset:attrs(tag),hidden:false}));
   const handlers=new Map<string,(event?:any)=>void>();
   const filters=[...html.matchAll(/<a\b[^>]*data-filter="([^"]*)"[^>]*href="([^"]*)"/g)].map(([,filter,href])=>({dataset:{filter},href:new URL(decode(href),config.siteUrl).href,current:'',setAttribute(_key:string,value:string){this.current=value;},removeAttribute(){this.current='';},addEventListener(type:string,fn:(event:any)=>void){handlers.set(filter+':'+type,fn);}}));
-  const query={value:''},category={value:''},count={textContent:''},empty={hidden:true},sentences={hidden:true},patterns={hidden:true},exams={hidden:true},list={hidden:false};
+  const query={value:''},category={value:''},count={textContent:''},empty={hidden:true},sentences={hidden:true},patterns={hidden:true},exams={hidden:true},readings={hidden:true},list={hidden:false};
   const form={addEventListener(type:string,fn:()=>void){handlers.set(type,fn);}};
   const location=new URL('english/?category=sentences',config.siteUrl);
-  const collection={querySelector:(selector:string)=>({'form':form,'[data-exam-directory]':exams,'[data-sentence-directory]':sentences,'[data-sentence-patterns]':patterns,'.entry-list':list})[selector],querySelectorAll:(selector:string)=>({'[data-entry]':rows,'[data-filter]':filters})[selector]||[]};
+  const collection={querySelector:(selector:string)=>({'form':form,'[data-exam-directory]':exams,'[data-sentence-directory]':sentences,'[data-sentence-patterns]':patterns,'[data-reading-directory]':readings,'.entry-list':list})[selector],querySelectorAll:(selector:string)=>({'[data-entry]':rows,'[data-filter]':filters})[selector]||[]};
   vm.runInNewContext(await readFile(new URL('../public/site.js',import.meta.url),'utf8'),{
     document:{querySelector:()=>collection,getElementById:(id:string)=>({query,category,'result-count':count,'no-results':empty})[id]},
     location,URL,URLSearchParams,history:{pushState(_state:unknown,_title:string,url:string){location.href=new URL(url,location).href;}},
@@ -116,5 +116,11 @@ test('sentence browsing, cross-year search, pattern filters and browser history 
   click('exams');assert.equal(patterns.hidden,true);assert.equal(exams.hidden,false);
   click('writing');assert.equal(exams.hidden,true);assert.equal(list.hidden,false);assert.equal(rows.filter(row=>!row.hidden).length,32);
   location.search='?category=sentences';handlers.get('popstate')!();assert.equal(sentences.hidden,false);assert.equal(list.hidden,true);
-  click('');assert.equal(sentences.hidden,true);assert.equal(list.hidden,false);
+  click('translation');assert.equal(sentences.hidden,true);assert.equal(readings.hidden,false);assert.equal(list.hidden,true);
+  search('1998年');assert.equal(readings.hidden,true);assert.equal(list.hidden,false);assert.equal(rows.filter(row=>!row.hidden).length,3);
+  search('no-such-reading');assert.equal(empty.hidden,false);
+  search('');assert.equal(readings.hidden,false);assert.equal(list.hidden,true);
+  click('writing');assert.equal(readings.hidden,true);assert.equal(list.hidden,false);
+  location.search='?category=translation';handlers.get('popstate')!();assert.equal(readings.hidden,false);assert.equal(list.hidden,true);
+  click('');assert.equal(sentences.hidden,true);assert.equal(readings.hidden,true);assert.equal(list.hidden,false);
 });
